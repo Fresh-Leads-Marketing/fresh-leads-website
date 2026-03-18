@@ -1,0 +1,45 @@
+"use client";
+import { useState, useEffect, useRef } from "react";
+const B="#2B7FFF",BG="#07090D",BG2="#0C1017";
+function useV(t=0.1){const r=useRef(null),[v,s]=useState(false);useEffect(()=>{const e=r.current;if(!e)return;const o=new IntersectionObserver(([x])=>{if(x.isIntersecting){s(true);o.disconnect()}},{threshold:t});o.observe(e);return()=>o.disconnect()},[t]);return[r,v]}
+function FI({children,delay=0}){const[r,v]=useV();return(<div ref={r} style={{opacity:v?1:0,transform:v?"translateY(0)":"translateY(24px)",transition:`opacity .6s ease ${delay}s, transform .6s ease ${delay}s`}}>{children}</div>)}
+function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:32,width:"auto",display:"block"}}/>)}
+function Nav(){return(<nav style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(7,9,13,0.92)",backdropFilter:"blur(20px)",borderBottom:"1px solid rgba(255,255,255,0.08)"}}><div style={{maxWidth:1200,margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:68}}><a href="/"><Logo/></a><div className="dn" style={{display:"flex",alignItems:"center",gap:24}}>{[["Home","/"],["Services","/services"],["About","/about"],["Blog","/blog"],["Contact","/contact"]].map(([l,h])=>(<a key={l} href={h} style={{color:l==="Blog"?"#fff":"rgba(255,255,255,0.5)",textDecoration:"none",fontSize:13,fontWeight:l==="Blog"?650:550}}>{l}</a>))}<a href="/contact" style={{background:B,color:"#fff",padding:"9px 20px",borderRadius:9,fontWeight:650,fontSize:13,textDecoration:"none"}}>Free Audit</a></div></div></nav>)}
+function Footer(){return(<footer style={{background:BG,padding:"32px 24px 20px",borderTop:"1px solid rgba(255,255,255,0.06)"}}><div style={{maxWidth:900,margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:12}}><a href="/"><Logo/></a><span style={{fontSize:11,color:"rgba(255,255,255,0.2)"}}>© 2026 Fresh Leads Marketing</span></div></footer>)}
+
+export default function BlogPost() {
+  return (<div style={{fontFamily:"'DM Sans', -apple-system, sans-serif",background:BG,minHeight:"100vh"}}>
+    <style>{`@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:#07090D;overflow-x:hidden}::selection{background:rgba(43,127,255,0.25)}@media(max-width:768px){.dn{display:none!important}}`}</style>
+    <Nav/>
+    <article style={{maxWidth:720,margin:"0 auto",padding:"120px 24px 60px"}}>
+      <a href="/blog" style={{color:B,fontSize:13,fontWeight:600,textDecoration:"none",marginBottom:20,display:"inline-block"}}>← Back to blog</a>
+      <div style={{display:"flex",gap:12,marginBottom:16}}>
+        <span style={{background:"rgba(43,127,255,0.08)",color:B,padding:"4px 12px",borderRadius:6,fontSize:12,fontWeight:600}}>Strategy</span>
+        <span style={{color:"rgba(255,255,255,0.3)",fontSize:13}}>Feb 3, 2026 · 5 min read</span>
+      </div>
+      <h1 style={{fontSize:"clamp(28px,4vw,42px)",fontWeight:800,color:"#fff",lineHeight:1.15,marginBottom:24}}>The 5 Biggest Marketing Mistakes Laundromat Owners Make</h1>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>Mistake #1: Targeting your entire city with ads</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>The most common waste of ad budget we see is laundromat owners running Facebook or Google ads targeting their entire metro area. If you're in Houston, you don't need to reach all 2.3 million people — you need to reach the 50,000 within a 3-5 mile radius of your location.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}><a href='/services/geo-fencing-ads' style={{color:'#2B7FFF'}}>Geo-fencing</a> solves this by drawing virtual boundaries around specific locations — your laundromat, competitor locations, apartment complexes, and high-traffic zones. Every dollar goes toward reaching people who can actually walk through your door.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>Mistake #2: Ignoring your existing customer list</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Most laundromat owners pour money into acquiring new customers while completely ignoring the hundreds or thousands of existing customers sitting in their POS system. Acquiring a new customer costs 5-7x more than retaining an existing one.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>If you have 1,000 customers in your system and 400 of them haven't visited in 60+ days, that's not a new customer problem — it's a retention problem. A single <a href='/services/email-sms' style={{color:'#2B7FFF'}}>win-back email campaign</a> to those 400 lapsed customers can generate more revenue than a month of ads.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>Mistake #3: Using generic ad creative</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Stock photos of smiling people holding laundry baskets don't work. Your potential customers scroll past thousands of ads per day — generic creative blends into the noise.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>What works for laundromats: real photos of your clean, well-lit space. Specific offers with dollar amounts and deadlines. Before-and-after results. Testimonials from real customers. Creative that speaks directly to the pain point — 'Tired of waiting 2 hours at the laundromat? Our wash & fold is done in 24 hours.'</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>Mistake #4: Not collecting or responding to reviews</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>If your laundromat has fewer than 50 Google reviews, you're invisible to a huge segment of potential customers. And if you have negative reviews with no responses, you're actively driving people away.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Every interaction with a customer is a review opportunity. The laundromats that dominate their local market all have one thing in common: a systematic, automated approach to <a href='/services/google-reviews' style={{color:'#2B7FFF'}}>generating Google reviews</a> from every satisfied customer.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>Mistake #5: Treating marketing as an expense instead of an investment</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>The final and most fundamental mistake: viewing marketing as a cost to be minimized rather than an investment to be optimized. When you spend $1,000 on marketing and generate $4,000 in new revenue, that's not a $1,000 expense — it's a $3,000 return.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>The laundromat owners who grow fastest are the ones who measure ROI obsessively and double down on what works. They don't ask 'How much does marketing cost?' They ask 'How much revenue does each marketing dollar generate?' That mindset shift is the difference between a laundromat that stays flat and one that scales.</p>
+
+      <div style={{background:"rgba(43,127,255,0.04)",border:"1px solid rgba(43,127,255,0.15)",borderRadius:16,padding:"32px 28px",marginTop:48,textAlign:"center"}}>
+        <h3 style={{fontSize:20,fontWeight:800,color:"#fff",marginBottom:8}}>Making any of these mistakes?</h3>
+        <p style={{fontSize:15,color:"rgba(255,255,255,0.5)",marginBottom:16,lineHeight:1.6}}>Book a free marketing audit and we'll tell you exactly what's working, what's not, and what to fix first.</p>
+        <a href="/contact" style={{display:"inline-block",background:B,color:"#fff",padding:"14px 28px",borderRadius:10,fontWeight:700,fontSize:15,textDecoration:"none"}}>Schedule Your Free Audit →</a>
+      </div>
+    </article>
+    <Footer/>
+  </div>);
+}

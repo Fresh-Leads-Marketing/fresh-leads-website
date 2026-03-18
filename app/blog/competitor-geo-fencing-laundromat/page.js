@@ -1,0 +1,46 @@
+"use client";
+import { useState, useEffect, useRef } from "react";
+const B="#2B7FFF",BG="#07090D",BG2="#0C1017";
+function useV(t=0.1){const r=useRef(null),[v,s]=useState(false);useEffect(()=>{const e=r.current;if(!e)return;const o=new IntersectionObserver(([x])=>{if(x.isIntersecting){s(true);o.disconnect()}},{threshold:t});o.observe(e);return()=>o.disconnect()},[t]);return[r,v]}
+function FI({children,delay=0}){const[r,v]=useV();return(<div ref={r} style={{opacity:v?1:0,transform:v?"translateY(0)":"translateY(24px)",transition:`opacity .6s ease ${delay}s, transform .6s ease ${delay}s`}}>{children}</div>)}
+function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:32,width:"auto",display:"block"}}/>)}
+function Nav(){return(<nav style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(7,9,13,0.92)",backdropFilter:"blur(20px)",borderBottom:"1px solid rgba(255,255,255,0.08)"}}><div style={{maxWidth:1200,margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:68}}><a href="/"><Logo/></a><div className="dn" style={{display:"flex",alignItems:"center",gap:24}}>{[["Home","/"],["Services","/services"],["About","/about"],["Blog","/blog"],["Contact","/contact"]].map(([l,h])=>(<a key={l} href={h} style={{color:l==="Blog"?"#fff":"rgba(255,255,255,0.5)",textDecoration:"none",fontSize:13,fontWeight:l==="Blog"?650:550}}>{l}</a>))}<a href="/contact" style={{background:B,color:"#fff",padding:"9px 20px",borderRadius:9,fontWeight:650,fontSize:13,textDecoration:"none"}}>Free Audit</a></div></div></nav>)}
+function Footer(){return(<footer style={{background:BG,padding:"32px 24px 20px",borderTop:"1px solid rgba(255,255,255,0.06)"}}><div style={{maxWidth:900,margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:12}}><a href="/"><Logo/></a><span style={{fontSize:11,color:"rgba(255,255,255,0.2)"}}>© 2026 Fresh Leads Marketing</span></div></footer>)}
+
+export default function BlogPost() {
+  return (<div style={{fontFamily:"'DM Sans', -apple-system, sans-serif",background:BG,minHeight:"100vh"}}>
+    <style>{`@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:#07090D;overflow-x:hidden}::selection{background:rgba(43,127,255,0.25)}@media(max-width:768px){.dn{display:none!important}}`}</style>
+    <Nav/>
+    <article style={{maxWidth:720,margin:"0 auto",padding:"120px 24px 60px"}}>
+      <a href="/blog" style={{color:B,fontSize:13,fontWeight:600,textDecoration:"none",marginBottom:20,display:"inline-block"}}>← Back to blog</a>
+      <div style={{display:"flex",gap:12,marginBottom:16}}>
+        <span style={{background:"rgba(43,127,255,0.08)",color:B,padding:"4px 12px",borderRadius:6,fontSize:12,fontWeight:600}}>Advertising</span>
+        <span style={{color:"rgba(255,255,255,0.3)",fontSize:13}}>Jan 20, 2026 · 4 min read</span>
+      </div>
+      <h1 style={{fontSize:"clamp(28px,4vw,42px)",fontWeight:800,color:"#fff",lineHeight:1.15,marginBottom:24}}>How to Set Up Geo-Fencing Around Your Competitors</h1>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>What competitor geo-fencing is and why it's so effective</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Competitor geo-fencing is exactly what it sounds like: you draw a virtual boundary around a rival laundromat's location, and when someone enters that zone with their phone, they become eligible to see your ads on Facebook, Instagram, and Google.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Think about that. Someone walks into your competitor's laundromat — maybe they're waiting for their clothes, maybe they're unhappy with the wait time or the condition of the machines — and they see an ad for your laundromat offering a better deal, cleaner machines, or faster service.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>This is one of the most powerful strategies in our <a href='/services/geo-fencing-ads' style={{color:'#2B7FFF'}}>geo-fencing advertising</a> toolkit, and it's completely legal.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>How to choose which competitors to fence</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Not every competitor is worth targeting. The best candidates are laundromats that are close enough to you that their customers could realistically switch — typically within 3-5 miles. Look for competitors with lower Google ratings, older equipment, fewer services, or higher prices.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>You also want to consider volume. A busy competitor with a large customer base is a bigger opportunity than a quiet one. Check their Google reviews to gauge foot traffic and identify pain points you can address in your ads.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Most of our clients fence 2-4 competitor locations to start, then expand based on results.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>What ads to show to competitor visitors</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>The ad creative matters enormously here. You're reaching someone who already has a laundromat — you need to give them a reason to switch. Generic 'visit us!' ads won't work.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>What does work: specific competitive advantages. 'Newer machines, half the wait time — try us free.' Or address common competitor complaints: 'Tired of broken machines? Every machine at [Your Name] is maintained weekly.' Include a strong first-visit offer to reduce the friction of trying something new.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>We typically test 3-5 ad variations per competitor and let the data tell us which message resonates most.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>Results you can expect</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Competitor geo-fencing typically generates leads at $4-8 per lead, which is significantly cheaper than broad targeting. The conversion rate is higher too — these are people who already do laundry at a laundromat, so you're not convincing them to change behavior, just change location.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>CleanWave Laundry in Phoenix fenced two nearby competitors and saw a 38% increase in new customers within 90 days. Their ad spend was just $800/month. The ROI was 4.2x.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>The compound effect is real too. Once a customer switches to you and has a good experience, they're unlikely to go back — especially if you follow up with automated retention campaigns.</p>
+
+      <div style={{background:"rgba(43,127,255,0.04)",border:"1px solid rgba(43,127,255,0.15)",borderRadius:16,padding:"32px 28px",marginTop:48,textAlign:"center"}}>
+        <h3 style={{fontSize:20,fontWeight:800,color:"#fff",marginBottom:8}}>Ready to fence your competitors?</h3>
+        <p style={{fontSize:15,color:"rgba(255,255,255,0.5)",marginBottom:16,lineHeight:1.6}}>Book a free call and we'll map out exactly which competitor locations to target in your area.</p>
+        <a href="/contact" style={{display:"inline-block",background:B,color:"#fff",padding:"14px 28px",borderRadius:10,fontWeight:700,fontSize:15,textDecoration:"none"}}>Schedule Your Free Audit →</a>
+      </div>
+    </article>
+    <Footer/>
+  </div>);
+}

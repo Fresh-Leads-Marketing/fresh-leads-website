@@ -1,0 +1,48 @@
+"use client";
+import { useState, useEffect, useRef } from "react";
+const B="#2B7FFF",BG="#07090D",BG2="#0C1017";
+function useV(t=0.1){const r=useRef(null),[v,s]=useState(false);useEffect(()=>{const e=r.current;if(!e)return;const o=new IntersectionObserver(([x])=>{if(x.isIntersecting){s(true);o.disconnect()}},{threshold:t});o.observe(e);return()=>o.disconnect()},[t]);return[r,v]}
+function FI({children,delay=0}){const[r,v]=useV();return(<div ref={r} style={{opacity:v?1:0,transform:v?"translateY(0)":"translateY(24px)",transition:`opacity .6s ease ${delay}s, transform .6s ease ${delay}s`}}>{children}</div>)}
+function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:32,width:"auto",display:"block"}}/>)}
+function Nav(){return(<nav style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(7,9,13,0.92)",backdropFilter:"blur(20px)",borderBottom:"1px solid rgba(255,255,255,0.08)"}}><div style={{maxWidth:1200,margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:68}}><a href="/"><Logo/></a><div className="dn" style={{display:"flex",alignItems:"center",gap:24}}>{[["Home","/"],["Services","/services"],["About","/about"],["Blog","/blog"],["Contact","/contact"]].map(([l,h])=>(<a key={l} href={h} style={{color:l==="Blog"?"#fff":"rgba(255,255,255,0.5)",textDecoration:"none",fontSize:13,fontWeight:l==="Blog"?650:550}}>{l}</a>))}<a href="/contact" style={{background:B,color:"#fff",padding:"9px 20px",borderRadius:9,fontWeight:650,fontSize:13,textDecoration:"none"}}>Free Audit</a></div></div></nav>)}
+function Footer(){return(<footer style={{background:BG,padding:"32px 24px 20px",borderTop:"1px solid rgba(255,255,255,0.06)"}}><div style={{maxWidth:900,margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:12}}><a href="/"><Logo/></a><span style={{fontSize:11,color:"rgba(255,255,255,0.2)"}}>© 2026 Fresh Leads Marketing</span></div></footer>)}
+
+export default function BlogPost() {
+  return (<div style={{fontFamily:"'DM Sans', -apple-system, sans-serif",background:BG,minHeight:"100vh"}}>
+    <style>{`@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:#07090D;overflow-x:hidden}::selection{background:rgba(43,127,255,0.25)}@media(max-width:768px){.dn{display:none!important}}`}</style>
+    <Nav/>
+    <article style={{maxWidth:720,margin:"0 auto",padding:"120px 24px 60px"}}>
+      <a href="/blog" style={{color:B,fontSize:13,fontWeight:600,textDecoration:"none",marginBottom:20,display:"inline-block"}}>← Back to blog</a>
+      <div style={{display:"flex",gap:12,marginBottom:16}}>
+        <span style={{background:"rgba(43,127,255,0.08)",color:B,padding:"4px 12px",borderRadius:6,fontSize:12,fontWeight:600}}>Reviews</span>
+        <span style={{color:"rgba(255,255,255,0.3)",fontSize:13}}>Feb 10, 2026 · 4 min read</span>
+      </div>
+      <h1 style={{fontSize:"clamp(28px,4vw,42px)",fontWeight:800,color:"#fff",lineHeight:1.15,marginBottom:24}}>Why Your Google Reviews Matter More Than Your Ad Budget</h1>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>The laundromat with more reviews wins — even with a smaller ad budget</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Imagine two laundromats in the same neighborhood. Laundromat A spends $2,000/month on Google Ads but has 30 reviews with a 3.8 rating. Laundromat B spends $500/month on ads but has 220 reviews with a 4.7 rating. Who gets more customers?</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Laundromat B wins, every time. Google's local algorithm heavily favors businesses with more and better reviews. And customers trust reviews more than ads — 88% of consumers trust online reviews as much as personal recommendations.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>How Google reviews affect your Maps ranking</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>When someone searches 'laundromat near me,' Google shows the Map Pack — the top 3 local results. The factors that determine who shows up there include proximity, relevance, and prominence. Reviews are a major component of prominence.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>More reviews signal to Google that your business is active, trusted, and popular. Higher ratings signal quality. The combination pushes you up in local search results, which is where the vast majority of laundromat customers start their search.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>A <a href='/services/google-reviews' style={{color:'#2B7FFF'}}>systematic review generation strategy</a> is the single best long-term investment you can make in your laundromat's visibility.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>Reviews are free traffic that compounds forever</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Here's what makes reviews fundamentally different from ads: when you stop paying for ads, the traffic stops. When you earn a review, it works for you permanently.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Every new 5-star review makes it slightly easier for the next customer to choose you. Over time, this compounds into a massive competitive advantage. A laundromat with 250 reviews is nearly impossible to outrank for a competitor starting from 30 — even if they throw money at ads.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Think of reviews as a moat around your business. The earlier you start building it, the wider it gets, and the harder it is for competitors to cross.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>The review generation system</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Generating reviews consistently isn't about asking nicely at the counter. It's about building an automated system that asks every customer, every time, with zero manual effort.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>After each transaction, your POS triggers an automated SMS with a direct one-tap link to leave a Google review. No app to download, no hoops to jump through. Follow up 2-3 days later with a gentle reminder for those who didn't respond.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Most laundromats using this system see 15-30 new reviews per month. Over a year, that's 180-360 reviews — enough to dominate any local market.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>What about negative reviews?</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>A business with 200 reviews and a 4.7 rating is actually more trustworthy than one with 15 reviews and a perfect 5.0. A few honest critiques make your positive reviews feel genuine. Customers expect to see the occasional 3-star — what they're watching is how you respond.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>A professional response like 'Thank you for the feedback — we've addressed the dryer issue and it's working perfectly now' shows future customers you care and take action. That response is more powerful marketing than any ad you could run.</p>
+
+      <div style={{background:"rgba(43,127,255,0.04)",border:"1px solid rgba(43,127,255,0.15)",borderRadius:16,padding:"32px 28px",marginTop:48,textAlign:"center"}}>
+        <h3 style={{fontSize:20,fontWeight:800,color:"#fff",marginBottom:8}}>Ready to build your review moat?</h3>
+        <p style={{fontSize:15,color:"rgba(255,255,255,0.5)",marginBottom:16,lineHeight:1.6}}>Book a free call and we'll show you exactly where you stand vs. competitors on Google — and how to close the gap.</p>
+        <a href="/contact" style={{display:"inline-block",background:B,color:"#fff",padding:"14px 28px",borderRadius:10,fontWeight:700,fontSize:15,textDecoration:"none"}}>Schedule Your Free Audit →</a>
+      </div>
+    </article>
+    <Footer/>
+  </div>);
+}

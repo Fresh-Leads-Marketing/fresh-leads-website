@@ -1,0 +1,252 @@
+"use client";
+import { useState, useEffect, useRef } from "react";
+
+const B = "#2B7FFF";
+const B2 = "#5A9EFF";
+const BG = "#07090D";
+const BG2 = "#0C1017";
+const BG3 = "#101520";
+
+function useV(t = 0.1) {
+  const r = useRef(null), [v, s] = useState(false);
+  useEffect(() => { const e = r.current; if (!e) return; const o = new IntersectionObserver(([x]) => { if (x.isIntersecting) { s(true); o.disconnect(); } }, { threshold: t }); o.observe(e); return () => o.disconnect(); }, [t]);
+  return [r, v];
+}
+function FI({ children, delay = 0, className = "" }) {
+  const [r, v] = useV();
+  return <div ref={r} className={className} style={{ opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(24px)", transition: `opacity .6s ease ${delay}s, transform .6s ease ${delay}s` }}>{children}</div>;
+}
+function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:32,width:"auto",display:"block"}}/>)}
+
+function Nav() {
+  const [sc, setSc] = useState(false);
+  useEffect(() => { const h = () => setSc(window.scrollY > 40); window.addEventListener("scroll", h); return () => window.removeEventListener("scroll", h); }, []);
+  return <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(7,9,13,0.92)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+    <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
+      <Logo />
+      <div className="dn" style={{ display: "flex", alignItems: "center", gap: 24 }}>
+        {["Home", "Services", "About", "Blog", "Contact"].map(l => <a key={l} href={l==="Home"?"/":l==="Services"?"/services":l==="About"?"/about":l==="Blog"?"/blog":"/contact"} style={{ color: l === "Services" ? "#fff" : "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: l === "Services" ? 650 : 550 }}>{l}</a>)}
+        <a href="#cta" style={{ background: B, color: "#fff", padding: "9px 20px", borderRadius: 9, fontWeight: 650, fontSize: 13, textDecoration: "none" }}>Free Marketing Audit</a>
+      </div>
+    </div>
+  </nav>;
+}
+
+function GeoGraphic() {
+  return <svg width="100%" viewBox="0 0 360 260" fill="none">
+    <rect x="0" y="0" width="360" height="260" rx="14" fill={BG3} stroke="rgba(255,255,255,0.07)" />
+    <circle cx="180" cy="120" r="80" fill="rgba(43,127,255,0.03)" stroke="rgba(43,127,255,0.1)" strokeDasharray="4 4" />
+    <circle cx="180" cy="120" r="50" fill="rgba(43,127,255,0.05)" stroke="rgba(43,127,255,0.15)" />
+    <circle cx="180" cy="120" r="8" fill={B} />
+    <text x="180" y="124" textAnchor="middle" fill="#fff" fontSize="7" fontFamily="sans-serif">YOU</text>
+    <circle cx="210" cy="90" r="4" fill="#EF4444" opacity=".7" /><text x="222" y="93" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="sans-serif">Competitor</text>
+    <circle cx="150" cy="145" r="4" fill="#EF4444" opacity=".7" /><text x="120" y="148" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="sans-serif">Competitor</text>
+    <rect x="20" y="200" width="100" height="40" rx="8" fill="rgba(43,127,255,0.06)" stroke="rgba(43,127,255,0.12)" />
+    <text x="70" y="218" textAnchor="middle" fill={B} fontSize="14" fontWeight="800" fontFamily="sans-serif">3x ROI</text>
+    <text x="70" y="232" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="sans-serif">Avg. return</text>
+    <rect x="130" y="200" width="100" height="40" rx="8" fill="rgba(43,127,255,0.06)" stroke="rgba(43,127,255,0.12)" />
+    <text x="180" y="218" textAnchor="middle" fill={B} fontSize="14" fontWeight="800" fontFamily="sans-serif">5 mi</text>
+    <text x="180" y="232" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="sans-serif">Target radius</text>
+    <rect x="240" y="200" width="100" height="40" rx="8" fill="rgba(43,127,255,0.06)" stroke="rgba(43,127,255,0.12)" />
+    <text x="290" y="218" textAnchor="middle" fill={B} fontSize="14" fontWeight="800" fontFamily="sans-serif">FB+G</text>
+    <text x="290" y="232" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="sans-serif">Platforms</text>
+  </svg>;
+}
+
+function EmailGraphic() {
+  return <svg width="100%" viewBox="0 0 360 260" fill="none">
+    <rect x="0" y="0" width="360" height="260" rx="14" fill={BG3} stroke="rgba(255,255,255,0.07)" />
+    <rect x="20" y="20" width="200" height="50" rx="10" fill="rgba(43,127,255,0.05)" stroke="rgba(43,127,255,0.1)" />
+    <text x="36" y="40" fill="rgba(255,255,255,0.5)" fontSize="8" fontWeight="600" fontFamily="sans-serif">We miss you! Here's 20% off</text>
+    <text x="36" y="55" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="sans-serif">SMS · Sent to 847 customers</text>
+    <rect x="20" y="80" width="200" height="50" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" />
+    <text x="36" y="100" fill="rgba(255,255,255,0.5)" fontSize="8" fontWeight="600" fontFamily="sans-serif">Welcome! Your first fold is free</text>
+    <text x="36" y="115" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="sans-serif">Email · New customer sequence</text>
+    <rect x="20" y="140" width="200" height="50" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" />
+    <text x="36" y="160" fill="rgba(255,255,255,0.5)" fontSize="8" fontWeight="600" fontFamily="sans-serif">Holiday special: Free pickup today!</text>
+    <text x="36" y="175" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="sans-serif">SMS · Promo blast</text>
+    <rect x="250" y="30" width="90" height="60" rx="10" fill="rgba(43,127,255,0.06)" stroke="rgba(43,127,255,0.12)" />
+    <text x="295" y="56" textAnchor="middle" fill={B} fontSize="20" fontWeight="800" fontFamily="sans-serif">42%</text>
+    <text x="295" y="74" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="sans-serif">Open rate</text>
+    <rect x="250" y="100" width="90" height="60" rx="10" fill="rgba(43,127,255,0.06)" stroke="rgba(43,127,255,0.12)" />
+    <text x="295" y="126" textAnchor="middle" fill={B} fontSize="20" fontWeight="800" fontFamily="sans-serif">$36</text>
+    <text x="295" y="144" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="sans-serif">Return per $1</text>
+    <rect x="20" y="210" width="320" height="8" rx="4" fill="rgba(255,255,255,0.04)" />
+    <rect x="20" y="210" width="220" height="8" rx="4" fill={B} opacity=".4" />
+    <text x="20" y="238" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="sans-serif">847 / 1,200 customers re-engaged</text>
+  </svg>;
+}
+
+function AIGraphic() {
+  return <svg width="100%" viewBox="0 0 360 260" fill="none">
+    <rect x="0" y="0" width="360" height="260" rx="14" fill={BG3} stroke="rgba(255,255,255,0.07)" />
+    <rect x="70" y="20" width="220" height="36" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" />
+    <text x="180" y="42" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily="sans-serif">What are your hours today?</text>
+    <rect x="100" y="68" width="240" height="46" rx="12" fill="rgba(43,127,255,0.06)" stroke="rgba(43,127,255,0.12)" />
+    <text x="116" y="86" fill="rgba(255,255,255,0.6)" fontSize="8.5" fontFamily="sans-serif">We're open 7am-10pm today! Our wash &</text>
+    <text x="116" y="100" fill="rgba(255,255,255,0.6)" fontSize="8.5" fontFamily="sans-serif">fold service is available until 6pm 🧺</text>
+    <rect x="70" y="126" width="220" height="36" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" />
+    <text x="180" y="148" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily="sans-serif">Can I schedule a pickup for tomorrow?</text>
+    <rect x="100" y="174" width="240" height="36" rx="12" fill="rgba(43,127,255,0.06)" stroke="rgba(43,127,255,0.12)" />
+    <text x="116" y="196" fill="rgba(255,255,255,0.6)" fontSize="8.5" fontFamily="sans-serif">Absolutely! I can book that for you now ✓</text>
+    <rect x="20" y="224" width="80" height="24" rx="7" fill="rgba(43,127,255,0.08)" />
+    <text x="60" y="240" textAnchor="middle" fill={B} fontSize="9" fontWeight="700" fontFamily="sans-serif">24/7</text>
+    <rect x="110" y="224" width="80" height="24" rx="7" fill="rgba(43,127,255,0.08)" />
+    <text x="150" y="240" textAnchor="middle" fill={B} fontSize="9" fontWeight="700" fontFamily="sans-serif">80% auto</text>
+    <rect x="200" y="224" width="80" height="24" rx="7" fill="rgba(43,127,255,0.08)" />
+    <text x="240" y="240" textAnchor="middle" fill={B} fontSize="9" fontWeight="700" fontFamily="sans-serif">&lt;5s reply</text>
+  </svg>;
+}
+
+function CRMGraphic() {
+  return <svg width="100%" viewBox="0 0 360 260" fill="none">
+    <rect x="0" y="0" width="360" height="260" rx="14" fill={BG3} stroke="rgba(255,255,255,0.07)" />
+    <rect x="20" y="20" width="320" height="36" rx="8" fill="rgba(43,127,255,0.04)" />
+    <text x="36" y="42" fill="rgba(255,255,255,0.5)" fontSize="9" fontWeight="600" fontFamily="sans-serif">Customer Dashboard</text>
+    <text x="280" y="42" fill={B} fontSize="9" fontWeight="700" fontFamily="sans-serif">1,247 contacts</text>
+    {[["Maria G.", "12 visits", "VIP", "Last: 2 days ago"], ["James K.", "3 visits", "New", "Last: 1 week ago"], ["Sarah T.", "0 visits", "At risk", "Last: 45 days ago"], ["Robert L.", "8 visits", "Regular", "Last: 5 days ago"]].map(([name, visits, tag, last], i) => (
+      <g key={i}>
+        <rect x="20" y={68 + i * 44} width="320" height="38" rx="6" fill={i % 2 === 0 ? "rgba(255,255,255,0.02)" : "transparent"} />
+        <circle cx="40" cy={87 + i * 44} r="10" fill="rgba(43,127,255,0.08)" />
+        <text x="40" y={90 + i * 44} textAnchor="middle" fill={B} fontSize="8" fontWeight="700" fontFamily="sans-serif">{name[0]}</text>
+        <text x="58" y={84 + i * 44} fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="600" fontFamily="sans-serif">{name}</text>
+        <text x="58" y={96 + i * 44} fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="sans-serif">{visits} · {last}</text>
+        <rect x="280" y={78 + i * 44} width="48" height="18" rx="5" fill={tag === "VIP" ? "rgba(43,127,255,0.1)" : tag === "At risk" ? "rgba(239,68,68,0.1)" : "rgba(255,255,255,0.04)"} />
+        <text x="304" y={90 + i * 44} textAnchor="middle" fill={tag === "VIP" ? B : tag === "At risk" ? "#EF4444" : "rgba(255,255,255,0.4)"} fontSize="7" fontWeight="600" fontFamily="sans-serif">{tag}</text>
+      </g>
+    ))}
+    <text x="180" y="250" textAnchor="middle" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="sans-serif">Syncs with Cents · LaundroWorks · CCI</text>
+  </svg>;
+}
+
+function B2BGraphic() {
+  return <svg width="100%" viewBox="0 0 360 260" fill="none">
+    <rect x="0" y="0" width="360" height="260" rx="14" fill={BG3} stroke="rgba(255,255,255,0.07)" />
+    <text x="20" y="36" fill="rgba(255,255,255,0.5)" fontSize="10" fontWeight="700" fontFamily="sans-serif">Pipeline</text>
+    <text x="280" y="36" fill={B} fontSize="10" fontWeight="700" fontFamily="sans-serif">12 leads</text>
+    {[["Hilton Downtown", "Hotel · 200 rooms", "Meeting booked"], ["Gold's Gym Eastside", "Gym · 3 locations", "Replied"], ["Sunset Spa & Salon", "Spa · High volume", "Sequence sent"], ["Marriott Airport", "Hotel · 340 rooms", "Opened email"]].map(([name, type, status], i) => (
+      <g key={i}>
+        <rect x="20" y={50 + i * 50} width="320" height="42" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" />
+        <text x="36" y={68 + i * 50} fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="600" fontFamily="sans-serif">{name}</text>
+        <text x="36" y={82 + i * 50} fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="sans-serif">{type}</text>
+        <rect x="260" y={62 + i * 50} width="70" height="18" rx="5" fill={status.includes("booked") ? "rgba(34,197,94,0.1)" : "rgba(43,127,255,0.08)"} />
+        <text x="295" y={74 + i * 50} textAnchor="middle" fill={status.includes("booked") ? "#22C55E" : B2} fontSize="7" fontWeight="600" fontFamily="sans-serif">{status}</text>
+      </g>
+    ))}
+    <text x="180" y="250" textAnchor="middle" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="sans-serif">Avg. 5-15 qualified leads per month on autopilot</text>
+  </svg>;
+}
+
+function ReviewGraphic() {
+  return <svg width="100%" viewBox="0 0 360 260" fill="none">
+    <rect x="0" y="0" width="360" height="260" rx="14" fill={BG3} stroke="rgba(255,255,255,0.07)" />
+    <rect x="80" y="20" width="200" height="70" rx="12" fill="rgba(43,127,255,0.05)" stroke="rgba(43,127,255,0.1)" />
+    <text x="180" y="46" textAnchor="middle" fill={B} fontSize="28" fontWeight="800" fontFamily="sans-serif">4.8</text>
+    <text x="140" y="68" fill="#F59E0B" fontSize="12" fontFamily="sans-serif">★ ★ ★ ★ ★</text>
+    <text x="208" y="68" fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="sans-serif">247 reviews</text>
+    {[["Great service, super clean!", "Maria G. · ★★★★★"], ["Best laundromat in town", "James R. · ★★★★★"], ["Fast pickup & delivery!", "Lisa M. · ★★★★★"]].map(([text, author], i) => (
+      <g key={i}>
+        <rect x="20" y={104 + i * 44} width="320" height="36" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" />
+        <text x="36" y={120 + i * 44} fill="rgba(255,255,255,0.5)" fontSize="9" fontFamily="sans-serif">"{text}"</text>
+        <text x="36" y={132 + i * 44} fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="sans-serif">{author}</text>
+      </g>
+    ))}
+    <text x="180" y="250" textAnchor="middle" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="sans-serif">More reviews = higher Google Maps ranking = more walk-ins</text>
+  </svg>;
+}
+
+const SVC = [
+  { icon: "📍", t: "Geo-Fencing Ads", s: "Facebook & Google", desc: "We draw a virtual boundary around your laundromat — and your competitors — then show targeted ads to everyone inside that zone on Facebook, Instagram, and Google. When someone drives past a competitor or enters your neighborhood, they see your offer. We manage everything: ad creative, copy, targeting, bidding, and optimization. You just watch the foot traffic grow.", q: "How much do I need to spend on ads?", a: "Most clients start with $500-1,500/month in ad spend and see positive ROI within the first 30 days. We'll recommend a budget based on your market and competition.", graphic: <GeoGraphic /> },
+  { icon: "📱", t: "Email & SMS Marketing", s: "Customer re-engagement", desc: "We build automated campaigns that run in the background 24/7 — sending the right message to the right customer at the right time. Lapsed customers get 'we miss you' offers. New customers get welcome sequences. Everyone gets seasonal promos. You don't have to think about it — we handle list building, segmentation, copywriting, and deliverability.", q: "Don't my customers already get too many emails?", a: "The key is relevance. A well-timed 'we miss you' text with a 20% off code to someone who hasn't visited in 30 days doesn't feel like spam — it feels like a personal invitation.", graphic: <EmailGraphic /> },
+  { icon: "🤖", t: "AI Chatbot & Voice Bot", s: "24/7 automated support", desc: "Your website and phone become lead-capturing machines. The AI chatbot handles website visitors, Facebook messages, and Instagram DMs — answering questions, sharing hours and pricing, and booking appointments instantly. The voice bot picks up your phone calls, qualifies leads, and sounds completely natural. Both are trained specifically on your laundromat's services and information.", q: "Will it sound robotic or weird to my customers?", a: "Not at all. We custom-train both bots on your specific business. The voice bot sounds like a friendly receptionist, and the chatbot feels like texting with a helpful staff member.", graphic: <AIGraphic /> },
+  { icon: "📊", t: "Custom CRM", s: "Centralized customer data", desc: "Every customer touchpoint in one place — synced automatically from your POS system. See who's visited, how often, what they spent, whether they left a review, and where they are in your marketing funnel. Segment your customer base by behavior (VIP, at-risk, new) and trigger automated campaigns to each group. No more guessing who your best customers are.", q: "Does it work with my current laundry software?", a: "Yes — we integrate directly with Cents, LaundroWorks, and CCI. Your customer data flows in automatically with no manual entry needed.", graphic: <CRMGraphic /> },
+  { icon: "📧", t: "B2B Cold Outreach", s: "Commercial accounts", desc: "We find hotels, gyms, Airbnbs, spas, and salons in your area that need commercial laundry services — then reach out on your behalf with personalized email sequences. We handle the research, list building, copywriting, sending, and reply management. You just show up to the meetings we book. Most clients land their first commercial contract within 60 days.", q: "I've tried cold emailing before and it didn't work.", a: "Generic blasts don't work. We send personalized, multi-step sequences to researched prospects at the right companies. It's targeted outreach, not mass spam — and our response rates prove it.", graphic: <B2BGraphic /> },
+  { icon: "⭐", t: "Google Reviews", s: "Reputation management", desc: "After every customer visit, we automatically send an SMS asking them to leave a Google review — with a direct one-tap link that makes it effortless. We follow up with customers who don't respond the first time. Your review count climbs, your star rating stays high, and your Google Maps ranking improves — which means more people find you when they search 'laundromat near me.'", q: "What if someone leaves a bad review?", a: "You'll get an instant alert so you can respond quickly. We also help you craft professional responses that show potential customers you care about feedback and take action.", graphic: <ReviewGraphic /> },
+];
+
+function ServiceBlock({ svc, idx }) {
+  const reversed = idx % 2 !== 0;
+  const content = (
+    <FI>
+      <div>
+        <span style={{ fontSize: 32, display: "block", marginBottom: 12 }}>{svc.icon}</span>
+        <p style={{ color: B2, fontSize: 12, fontWeight: 700, letterSpacing: ".05em", textTransform: "uppercase", marginBottom: 6 }}>{svc.s}</p>
+        <h2 style={{ fontSize: "clamp(24px,3vw,32px)", fontWeight: 800, color: "#fff", letterSpacing: "-.02em", marginBottom: 14, lineHeight: 1.15 }}>{svc.t}</h2>
+        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 20 }}>{svc.desc}</p>
+        <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 12, padding: "18px 20px", marginBottom: 22 }}>
+          <p style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.6)", marginBottom: 6 }}>❓ {svc.q}</p>
+          <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.55 }}>{svc.a}</p>
+        </div>
+        <a href="#cta" style={{ display: "inline-block", background: B, color: "#fff", padding: "12px 22px", borderRadius: 9, fontWeight: 650, fontSize: 14, textDecoration: "none", boxShadow: "0 2px 14px rgba(43,127,255,0.25)" }}>
+          Get started →
+        </a>
+      </div>
+    </FI>
+  );
+
+  const graphic = <FI delay={0.1}><div>{svc.graphic}</div></FI>;
+
+  return (
+    <section style={{ background: idx % 2 === 0 ? BG : BG2, padding: "70px 24px" }}>
+      <div style={{ maxWidth: 1040, margin: "0 auto" }}>
+        <div className="sg" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 44, alignItems: "center" }}>
+          {reversed ? <>{graphic}{content}</> : <>{content}{graphic}</>}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PageHero() {
+  return <section style={{ background: BG, padding: "130px 24px 70px", position: "relative", overflow: "hidden" }}>
+    <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 40% at 50% 20%, rgba(43,127,255,0.07) 0%, transparent 60%)" }} />
+    <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center", position: "relative" }}>
+      <FI>
+        <p style={{ color: B, fontWeight: 700, fontSize: 13, letterSpacing: ".07em", textTransform: "uppercase", marginBottom: 12 }}>Our Services</p>
+        <h1 style={{ fontSize: "clamp(32px,5vw,52px)", fontWeight: 800, color: "#fff", lineHeight: 1.08, letterSpacing: "-.035em", marginBottom: 18 }}>
+          Laundromat marketing that <span style={{ color: B }}>actually works</span>
+        </h1>
+        <p style={{ fontSize: 17, color: "rgba(255,255,255,0.5)", maxWidth: 560, margin: "0 auto", lineHeight: 1.6 }}>
+          Every service is purpose-built for the laundry industry. No generic playbooks — just proven systems that drive foot traffic and revenue.
+        </p>
+      </FI>
+    </div>
+  </section>;
+}
+
+function CTA() {
+  return <section id="cta" style={{ background: BG2, padding: "90px 24px" }}>
+    <div style={{ maxWidth: 700, margin: "0 auto" }}>
+      <FI><div style={{ background: "linear-gradient(135deg, rgba(43,127,255,0.1), rgba(43,127,255,0.03))", border: "1px solid rgba(43,127,255,0.18)", borderRadius: 20, padding: "clamp(36px,6vw,60px) clamp(24px,5vw,44px)", textAlign: "center" }}>
+        <h2 style={{ fontSize: "clamp(24px,4vw,36px)", fontWeight: 800, color: "#fff", marginBottom: 12, lineHeight: 1.15 }}>Ready to grow your laundromat?</h2>
+        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", maxWidth: 420, margin: "0 auto 24px", lineHeight: 1.6 }}>Book a free discovery call — we'll audit your market and build a custom growth plan.</p>
+        <a href="/contact" style={{ display: "inline-block", background: B, color: "#fff", padding: "14px 30px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)" }}>Schedule Your Discovery Call →</a>
+      </div></FI>
+    </div>
+  </section>;
+}
+
+function Footer() {
+  return <footer style={{ background: BG, padding: "36px 24px 24px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+    <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 28 }}>
+      <div><Logo /><p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", maxWidth: 220, lineHeight: 1.5, marginTop: 10 }}>The #1 laundromat marketing agency.</p></div>
+    </div>
+    <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", marginTop: 20, paddingTop: 14, fontSize: 11, color: "rgba(255,255,255,0.2)" }}>© 2026 Fresh Leads Marketing</div>
+  </footer>;
+}
+
+export default function ServicesPage() {
+  return <div style={{ fontFamily: "'DM Sans', -apple-system, sans-serif", background: BG, minHeight: "100vh" }}>
+    <style>{`
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
+      *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:#07090D;overflow-x:hidden}
+      ::selection{background:rgba(43,127,255,0.25)}
+      @media(max-width:768px){.dn{display:none!important}.sg{grid-template-columns:1fr!important}}
+    `}</style>
+    <Nav />
+    <PageHero />
+    {SVC.map((svc, i) => <ServiceBlock key={i} svc={svc} idx={i} />)}
+    <CTA />
+    <Footer />
+  </div>;
+}

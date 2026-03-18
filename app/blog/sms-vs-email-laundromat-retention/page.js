@@ -1,0 +1,51 @@
+"use client";
+import { useState, useEffect, useRef } from "react";
+const B="#2B7FFF",BG="#07090D",BG2="#0C1017";
+function useV(t=0.1){const r=useRef(null),[v,s]=useState(false);useEffect(()=>{const e=r.current;if(!e)return;const o=new IntersectionObserver(([x])=>{if(x.isIntersecting){s(true);o.disconnect()}},{threshold:t});o.observe(e);return()=>o.disconnect()},[t]);return[r,v]}
+function FI({children,delay=0}){const[r,v]=useV();return(<div ref={r} style={{opacity:v?1:0,transform:v?"translateY(0)":"translateY(24px)",transition:`opacity .6s ease ${delay}s, transform .6s ease ${delay}s`}}>{children}</div>)}
+function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:32,width:"auto",display:"block"}}/>)}
+function Nav(){return(<nav style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(7,9,13,0.92)",backdropFilter:"blur(20px)",borderBottom:"1px solid rgba(255,255,255,0.08)"}}><div style={{maxWidth:1200,margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:68}}><a href="/"><Logo/></a><div className="dn" style={{display:"flex",alignItems:"center",gap:24}}>{[["Home","/"],["Services","/services"],["About","/about"],["Blog","/blog"],["Contact","/contact"]].map(([l,h])=>(<a key={l} href={h} style={{color:l==="Blog"?"#fff":"rgba(255,255,255,0.5)",textDecoration:"none",fontSize:13,fontWeight:l==="Blog"?650:550}}>{l}</a>))}<a href="/contact" style={{background:B,color:"#fff",padding:"9px 20px",borderRadius:9,fontWeight:650,fontSize:13,textDecoration:"none"}}>Free Audit</a></div></div></nav>)}
+function Footer(){return(<footer style={{background:BG,padding:"32px 24px 20px",borderTop:"1px solid rgba(255,255,255,0.06)"}}><div style={{maxWidth:900,margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:12}}><a href="/"><Logo/></a><span style={{fontSize:11,color:"rgba(255,255,255,0.2)"}}>© 2026 Fresh Leads Marketing</span></div></footer>)}
+
+export default function BlogPost() {
+  return (<div style={{fontFamily:"'DM Sans', -apple-system, sans-serif",background:BG,minHeight:"100vh"}}>
+    <style>{`@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:#07090D;overflow-x:hidden}::selection{background:rgba(43,127,255,0.25)}@media(max-width:768px){.dn{display:none!important}}`}</style>
+    <Nav/>
+    <article style={{maxWidth:720,margin:"0 auto",padding:"120px 24px 60px"}}>
+      <a href="/blog" style={{color:B,fontSize:13,fontWeight:600,textDecoration:"none",marginBottom:20,display:"inline-block"}}>← Back to blog</a>
+      <div style={{display:"flex",gap:12,marginBottom:16}}>
+        <span style={{background:"rgba(43,127,255,0.08)",color:B,padding:"4px 12px",borderRadius:6,fontSize:12,fontWeight:600}}>Email & SMS</span>
+        <span style={{color:"rgba(255,255,255,0.3)",fontSize:13}}>Jan 27, 2026 · 5 min read</span>
+      </div>
+      <h1 style={{fontSize:"clamp(28px,4vw,42px)",fontWeight:800,color:"#fff",lineHeight:1.15,marginBottom:24}}>SMS vs Email: Which Works Better for Laundromat Customer Retention?</h1>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>The short answer: use both — but for different things</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>SMS and email are not interchangeable. Each has distinct strengths that make it ideal for specific types of communication. The laundromats that see the best retention results use both channels strategically, not randomly.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>SMS has a 98% open rate and messages are read within 3 minutes on average. Email has a 20-35% open rate but allows for longer, richer content. Understanding when to use each is what separates effective <a href='/services/email-sms' style={{color:'#2B7FFF'}}>retention marketing</a> from noise.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>When to use SMS</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}><strong>Time-sensitive offers:</strong> 'Flash sale: 30% off wash & fold TODAY ONLY.' SMS creates urgency because people read it immediately. A flash sale sent by email might not be seen until tomorrow — when the offer has expired.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}><strong>Appointment reminders:</strong> 'Your pickup is scheduled for tomorrow at 9am. Reply YES to confirm.' Short, functional, high open rate.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}><strong>Win-back messages:</strong> 'Hey [name], we miss you! Here's 20% off your next visit. Expires Friday.' The personal, direct nature of SMS makes these feel like a message from a friend, not a business.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}><strong>Review requests:</strong> After a visit, a quick SMS with a one-tap Google review link converts far better than email because the friction is so low.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>When to use email</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}><strong>Welcome sequences:</strong> A 3-5 message series introducing your services, sharing tips, and building a relationship. This needs more space than SMS allows.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}><strong>Educational content:</strong> Laundry tips, stain removal guides, seasonal content. This builds trust and keeps you top of mind between visits.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}><strong>Detailed promotions:</strong> If you're running a holiday special with multiple offers, email lets you lay it out visually with images and clear CTAs.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}><strong>Monthly newsletters:</strong> A roundup of what's new, upcoming promotions, and customer spotlights. Keeps your brand present without being pushy.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>The retention numbers that matter</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Our clients who run both SMS and email see repeat visit rates 40-60% higher than those using neither. The cost per retained customer is typically $1-3 — compared to $8-15 to acquire a new one through ads.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>The most valuable metric is customer lifetime value (LTV). A customer who visits once spends maybe $15-30. A customer who comes back monthly for a year spends $180-360. Retention marketing is how you turn the first number into the second.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Even a modest improvement — moving your repeat rate from 25% to 40% — can increase annual revenue by 20-30% with zero increase in ad spend.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>Setting up the system</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>The beauty of modern retention marketing is that it's almost entirely automated. Once the sequences are built and connected to your POS data, they run on autopilot — triggering based on customer behavior, not manual effort.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>A customer hits 30 days without a visit? Win-back SMS fires. New customer makes their first purchase? Welcome email sequence begins. Someone leaves a 5-star review? Thank-you message with a loyalty offer sends automatically.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>You set it up once. It runs forever. And the revenue compounds every month.</p>
+
+      <div style={{background:"rgba(43,127,255,0.04)",border:"1px solid rgba(43,127,255,0.15)",borderRadius:16,padding:"32px 28px",marginTop:48,textAlign:"center"}}>
+        <h3 style={{fontSize:20,fontWeight:800,color:"#fff",marginBottom:8}}>Ready to set up automated retention campaigns?</h3>
+        <p style={{fontSize:15,color:"rgba(255,255,255,0.5)",marginBottom:16,lineHeight:1.6}}>Book a free call and we'll build an SMS and email strategy that keeps your customers coming back.</p>
+        <a href="/contact" style={{display:"inline-block",background:B,color:"#fff",padding:"14px 28px",borderRadius:10,fontWeight:700,fontSize:15,textDecoration:"none"}}>Schedule Your Free Audit →</a>
+      </div>
+    </article>
+    <Footer/>
+  </div>);
+}

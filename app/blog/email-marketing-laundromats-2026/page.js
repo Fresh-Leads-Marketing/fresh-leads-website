@@ -1,0 +1,53 @@
+"use client";
+import { useState, useEffect, useRef } from "react";
+const B="#2B7FFF",BG="#07090D",BG2="#0C1017";
+function useV(t=0.1){const r=useRef(null),[v,s]=useState(false);useEffect(()=>{const e=r.current;if(!e)return;const o=new IntersectionObserver(([x])=>{if(x.isIntersecting){s(true);o.disconnect()}},{threshold:t});o.observe(e);return()=>o.disconnect()},[t]);return[r,v]}
+function FI({children,delay=0}){const[r,v]=useV();return(<div ref={r} style={{opacity:v?1:0,transform:v?"translateY(0)":"translateY(24px)",transition:`opacity .6s ease ${delay}s, transform .6s ease ${delay}s`}}>{children}</div>)}
+function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:32,width:"auto",display:"block"}}/>)}
+function Nav(){return(<nav style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(7,9,13,0.92)",backdropFilter:"blur(20px)",borderBottom:"1px solid rgba(255,255,255,0.08)"}}><div style={{maxWidth:1200,margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:68}}><a href="/"><Logo/></a><div className="dn" style={{display:"flex",alignItems:"center",gap:24}}>{[["Home","/"],["Services","/services"],["About","/about"],["Blog","/blog"],["Contact","/contact"]].map(([l,h])=>(<a key={l} href={h} style={{color:l==="Blog"?"#fff":"rgba(255,255,255,0.5)",textDecoration:"none",fontSize:13,fontWeight:l==="Blog"?650:550}}>{l}</a>))}<a href="/contact" style={{background:B,color:"#fff",padding:"9px 20px",borderRadius:9,fontWeight:650,fontSize:13,textDecoration:"none"}}>Free Audit</a></div></div></nav>)}
+function Footer(){return(<footer style={{background:BG,padding:"32px 24px 20px",borderTop:"1px solid rgba(255,255,255,0.06)"}}><div style={{maxWidth:900,margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:12}}><a href="/"><Logo/></a><span style={{fontSize:11,color:"rgba(255,255,255,0.2)"}}>© 2026 Fresh Leads Marketing</span></div></footer>)}
+
+export default function BlogPost() {
+  return (<div style={{fontFamily:"'DM Sans', -apple-system, sans-serif",background:BG,minHeight:"100vh"}}>
+    <style>{`@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:#07090D;overflow-x:hidden}::selection{background:rgba(43,127,255,0.25)}@media(max-width:768px){.dn{display:none!important}}`}</style>
+    <Nav/>
+    <article style={{maxWidth:720,margin:"0 auto",padding:"120px 24px 60px"}}>
+      <a href="/blog" style={{color:B,fontSize:13,fontWeight:600,textDecoration:"none",marginBottom:20,display:"inline-block"}}>← Back to blog</a>
+      <div style={{display:"flex",gap:12,marginBottom:16}}>
+        <span style={{background:"rgba(43,127,255,0.08)",color:B,padding:"4px 12px",borderRadius:6,fontSize:12,fontWeight:600}}>Email & SMS</span>
+        <span style={{color:"rgba(255,255,255,0.3)",fontSize:13}}>Feb 24, 2026 · 8 min read</span>
+      </div>
+      <h1 style={{fontSize:"clamp(28px,4vw,42px)",fontWeight:800,color:"#fff",lineHeight:1.15,marginBottom:24}}>Email Marketing for Laundromats: The Complete 2026 Playbook</h1>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>Email marketing returns $36 for every $1 spent — if you do it right</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Email is the highest-ROI marketing channel that exists. The Data & Marketing Association consistently reports returns of $36 for every dollar invested. Yet most laundromat owners either skip email entirely or send the occasional blast with no strategy behind it.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>The difference between laundromats that generate real revenue from email and those that don't comes down to three things: having a list, segmenting it properly, and automating the right sequences. This playbook covers all three.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>Building your email and SMS list</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>You can't send emails without contacts. The good news is you're probably sitting on a goldmine of customer data in your POS system. Cents, LaundroWorks, and CCI all capture customer information that can be imported into a <a href='/services/crm' style={{color:'#2B7FFF'}}>CRM</a> and used for marketing.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Beyond your POS, there are several ways to grow your list daily: QR codes at the counter and on machines, a sign-up offer on your website (like 'Get 20% off your first wash & fold'), review request flows that also capture emails, and your AI chatbot collecting contact info during conversations.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>One of our clients went from 200 contacts to over 1,800 in four months just by connecting their POS and adding QR codes.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>The 4 email sequences every laundromat needs</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}><strong>1. Welcome sequence.</strong> When someone becomes a new customer, they should receive 3-5 messages over their first two weeks. Introduce your services, share tips, offer an incentive for their next visit, and ask for a review. This is where you turn one-time visitors into regulars.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}><strong>2. Win-back campaign.</strong> Automatically identify customers who haven't visited in 30, 60, or 90 days and send them a personalized offer. This is the single most profitable email you can send — re-engaging lapsed customers costs a fraction of acquiring new ones.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}><strong>3. Promotional blasts.</strong> Holiday specials, seasonal offers, flash sales. Send these to your full list or targeted segments 1-2 times per month. The key is making the offer specific and time-limited.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}><strong>4. Review request.</strong> After each visit, an automated SMS asks the customer to leave a Google review with a one-tap link. This builds your <a href='/services/google-reviews' style={{color:'#2B7FFF'}}>Google review count</a> on autopilot.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>SMS vs email: use both, but differently</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>SMS has a 98% open rate compared to 20-25% for email. That makes it perfect for time-sensitive messages: flash sales, appointment reminders, delivery confirmations. People read texts within 3 minutes on average.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Email is better for longer content: welcome sequences, educational tips, detailed promotions with multiple offers. It's also cheaper to send at scale.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>The smartest approach is using both together. SMS for urgency and short messages. Email for nurture sequences and detailed content. Our <a href='/services/email-sms' style={{color:'#2B7FFF'}}>email and SMS marketing service</a> handles both channels as one integrated system.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>Segmentation: stop sending the same message to everyone</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Sending the same email to your entire list is the fastest way to get unsubscribes. A VIP customer who visits weekly needs a different message than someone who hasn't been in 60 days.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>At minimum, segment your list into: New customers (first 30 days), Regular visitors (monthly+), VIPs (weekly visitors or high spenders), At-risk (haven't visited in 30-60 days), and Lapsed (60+ days). Each group gets different messaging, different offers, and different frequency.</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>This sounds complicated but it's fully automated once set up. The CRM handles segmentation based on visit data from your POS.</p>
+        <h2 style={{fontSize:22,fontWeight:800,color:"#fff",marginTop:40,marginBottom:14}}>Measuring what works</h2>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>Track these metrics for every campaign: open rate (aim for 30-45% on SMS, 20-35% on email), click rate, conversion rate (how many people actually came in or booked), revenue generated, and unsubscribe rate (keep below 1%).</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.75,marginBottom:18}}>The most important metric is revenue per email sent. If you're sending 1,000 emails and generating $2,000 in trackable revenue, that's $2 per email — a very healthy return that compounds with every send.</p>
+
+      <div style={{background:"rgba(43,127,255,0.04)",border:"1px solid rgba(43,127,255,0.15)",borderRadius:16,padding:"32px 28px",marginTop:48,textAlign:"center"}}>
+        <h3 style={{fontSize:20,fontWeight:800,color:"#fff",marginBottom:8}}>Ready to turn your customer list into revenue?</h3>
+        <p style={{fontSize:15,color:"rgba(255,255,255,0.5)",marginBottom:16,lineHeight:1.6}}>Book a free call and we'll map out an email and SMS strategy customized for your laundromat.</p>
+        <a href="/contact" style={{display:"inline-block",background:B,color:"#fff",padding:"14px 28px",borderRadius:10,fontWeight:700,fontSize:15,textDecoration:"none"}}>Schedule Your Free Audit →</a>
+      </div>
+    </article>
+    <Footer/>
+  </div>);
+}
