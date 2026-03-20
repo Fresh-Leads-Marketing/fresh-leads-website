@@ -45,51 +45,32 @@ function CalendarSection() {
   }, []);
 
   return <section style={{ background: BG2, padding: "70px 24px" }}>
-    <div style={{ maxWidth: 1300, margin: "0 auto" }}>
-      <div className="cg" style={{ display: "grid", gridTemplateColumns: "280px 1fr", gap: 40, alignItems: "start" }}>
-        <FI>
-          <div style={{ position: "sticky", top: 100 }}>
-            <h2 style={{ fontSize: 24, fontWeight: 800, color: "#fff", marginBottom: 8 }}>Book your free discovery call</h2>
-            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", lineHeight: 1.6, marginBottom: 28 }}>
-              Pick a time that works for you. In 30 minutes, we&apos;ll audit your market, review your competition, and outline a custom growth strategy for your laundromat.
-            </p>
+    <div style={{ maxWidth: 960, margin: "0 auto" }}>
+      <FI>
+        <div style={{ textAlign: "center", marginBottom: 32 }}>
+          <h2 style={{ fontSize: 26, fontWeight: 800, color: "#fff", marginBottom: 8 }}>Book your free discovery call</h2>
+          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.45)", lineHeight: 1.6, maxWidth: 500, margin: "0 auto" }}>
+            Pick a time that works for you. In 30 minutes, we&apos;ll audit your market, review your competition, and outline a custom growth plan.
+          </p>
+        </div>
+      </FI>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              {[
-                ["\u23F1\uFE0F", "30 minutes", "Quick, focused, and actionable"],
-                ["\uD83D\uDCCA", "Market audit", "We research your area before the call"],
-                ["\uD83C\uDFAF", "Custom strategy", "You\u2019ll leave with a clear plan"],
-                ["\uD83D\uDCB0", "100% free", "No commitment, no pressure"],
-              ].map(([icon, title, sub], i) => (
-                <div key={i} style={{ display: "flex", gap: 12, alignItems: "center" }}>
-                  <span style={{ fontSize: 18 }}>{icon}</span>
-                  <div>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: "rgba(255,255,255,0.7)" }}>{title}</div>
-                    <div style={{ fontSize: 12, color: "rgba(255,255,255,0.35)" }}>{sub}</div>
-                  </div>
-                </div>
-              ))}
+      <FI delay={0.1}>
+        <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "4px", overflow: "hidden", minHeight: 700 }}>
+          {mounted ? (
+            <iframe
+              src="https://link.freshleadsmarketing.com/widget/booking/fTHzSQY7rRoHcQPNC9NV"
+              style={{ width: "100%", minHeight: 700, border: "none", overflow: "hidden", borderRadius: 12, background: "#fff" }}
+              scrolling="no"
+              id="fTHzSQY7rRoHcQPNC9NV_1773990578915"
+            />
+          ) : (
+            <div style={{ width: "100%", minHeight: 700, borderRadius: 12, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ color: "#999", fontSize: 14 }}>Loading calendar...</div>
             </div>
-          </div>
-        </FI>
-
-        <FI delay={0.1}>
-          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "4px", overflow: "hidden", minHeight: 750 }}>
-            {mounted ? (
-              <iframe
-                src="https://link.freshleadsmarketing.com/widget/booking/fTHzSQY7rRoHcQPNC9NV"
-                style={{ width: "100%", minHeight: 750, border: "none", overflow: "hidden", borderRadius: 12, background: "#fff" }}
-                scrolling="no"
-                id="fTHzSQY7rRoHcQPNC9NV_1773990578915"
-              />
-            ) : (
-              <div style={{ width: "100%", minHeight: 750, borderRadius: 12, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ color: "#999", fontSize: 14 }}>Loading calendar...</div>
-              </div>
-            )}
-          </div>
-        </FI>
-      </div>
+          )}
+        </div>
+      </FI>
     </div>
 
     {mounted && (
