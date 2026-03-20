@@ -230,7 +230,7 @@ function Newsletter() {
 function Footer() {
   return <footer style={{ background: BG, padding: "36px 24px 24px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
     <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 28 }}>
-      <div><Logo /><p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", maxWidth: 220, lineHeight: 1.5, marginTop: 10 }}>The #1 laundromat marketing agency.</p></div>
+      <div><Logo /><p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", maxWidth: 220, lineHeight: 1.5, marginTop: 10 }}>Built exclusively for laundromats.</p></div>
       <div style={{ display: "flex", gap: 36 }}>
         <div><p style={{ fontSize: 10, fontWeight: 700, color: "rgba(255,255,255,0.25)", letterSpacing: ".06em", textTransform: "uppercase", marginBottom: 8 }}>Pages</p>{["Home", "Services", "About", "Blog", "Contact"].map(s => <a key={s} href={s==="Home"?"/":s==="Services"?"/services":s==="About"?"/about":s==="Blog"?"/blog":s==="Contact"?"/contact":"#"} style={{ display: "block", fontSize: 12, color: "rgba(255,255,255,0.4)", textDecoration: "none", marginBottom: 5 }}>{s}</a>)}</div>
         <div><p style={{ fontSize: 10, fontWeight: 700, color: "rgba(255,255,255,0.25)", letterSpacing: ".06em", textTransform: "uppercase", marginBottom: 8 }}>Topics</p>{["Advertising", "Email & SMS", "AI Tools", "Reviews", "Strategy"].map(s => <a key={s} href={s==="Home"?"/":s==="Services"?"/services":s==="About"?"/about":s==="Blog"?"/blog":s==="Contact"?"/contact":"#"} style={{ display: "block", fontSize: 12, color: "rgba(255,255,255,0.4)", textDecoration: "none", marginBottom: 5 }}>{s}</a>)}</div>

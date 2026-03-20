@@ -39,7 +39,7 @@ function Hero() {
           A marketing agency <span style={{ color: B }}>built for laundromats</span>
         </h1>
         <p style={{ fontSize: 17, color: "rgba(255,255,255,0.5)", maxWidth: 540, margin: "0 auto", lineHeight: 1.6 }}>
-          20+ years of marketing experience. 125+ laundromats served across the United States. One mission: help laundromat owners grow.
+          150+ laundromats served across the United States.
         </p>
       </FI>
     </div>
@@ -51,7 +51,7 @@ function Stats() {
     <div style={{ maxWidth: 900, margin: "0 auto" }}>
       <FI>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14 }} className="sg">
-          {[["125+", "Laundromats served"], ["48", "States covered"], ["20+", "Years experience"], ["6", "Core services"]].map(([n, l], i) => (
+          {[["150+", "Laundromats served"], ["3x", "Avg. client ROI"], ["6", "Integrated services"], ["24/7", "AI-powered support"]].map(([n, l], i) => (
             <div key={i} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "28px 20px", textAlign: "center" }}>
               <div style={{ fontSize: 30, fontWeight: 800, color: B }}>{n}</div>
               <div style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", fontWeight: 550, marginTop: 4 }}>{l}</div>
@@ -70,12 +70,12 @@ function Story() {
         <FI>
           <div>
             <p style={{ color: B, fontWeight: 700, fontSize: 13, letterSpacing: ".07em", textTransform: "uppercase", marginBottom: 10 }}>Why we exist</p>
-            <h2 style={{ fontSize: "clamp(24px,3vw,34px)", fontWeight: 800, color: "#fff", marginBottom: 16, lineHeight: 1.15 }}>We saw laundromat owners getting bad marketing advice</h2>
+            <h2 style={{ fontSize: "clamp(24px,3vw,34px)", fontWeight: 800, color: "#fff", marginBottom: 16, lineHeight: 1.15 }}>We saw laundromat owners getting bad marketing advice.</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 14 }}>
-              Most marketing agencies treat laundromats like any other local business — they run the same generic ads, use the same cookie-cutter funnels, and copy-paste strategies from restaurants and retail. It doesn't work. Laundromats have unique customer behavior, different revenue models, and specific competitive dynamics.
+              Most marketing agencies treat laundromats like any other local business. They run the same generic ads, use the same cookie-cutter funnels, and copy-paste strategies from restaurants and retail. It doesn't work. Laundromats have unique customer behavior, different revenue models, and specific competitive dynamics.
             </p>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.7 }}>
-              We built Fresh Leads to fix that. Every strategy we use, every AI tool we deploy, and every campaign we run was developed specifically for the laundry industry — tested across 125+ laundromats in markets ranging from dense urban neighborhoods to suburban strip malls.
+              We built Fresh Leads to fix that. Every strategy we use, every AI tool we deploy, and every campaign we run was developed specifically for the laundry industry. Tested across 125+ laundromats in markets ranging from dense urban neighborhoods to suburban strip malls.
             </p>
           </div>
         </FI>
@@ -84,10 +84,10 @@ function Story() {
             <p style={{ color: B, fontWeight: 700, fontSize: 13, letterSpacing: ".07em", textTransform: "uppercase", marginBottom: 10 }}>What makes us different</p>
             <h2 style={{ fontSize: "clamp(24px,3vw,34px)", fontWeight: 800, color: "#fff", marginBottom: 16, lineHeight: 1.15 }}>We only work with laundromats</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 14 }}>
-              This isn't a side offering. We don't do restaurants on Monday and laundromats on Tuesday. 100% of our focus, research, and innovation goes into helping laundromat owners grow. That means we understand your POS systems, your customer lifecycle, your seasonal patterns, and your competition better than any generalist agency ever could.
+              This isn't a side offering. We don't do restaurants on Monday and laundromats on Tuesday. 100% of our focus, research, and innovation goes into helping laundromat owners grow. That means we understand your POS systems, your customer lifecycle, your seasonal patterns, and your competition better than any generalist agency could.
             </p>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.7 }}>
-              When you work with us, you get a team that already knows your industry inside and out — so we can skip the learning curve and start driving results from week one.
+              When you work with us, you get a team that already knows your industry inside and out. So we can skip the learning curve and start driving results from week one.
             </p>
           </div>
         </FI>
@@ -101,7 +101,7 @@ function Expertise() {
     ["📍", "Geo-fencing & paid ads", "Deep expertise in Facebook, Instagram, and Google ad platforms with geo-targeting specifically optimized for local laundromat markets."],
     ["🤖", "AI & automation", "We build and deploy custom AI chatbots, voice bots, and automated marketing workflows that save you time and capture more leads."],
     ["📊", "Data & CRM", "We integrate with your laundry software to build a single source of truth for customer data, enabling smarter marketing decisions."],
-    ["📱", "Customer retention", "Automated email and SMS sequences that keep customers coming back — the most cost-effective way to grow revenue."],
+    ["📱", "Customer retention", "Automated email and SMS sequences that keep customers coming back. The most cost-effective way to grow revenue."],
     ["📧", "B2B sales", "Systematic outreach to commercial accounts (hotels, gyms, salons) that generates a steady pipeline of high-value contracts."],
     ["⭐", "Reputation management", "Review generation systems that boost your Google Maps ranking and build the trust new customers need to choose you."],
   ];
@@ -114,10 +114,10 @@ function Expertise() {
           <h2 style={{ fontSize: "clamp(26px,3.5vw,36px)", fontWeight: 800, color: "#fff" }}>Built for every part of laundromat growth</h2>
         </div>
       </FI>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 14 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14 }} className="eg">
         {items.map(([icon, title, desc], i) => (
           <FI key={i} delay={i * 0.04}>
-            <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "24px 22px", display: "flex", flexDirection: "column", minHeight: 150 }}>
+            <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "24px 22px", display: "flex", flexDirection: "column", minHeight: 150, height: "100%" }}>
               <span style={{ fontSize: 22 }}>{icon}</span>
               <h3 style={{ fontSize: 15, fontWeight: 720, color: "#fff", marginTop: 10, marginBottom: 6 }}>{title}</h3>
               <p style={{ fontSize: 13.5, color: "rgba(255,255,255,0.45)", lineHeight: 1.6, flex: 1 }}>{desc}</p>
@@ -139,10 +139,10 @@ function Approach() {
         </div>
       </FI>
       {[
-        ["We manage everything", "You don't need to become a marketing expert. We handle strategy, execution, optimization, and reporting. You focus on running your laundromat — we focus on filling it with customers."],
+        ["We manage everything", "You don't need to become a marketing expert. We handle strategy, execution, optimization, and reporting. You focus on running your laundromat while we focus on filling it with customers."],
         ["Data drives every decision", "No guesswork, no hunches. Every campaign adjustment, every budget allocation, and every new strategy is backed by real performance data from your market."],
-        ["We think long-term", "Quick wins are great, but we build systems that compound over time. Your CRM database grows, your review count climbs, your email list expands — creating a marketing engine that gets stronger every month."],
-        ["Full transparency, always", "Monthly reports with clear metrics. A real-time dashboard you can check anytime. And a team that picks up the phone when you call. No black boxes, no vanity metrics — just honest results."],
+        ["We think long-term", "Quick wins are great, but we build systems that compound over time. Your CRM database grows, your review count climbs, your email list expands. This creates a marketing engine that gets stronger every month."],
+        ["Full transparency, always", "Monthly reports with clear metrics. A real-time dashboard you can check anytime. And a team that picks up the phone when you call. No black boxes, no vanity metrics. Just honest results."],
       ].map(([title, desc], i) => (
         <FI key={i} delay={i * 0.06}>
           <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 14, padding: "24px 28px", marginBottom: 12, display: "flex", gap: 18, alignItems: "flex-start" }}>
@@ -181,7 +181,7 @@ function CTA() {
     <div style={{ maxWidth: 700, margin: "0 auto" }}>
       <FI><div style={{ background: "linear-gradient(135deg, rgba(43,127,255,0.1), rgba(43,127,255,0.03))", border: "1px solid rgba(43,127,255,0.18)", borderRadius: 20, padding: "clamp(36px,6vw,60px) clamp(24px,5vw,44px)", textAlign: "center" }}>
         <h2 style={{ fontSize: "clamp(24px,4vw,36px)", fontWeight: 800, color: "#fff", marginBottom: 12, lineHeight: 1.15 }}>Want to work with us?</h2>
-        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", maxWidth: 420, margin: "0 auto 24px", lineHeight: 1.6 }}>Schedule a free discovery call — no commitment, no pressure. Just a conversation about growing your laundromat.</p>
+        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", maxWidth: 420, margin: "0 auto 24px", lineHeight: 1.6 }}>Schedule a free discovery call. No commitment, no pressure. Just a conversation about growing your laundromat.</p>
         <a href="/contact" style={{ display: "inline-block", background: B, color: "#fff", padding: "14px 30px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)" }}>Schedule a Call →</a>
       </div></FI>
     </div>
@@ -191,7 +191,7 @@ function CTA() {
 function Footer() {
   return <footer style={{ background: BG, padding: "36px 24px 24px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
     <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 28 }}>
-      <div><Logo /><p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", maxWidth: 220, lineHeight: 1.5, marginTop: 10 }}>The #1 laundromat marketing agency.</p></div>
+      <div><Logo /><p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", maxWidth: 220, lineHeight: 1.5, marginTop: 10 }}>Built exclusively for laundromats.</p></div>
     </div>
     <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", marginTop: 20, paddingTop: 14, fontSize: 11, color: "rgba(255,255,255,0.2)" }}>© 2026 Fresh Leads Marketing</div>
   </footer>;
@@ -199,12 +199,6 @@ function Footer() {
 
 export default function AboutPage() {
   return <div style={{ fontFamily: "'DM Sans', -apple-system, sans-serif", background: BG, minHeight: "100vh" }}>
-    <style>{`
-      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
-      *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:#07090D;overflow-x:hidden}
-      ::selection{background:rgba(43,127,255,0.25)}
-      @media(max-width:768px){.dn{display:none!important}.ag,.sg{grid-template-columns:1fr!important}}
-    `}</style>
     <Nav />
     <Hero />
     <Stats />

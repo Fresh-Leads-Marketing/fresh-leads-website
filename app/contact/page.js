@@ -45,7 +45,7 @@ function CalendarSection() {
   }, []);
 
   return <section style={{ background: BG2, padding: "70px 24px" }}>
-    <div style={{ maxWidth: 960, margin: "0 auto" }}>
+    <div style={{ maxWidth: 1100, margin: "0 auto" }}>
       <FI>
         <div style={{ textAlign: "center", marginBottom: 32 }}>
           <h2 style={{ fontSize: 26, fontWeight: 800, color: "#fff", marginBottom: 8 }}>Book your free discovery call</h2>
@@ -83,6 +83,37 @@ function CalendarSection() {
 }
 
 function ContactForm() {
+  const [status, setStatus] = useState("idle");
+  const [form, setForm] = useState({ name: "", email: "", laundromat: "", locations: "", services: "" });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("sending");
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/ryan@freshleadsmarketing.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          laundromat: form.laundromat,
+          locations: form.locations,
+          services: form.services,
+          _subject: "New lead from Fresh Leads website",
+          _template: "table",
+        }),
+      });
+      if (res.ok) { setStatus("sent"); setForm({ name: "", email: "", laundromat: "", locations: "", services: "" }); }
+      else setStatus("error");
+    } catch { setStatus("error"); }
+  };
+
+  const inputStyle = {
+    width: "100%", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)",
+    borderRadius: 9, padding: "11px 14px", color: "#fff", fontSize: 14,
+    fontFamily: "'DM Sans', sans-serif", outline: "none",
+  };
+
   return <section style={{ background: BG, padding: "70px 24px" }}>
     <div style={{ maxWidth: 600, margin: "0 auto" }}>
       <FI>
@@ -91,36 +122,39 @@ function ContactForm() {
           <p style={{ fontSize: 14, color: "rgba(255,255,255,0.4)" }}>Fill out the form and we&apos;ll get back to you within 24 hours.</p>
         </div>
 
-        {[
-          ["Full name", "text", "John Smith"],
-          ["Email", "email", "john@mylaundromat.com"],
-          ["Laundromat name", "text", "Smith's Cleaners"],
-          ["How many locations?", "text", "1"],
-        ].map(([label, type, placeholder], i) => (
-          <div key={i} style={{ marginBottom: 14 }}>
-            <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 5 }}>{label}</label>
-            <input type={type} placeholder={placeholder} style={{
-              width: "100%", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)",
-              borderRadius: 9, padding: "11px 14px", color: "#fff", fontSize: 14,
-              fontFamily: "'DM Sans', sans-serif", outline: "none",
-            }} />
+        {status === "sent" ? (
+          <div style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)", borderRadius: 12, padding: "28px 24px", textAlign: "center" }}>
+            <p style={{ fontSize: 16, fontWeight: 700, color: "#22C55E", marginBottom: 6 }}>Message sent!</p>
+            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)" }}>We&apos;ll get back to you within 24 hours.</p>
           </div>
-        ))}
+        ) : (
+          <form onSubmit={handleSubmit}>
+            {[
+              ["Full name", "text", "John Smith", "name"],
+              ["Email", "email", "john@mylaundromat.com", "email"],
+              ["Laundromat name", "text", "Smith's Cleaners", "laundromat"],
+              ["How many locations?", "text", "1", "locations"],
+            ].map(([label, type, placeholder, key], i) => (
+              <div key={i} style={{ marginBottom: 14 }}>
+                <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 5 }}>{label}</label>
+                <input type={type} placeholder={placeholder} required={i < 2} value={form[key]} onChange={e => setForm({ ...form, [key]: e.target.value })} style={inputStyle} />
+              </div>
+            ))}
 
-        <div style={{ marginBottom: 14 }}>
-          <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 5 }}>What services are you interested in?</label>
-          <textarea placeholder="Tell us about your goals..." style={{
-            width: "100%", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)",
-            borderRadius: 9, padding: "11px 14px", color: "#fff", fontSize: 14, minHeight: 100,
-            fontFamily: "'DM Sans', sans-serif", outline: "none", resize: "vertical",
-          }} />
-        </div>
+            <div style={{ marginBottom: 14 }}>
+              <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 5 }}>What services are you interested in?</label>
+              <textarea placeholder="Tell us about your goals..." value={form.services} onChange={e => setForm({ ...form, services: e.target.value })} style={{ ...inputStyle, minHeight: 100, resize: "vertical" }} />
+            </div>
 
-        <button style={{
-          width: "100%", background: B, color: "#fff", padding: "13px", borderRadius: 10,
-          border: "none", fontWeight: 700, fontSize: 15, cursor: "pointer",
-          fontFamily: "'DM Sans', sans-serif", boxShadow: "0 2px 16px rgba(43,127,255,0.3)",
-        }}>Send Message &rarr;</button>
+            <button type="submit" disabled={status === "sending"} style={{
+              width: "100%", background: status === "sending" ? "rgba(43,127,255,0.5)" : B, color: "#fff", padding: "13px", borderRadius: 10,
+              border: "none", fontWeight: 700, fontSize: 15, cursor: status === "sending" ? "not-allowed" : "pointer",
+              fontFamily: "'DM Sans', sans-serif", boxShadow: "0 2px 16px rgba(43,127,255,0.3)",
+            }}>{status === "sending" ? "Sending..." : "Send Message \u2192"}</button>
+
+            {status === "error" && <p style={{ color: "#EF4444", fontSize: 13, marginTop: 10, textAlign: "center" }}>Something went wrong. Please try again or email us directly.</p>}
+          </form>
+        )}
       </FI>
     </div>
   </section>;
@@ -151,7 +185,7 @@ function Info() {
 function Footer() {
   return <footer style={{ background: BG, padding: "36px 24px 24px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
     <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 28 }}>
-      <div><Logo /><p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", maxWidth: 220, lineHeight: 1.5, marginTop: 10 }}>The #1 laundromat marketing agency.</p></div>
+      <div><Logo /><p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", maxWidth: 220, lineHeight: 1.5, marginTop: 10 }}>Built exclusively for laundromats.</p></div>
     </div>
     <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", marginTop: 20, paddingTop: 14, fontSize: 11, color: "rgba(255,255,255,0.2)" }}>&copy; 2026 Fresh Leads Marketing</div>
   </footer>;

@@ -63,8 +63,8 @@ function EmailGraphic() {
     <text x="36" y="100" fill="rgba(255,255,255,0.5)" fontSize="8" fontWeight="600" fontFamily="sans-serif">Welcome! Your first fold is free</text>
     <text x="36" y="115" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="sans-serif">Email · New customer sequence</text>
     <rect x="20" y="140" width="200" height="50" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" />
-    <text x="36" y="160" fill="rgba(255,255,255,0.5)" fontSize="8" fontWeight="600" fontFamily="sans-serif">Holiday special: Free pickup today!</text>
-    <text x="36" y="175" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="sans-serif">SMS · Promo blast</text>
+    <text x="36" y="160" fill="rgba(255,255,255,0.5)" fontSize="8" fontWeight="600" fontFamily="sans-serif">Your loyalty reward is ready!</text>
+    <text x="36" y="175" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="sans-serif">SMS · Loyalty program</text>
     <rect x="250" y="30" width="90" height="60" rx="10" fill="rgba(43,127,255,0.06)" stroke="rgba(43,127,255,0.12)" />
     <text x="295" y="56" textAnchor="middle" fill={B} fontSize="20" fontWeight="800" fontFamily="sans-serif">42%</text>
     <text x="295" y="74" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="sans-serif">Open rate</text>
@@ -115,7 +115,7 @@ function CRMGraphic() {
         <text x="304" y={90 + i * 44} textAnchor="middle" fill={tag === "VIP" ? B : tag === "At risk" ? "#EF4444" : "rgba(255,255,255,0.4)"} fontSize="7" fontWeight="600" fontFamily="sans-serif">{tag}</text>
       </g>
     ))}
-    <text x="180" y="250" textAnchor="middle" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="sans-serif">Syncs with Cents · LaundroWorks · CCI</text>
+    <text x="180" y="250" textAnchor="middle" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="sans-serif">Syncs with most laundry systems via API</text>
   </svg>;
 }
 
@@ -143,7 +143,7 @@ function ReviewGraphic() {
     <rect x="80" y="20" width="200" height="70" rx="12" fill="rgba(43,127,255,0.05)" stroke="rgba(43,127,255,0.1)" />
     <text x="180" y="46" textAnchor="middle" fill={B} fontSize="28" fontWeight="800" fontFamily="sans-serif">4.8</text>
     <text x="140" y="68" fill="#F59E0B" fontSize="12" fontFamily="sans-serif">★ ★ ★ ★ ★</text>
-    <text x="208" y="68" fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="sans-serif">247 reviews</text>
+    <text x="218" y="68" fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="sans-serif">247 reviews</text>
     {[["Great service, super clean!", "Maria G. · ★★★★★"], ["Best laundromat in town", "James R. · ★★★★★"], ["Fast pickup & delivery!", "Lisa M. · ★★★★★"]].map(([text, author], i) => (
       <g key={i}>
         <rect x="20" y={104 + i * 44} width="320" height="36" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" />
@@ -156,12 +156,12 @@ function ReviewGraphic() {
 }
 
 const SVC = [
-  { icon: "📍", t: "Geo-Fencing Ads", s: "Facebook & Google", desc: "We draw a virtual boundary around your laundromat — and your competitors — then show targeted ads to everyone inside that zone on Facebook, Instagram, and Google. When someone drives past a competitor or enters your neighborhood, they see your offer. We manage everything: ad creative, copy, targeting, bidding, and optimization. You just watch the foot traffic grow.", q: "How much do I need to spend on ads?", a: "Most clients start with $500-1,500/month in ad spend and see positive ROI within the first 30 days. We'll recommend a budget based on your market and competition.", graphic: <GeoGraphic /> },
-  { icon: "📱", t: "Email & SMS Marketing", s: "Customer re-engagement", desc: "We build automated campaigns that run in the background 24/7 — sending the right message to the right customer at the right time. Lapsed customers get 'we miss you' offers. New customers get welcome sequences. Everyone gets seasonal promos. You don't have to think about it — we handle list building, segmentation, copywriting, and deliverability.", q: "Don't my customers already get too many emails?", a: "The key is relevance. A well-timed 'we miss you' text with a 20% off code to someone who hasn't visited in 30 days doesn't feel like spam — it feels like a personal invitation.", graphic: <EmailGraphic /> },
-  { icon: "🤖", t: "AI Chatbot & Voice Bot", s: "24/7 automated support", desc: "Your website and phone become lead-capturing machines. The AI chatbot handles website visitors, Facebook messages, and Instagram DMs — answering questions, sharing hours and pricing, and booking appointments instantly. The voice bot picks up your phone calls, qualifies leads, and sounds completely natural. Both are trained specifically on your laundromat's services and information.", q: "Will it sound robotic or weird to my customers?", a: "Not at all. We custom-train both bots on your specific business. The voice bot sounds like a friendly receptionist, and the chatbot feels like texting with a helpful staff member.", graphic: <AIGraphic /> },
-  { icon: "📊", t: "Custom CRM", s: "Centralized customer data", desc: "Every customer touchpoint in one place — synced automatically from your POS system. See who's visited, how often, what they spent, whether they left a review, and where they are in your marketing funnel. Segment your customer base by behavior (VIP, at-risk, new) and trigger automated campaigns to each group. No more guessing who your best customers are.", q: "Does it work with my current laundry software?", a: "Yes — we integrate directly with Cents, LaundroWorks, and CCI. Your customer data flows in automatically with no manual entry needed.", graphic: <CRMGraphic /> },
-  { icon: "📧", t: "B2B Cold Outreach", s: "Commercial accounts", desc: "We find hotels, gyms, Airbnbs, spas, and salons in your area that need commercial laundry services — then reach out on your behalf with personalized email sequences. We handle the research, list building, copywriting, sending, and reply management. You just show up to the meetings we book. Most clients land their first commercial contract within 60 days.", q: "I've tried cold emailing before and it didn't work.", a: "Generic blasts don't work. We send personalized, multi-step sequences to researched prospects at the right companies. It's targeted outreach, not mass spam — and our response rates prove it.", graphic: <B2BGraphic /> },
-  { icon: "⭐", t: "Google Reviews", s: "Reputation management", desc: "After every customer visit, we automatically send an SMS asking them to leave a Google review — with a direct one-tap link that makes it effortless. We follow up with customers who don't respond the first time. Your review count climbs, your star rating stays high, and your Google Maps ranking improves — which means more people find you when they search 'laundromat near me.'", q: "What if someone leaves a bad review?", a: "You'll get an instant alert so you can respond quickly. We also help you craft professional responses that show potential customers you care about feedback and take action.", graphic: <ReviewGraphic /> },
+  { icon: "📍", t: "Geo-Fencing Ads", s: "Facebook & Google", desc: "We draw a virtual boundary around your laundromat and your competitors, then show targeted ads to everyone inside that zone on Facebook, Instagram, and Google. When someone drives past a competitor or enters your neighborhood, they see your offer. We manage everything: ad creative, copy, targeting, bidding, and optimization. You just watch the foot traffic grow.", q: "How much do I need to spend on ads?", a: "Most laundromats start with $300 to $1,000 a month in advertising and see positive ROI within the first 30 days. We'll recommend a budget based on your market and competition.", graphic: <GeoGraphic /> },
+  { icon: "📱", t: "Email & SMS Marketing", s: "Customer re-engagement", desc: "We build automated campaigns that run in the background 24/7, sending the right message to the right customer at the right time. Lapsed customers get 'we miss you' offers. New customers get welcome sequences. You don't have to think about it. We handle list building, segmentation, copywriting, and deliverability.", q: "Don't my customers already get too many emails?", a: "The key is relevance. A well-timed 'we miss you' text with a 20% off code to someone who hasn't visited in 30 days doesn't feel like spam. It feels like a personal invitation.", graphic: <EmailGraphic /> },
+  { icon: "🤖", t: "AI Chatbot & Voice Bot", s: "24/7 automated support", desc: "Your website and phone become lead-capturing machines. The AI chatbot handles website visitors, Facebook messages, and Instagram DMs. It answers questions, shares hours and pricing, and books appointments instantly. The voice bot picks up your phone calls, qualifies leads, and sounds completely natural. Both are trained specifically on your laundromat's services and information.", q: "Will it sound robotic or weird to my customers?", a: "Not at all. We custom-train both bots on your specific business. The voice bot sounds like a friendly receptionist, and the chatbot feels like texting with a helpful staff member.", graphic: <AIGraphic /> },
+  { icon: "📊", t: "Custom CRM", s: "Centralized customer data", desc: "Every customer touchpoint in one place, synced automatically from your POS system. See who's visited, how often, what they spent, whether they left a review, and where they are in your marketing funnel. Segment your customer base by behavior (VIP, at-risk, new) and trigger automated campaigns to each group. No more guessing who your best customers are.", q: "Does it work with my current laundry software?", a: "We can pull data from most laundry systems that have an API. Your customer data flows in automatically with no manual entry needed.", graphic: <CRMGraphic /> },
+  { icon: "📧", t: "B2B Cold Outreach", s: "Commercial accounts", desc: "We find hotels, gyms, Airbnbs, spas, and salons in your area that need commercial laundry services, then reach out on your behalf with personalized email sequences. We handle the research, list building, copywriting, sending, and reply management. When a prospect replies, the conversation goes straight to you to close the deal. We also continuously warm up your sending domains so your emails land in inboxes, not spam folders. Most clients land their first commercial contract within 60 days.", q: "I've tried cold emailing before and it didn't work.", a: "Generic blasts don't work. We send personalized, multi-step sequences to researched prospects at the right companies. It's targeted outreach, not mass spam. Our response rates prove it.", graphic: <B2BGraphic /> },
+  { icon: "⭐", t: "Google Reviews", s: "Reputation management", desc: "After every customer visit, we automatically send an SMS asking them to leave a Google review with a direct one-tap link that makes it effortless. We follow up with customers who don't respond the first time. Your review count climbs, your star rating stays high, and your Google Maps ranking improves, which means more people find you when they search 'laundromat near me.'", q: "What if someone leaves a bad review?", a: "You'll get an instant alert so you can respond quickly. We also help you craft professional responses that show potential customers you care about feedback and take action.", graphic: <ReviewGraphic /> },
 ];
 
 function ServiceBlock({ svc, idx }) {
@@ -207,7 +207,7 @@ function PageHero() {
           Laundromat marketing that <span style={{ color: B }}>actually works</span>
         </h1>
         <p style={{ fontSize: 17, color: "rgba(255,255,255,0.5)", maxWidth: 560, margin: "0 auto", lineHeight: 1.6 }}>
-          Every service is purpose-built for the laundry industry. No generic playbooks — just proven systems that drive foot traffic and revenue.
+          Every service is purpose-built for the laundry industry. No generic playbooks. Just proven systems that drive foot traffic and revenue.
         </p>
       </FI>
     </div>
@@ -219,7 +219,7 @@ function CTA() {
     <div style={{ maxWidth: 700, margin: "0 auto" }}>
       <FI><div style={{ background: "linear-gradient(135deg, rgba(43,127,255,0.1), rgba(43,127,255,0.03))", border: "1px solid rgba(43,127,255,0.18)", borderRadius: 20, padding: "clamp(36px,6vw,60px) clamp(24px,5vw,44px)", textAlign: "center" }}>
         <h2 style={{ fontSize: "clamp(24px,4vw,36px)", fontWeight: 800, color: "#fff", marginBottom: 12, lineHeight: 1.15 }}>Ready to grow your laundromat?</h2>
-        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", maxWidth: 420, margin: "0 auto 24px", lineHeight: 1.6 }}>Book a free discovery call — we'll audit your market and build a custom growth plan.</p>
+        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", maxWidth: 420, margin: "0 auto 24px", lineHeight: 1.6 }}>Book a free discovery call. We'll audit your market and build a custom growth plan.</p>
         <a href="/contact" style={{ display: "inline-block", background: B, color: "#fff", padding: "14px 30px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)" }}>Schedule Your Discovery Call →</a>
       </div></FI>
     </div>
@@ -229,7 +229,7 @@ function CTA() {
 function Footer() {
   return <footer style={{ background: BG, padding: "36px 24px 24px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
     <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 28 }}>
-      <div><Logo /><p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", maxWidth: 220, lineHeight: 1.5, marginTop: 10 }}>The #1 laundromat marketing agency.</p></div>
+      <div><Logo /><p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", maxWidth: 220, lineHeight: 1.5, marginTop: 10 }}>Built exclusively for laundromats.</p></div>
     </div>
     <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", marginTop: 20, paddingTop: 14, fontSize: 11, color: "rgba(255,255,255,0.2)" }}>© 2026 Fresh Leads Marketing</div>
   </footer>;
@@ -237,12 +237,6 @@ function Footer() {
 
 export default function ServicesPage() {
   return <div style={{ fontFamily: "'DM Sans', -apple-system, sans-serif", background: BG, minHeight: "100vh" }}>
-    <style>{`
-      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
-      *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:#07090D;overflow-x:hidden}
-      ::selection{background:rgba(43,127,255,0.25)}
-      @media(max-width:768px){.dn{display:none!important}.sg{grid-template-columns:1fr!important}}
-    `}</style>
     <Nav />
     <PageHero />
     {SVC.map((svc, i) => <ServiceBlock key={i} svc={svc} idx={i} />)}
