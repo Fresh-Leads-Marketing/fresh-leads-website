@@ -45,12 +45,12 @@ function CalendarSection() {
   }, []);
 
   return <section style={{ background: BG2, padding: "70px 24px" }}>
-    <div style={{ maxWidth: 1000, margin: "0 auto" }}>
-      <div className="cg" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "start" }}>
+    <div style={{ maxWidth: 1300, margin: "0 auto" }}>
+      <div className="cg" style={{ display: "grid", gridTemplateColumns: "280px 1fr", gap: 40, alignItems: "start" }}>
         <FI>
-          <div>
-            <h2 style={{ fontSize: 26, fontWeight: 800, color: "#fff", marginBottom: 8 }}>Book your free discovery call</h2>
-            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.45)", lineHeight: 1.6, marginBottom: 28 }}>
+          <div style={{ position: "sticky", top: 100 }}>
+            <h2 style={{ fontSize: 24, fontWeight: 800, color: "#fff", marginBottom: 8 }}>Book your free discovery call</h2>
+            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", lineHeight: 1.6, marginBottom: 28 }}>
               Pick a time that works for you. In 30 minutes, we&apos;ll audit your market, review your competition, and outline a custom growth strategy for your laundromat.
             </p>
 
@@ -74,16 +74,16 @@ function CalendarSection() {
         </FI>
 
         <FI delay={0.1}>
-          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "4px", overflow: "hidden", minHeight: 700 }}>
+          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "4px", overflow: "hidden", minHeight: 750 }}>
             {mounted ? (
               <iframe
                 src="https://link.freshleadsmarketing.com/widget/booking/fTHzSQY7rRoHcQPNC9NV"
-                style={{ width: "100%", minHeight: 700, border: "none", overflow: "hidden", borderRadius: 12, background: "#fff" }}
+                style={{ width: "100%", minHeight: 750, border: "none", overflow: "hidden", borderRadius: 12, background: "#fff" }}
                 scrolling="no"
                 id="fTHzSQY7rRoHcQPNC9NV_1773990578915"
               />
             ) : (
-              <div style={{ width: "100%", minHeight: 700, borderRadius: 12, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ width: "100%", minHeight: 750, borderRadius: 12, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <div style={{ color: "#999", fontSize: 14 }}>Loading calendar...</div>
               </div>
             )}
