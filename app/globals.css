@@ -71,7 +71,7 @@ input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
   .testimonial-card { min-width: 280px !important; max-width: 280px !important; }
 
   /* Services detail page grids */
-  .detail-grid { grid-template-columns: 1fr !important; }
+  .detail-grid, .service-layout { grid-template-columns: 1fr !important; }
 
   /* Blog post grid */
   .blog-grid { grid-template-columns: 1fr !important; }

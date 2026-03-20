@@ -5,6 +5,9 @@ export const metadata = {
     title: "FAQ | Fresh Leads Marketing",
     description: "Get answers about how Fresh Leads Marketing helps laundromats grow with geo-fencing ads, AI chatbots, CRM integration, and more.",
   },
+  alternates: {
+    canonical: "https://freshleadsmarketing.com/faq",
+  },
 };
 
 export default function FAQLayout({ children }) {
