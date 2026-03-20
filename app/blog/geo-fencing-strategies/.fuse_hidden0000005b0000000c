@@ -149,7 +149,7 @@ function Article() {
 
       <FI delay={0.05}>
         <p style={P("", 20)}>
-          Geo-fencing is one of the most powerful. And underused. tools in a laundromat owner's marketing arsenal. By creating virtual boundaries around specific locations, you can serve targeted ads to people who are physically near your business, your competitors, or high-traffic areas in your neighborhood.
+          Geo-fencing is one of the most powerful. and underused. tools in a laundromat owner's marketing arsenal. By creating virtual boundaries around specific locations, you can serve targeted ads to people who are physically near your business, your competitors, or high-traffic areas in your neighborhood.
         </p>
         <p style={P("")}>
           We've used these strategies across 125+ laundromats and consistently see 2-4x return on ad spend. Here are the 7 that work best.
@@ -164,7 +164,7 @@ function Article() {
 
         <h2 style={H2}>1. Fence your own location (the basics)</h2>
         <p style={P("")}>
-          Start with a 1-3 mile radius around your laundromat. This catches people who live, work, or commute near your location. The people most likely to become regular customers. Run a simple offer: "First wash free" or "20% off wash & fold this week."
+          Start with a 1-3 mile radius around your laundromat. This catches people who live, work, or commute near your location. the people most likely to become regular customers. Run a simple offer: "First wash free" or "20% off wash & fold this week."
         </p>
         <p style={P("")}>
           This is table stakes, but most laundromats still don't do it. If you're not running location-targeted ads around your own business, you're leaving money on the table.
@@ -172,7 +172,7 @@ function Article() {
 
         <h2 style={H2}>2. Fence your competitors</h2>
         <p style={P("")}>
-          This is where it gets interesting. You can target a zone around every competing laundromat within 5-10 miles. When someone visits a competitor, they start seeing your ads. Often with a better offer or a highlight of something you do that they don't (like pickup & delivery).
+          This is where it gets interesting. You can target a zone around every competing laundromat within 5-10 miles. When someone visits a competitor, they start seeing your ads. often with a better offer or a highlight of something you do that they don't (like pickup & delivery).
         </p>
         <p style={P("")}>
           It's legal, it's ethical, and it works. We've seen clients gain 15-20% of their new customers this way.
@@ -180,7 +180,7 @@ function Article() {
 
         <h2 style={H2}>3. Target apartment complexes</h2>
         <p style={P("")}>
-          Large apartment buildings. Especially ones without in-unit laundry. are goldmines. Draw a fence around complexes within 3 miles of your store and run ads highlighting convenience, extended hours, or free WiFi while they wait.
+          Large apartment buildings. especially ones without in-unit laundry. are goldmines. Draw a fence around complexes within 3 miles of your store and run ads highlighting convenience, extended hours, or free WiFi while they wait.
         </p>
 
         <h2 style={H2}>4. Fence colleges and universities</h2>
@@ -201,7 +201,7 @@ function Article() {
         <div style={TIP}>
           <p style={{ fontSize: 13, fontWeight: 700, color: B, marginBottom: 6 }}>📊 Real result</p>
           <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", lineHeight: 1.6, margin: 0 }}>
-            One of our clients in Phoenix added retargeting to their geo-fence campaigns and saw cost per lead drop from $8.40 to $3.20. A 62% reduction. in the first 30 days.
+            One of our clients in Phoenix added retargeting to their geo-fence campaigns and saw cost per lead drop from $8.40 to $3.20. a 62% reduction. in the first 30 days.
           </p>
         </div>
 
@@ -215,7 +215,7 @@ function Article() {
 
         <h2 style={H2}>Getting started</h2>
         <p style={P("", 24)}>
-          You can run basic geo-fencing ads yourself through Facebook and Google Ads, but the real power comes from layering multiple strategies together. Competitor fencing + retargeting + time-of-day optimization + apartment targeting. That's what turns a good campaign into a great one.
+          You can run basic geo-fencing ads yourself through Facebook and Google Ads, but the real power comes from layering multiple strategies together. competitor fencing + retargeting + time-of-day optimization + apartment targeting. That's what turns a good campaign into a great one.
         </p>
         <p style={P("", 32)}>
           If you'd rather have experts handle it, that's literally what we do. We manage geo-fencing ad campaigns for 125+ laundromats across the country and we'd love to show you what's possible in your market.

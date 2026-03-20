@@ -138,7 +138,7 @@ function Hero() {
               Email & SMS Marketing for <span style={{ color: B }}>Laundromats</span>
             </h1>
             <p style={{ fontSize: 17, color: "rgba(255,255,255,0.5)", lineHeight: 1.65, marginBottom: 28 }}>
-              Automated campaigns that bring lapsed customers back, welcome new ones, and keep your laundromat top of mind. All running 24/7 while you focus on your business.
+              Automated campaigns that bring lapsed customers back, welcome new ones, and keep your laundromat top of mind. all running 24/7 while you focus on your business.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <a href="#cta" style={{ background: B, color: "#fff", padding: "14px 26px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 2px 16px rgba(43,127,255,0.3)" }}>Get Started →</a>
@@ -183,42 +183,48 @@ function Hero() {
 function CaseStudy() {
   return (<section style={{ background: BG2, padding: "70px 24px" }}>
     <div style={{ maxWidth: 900, margin: "0 auto" }}>
-      <FI><p style={{ color: B, fontWeight: 700, fontSize: 13, letterSpacing: ".07em", textTransform: "uppercase", marginBottom: 24, textAlign: "center" }}>Why email & SMS</p></FI>
-      <div className="csg detail-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16 }}>
+      <FI><p style={{ color: B, fontWeight: 700, fontSize: 13, letterSpacing: ".07em", textTransform: "uppercase", marginBottom: 24, textAlign: "center" }}>Client results</p></FI>
+      <div className="csg detail-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <FI>
           <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "28px 26px" }}>
-            <div style={{ fontSize: 24, marginBottom: 14 }}>🔄</div>
-            <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 12 }}>Re-activate lapsed customers</h3>
-            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.6 }}>
-              Automatically find customers who haven't visited in 30, 60, or 90 days and bring them back with personalized offers.
+            <div style={{ display: "flex", gap: 3, marginBottom: 10 }}>{[1,2,3,4,5].map(s => <span key={s} style={{ color: "#F59E0B", fontSize: 12 }}>★</span>)}</div>
+            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", lineHeight: 1.65, marginBottom: 16 }}>
+              "We had 1,200 customers in our POS but weren't doing anything with them. Fresh Leads set up automated win-back campaigns and within 60 days, <span style={{ color: B, fontWeight: 700 }}>we brought back 214 lapsed customers</span> who hadn't visited in 30+ days. That's revenue we were leaving on the table every single month."
             </p>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{ width: 34, height: 34, borderRadius: 8, background: "rgba(43,127,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800, color: B }}>R</div>
+              <div><div style={{ fontSize: 13, fontWeight: 700, color: "#fff" }}>Robert L.</div><div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)" }}>BrightSpin Laundry · Denver, CO</div></div>
+            </div>
+            <div style={{ display: "flex", gap: 12, marginTop: 16, paddingTop: 16, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+              {[["Customers re-engaged", "214", "in 60 days"], ["Open rate", "38%", "SMS campaigns"], ["Revenue recovered", "$12,400+", "from lapsed customers"]].map(([l, n, s], i) => (
+                <div key={i} style={{ textAlign: "center", flex: 1 }}>
+                  <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)" }}>{l}</div>
+                  <div style={{ fontSize: 18, fontWeight: 800, color: i === 2 ? "#22C55E" : B }}>{n}</div>
+                  <div style={{ fontSize: 10, color: "rgba(255,255,255,0.2)" }}>{s}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </FI>
-        <FI delay={0.05}>
+        <FI delay={0.08}>
           <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "28px 26px" }}>
-            <div style={{ fontSize: 24, marginBottom: 14 }}>👋</div>
-            <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 12 }}>Automate welcome sequences</h3>
-            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.6 }}>
-              New customers get a 3-5 message sequence introducing your services and offering an incentive for their next visit.
+            <div style={{ display: "flex", gap: 3, marginBottom: 10 }}>{[1,2,3,4,5].map(s => <span key={s} style={{ color: "#F59E0B", fontSize: 12 }}>★</span>)}</div>
+            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", lineHeight: 1.65, marginBottom: 16 }}>
+              "The welcome sequence for new pickup & delivery customers is incredible. <span style={{ color: B, fontWeight: 700 }}>47% of first-time customers come back within 2 weeks</span> now because they get a perfectly timed follow-up with a 15% off code. Before, maybe 20% came back."
             </p>
-          </div>
-        </FI>
-        <FI delay={0.1}>
-          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "28px 26px" }}>
-            <div style={{ fontSize: 24, marginBottom: 14 }}>🎉</div>
-            <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 12 }}>Promote specials and offers</h3>
-            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.6 }}>
-              Holiday specials, seasonal offers, and flash sales to your full list or targeted segments at the perfect time.
-            </p>
-          </div>
-        </FI>
-        <FI delay={0.15}>
-          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "28px 26px" }}>
-            <div style={{ fontSize: 24, marginBottom: 14 }}>📊</div>
-            <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 12 }}>Track opens, clicks, and conversions</h3>
-            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.6 }}>
-              Every campaign includes metrics so you see what's working, what isn't, and where the revenue is coming from.
-            </p>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{ width: 34, height: 34, borderRadius: 8, background: "rgba(43,127,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800, color: B }}>A</div>
+              <div><div style={{ fontSize: 13, fontWeight: 700, color: "#fff" }}>Amanda C.</div><div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)" }}>FreshFold Laundry · Austin, TX</div></div>
+            </div>
+            <div style={{ display: "flex", gap: 12, marginTop: 16, paddingTop: 16, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+              {[["Repeat rate", "47%", "from 20%"], ["Avg. order value", "+$8.50", "with upsell sequence"], ["Unsubscribe rate", "0.4%", "below industry avg"]].map(([l, n, s], i) => (
+                <div key={i} style={{ textAlign: "center", flex: 1 }}>
+                  <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)" }}>{l}</div>
+                  <div style={{ fontSize: 18, fontWeight: 800, color: i === 0 ? B : i === 1 ? "#22C55E" : B2 }}>{n}</div>
+                  <div style={{ fontSize: 10, color: "rgba(255,255,255,0.2)" }}>{s}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </FI>
       </div>
@@ -235,9 +241,9 @@ function Campaigns() {
           ["🔄", "Win-back campaigns", "Automatically find customers who haven't visited in 30, 60, or 90 days and send a personalized offer to bring them back."],
           ["👋", "Welcome sequences", "New customers get a 3-5 message sequence introducing your services and offering an incentive for their next visit."],
           ["🎉", "Promotional blasts", "Holiday specials, seasonal offers, and flash sales to your full list or targeted segments at the perfect time."],
-          ["📅", "Recurring reminders", "Weekly or bi-weekly touchpoints that keep your laundromat top of mind. Useful tips plus soft offers."],
-          ["⭐", "Review requests", "After visits, customers automatically get an SMS asking for a Google review. Building your reputation on autopilot."],
-          ["📊", "Performance tracking", "Every campaign includes open rates, click rates, conversions, and revenue generated. So you see what's working."],
+          ["📅", "Recurring reminders", "Weekly or bi-weekly touchpoints that keep your laundromat top of mind. useful tips plus soft offers."],
+          ["⭐", "Review requests", "After visits, customers automatically get an SMS asking for a Google review. building your reputation on autopilot."],
+          ["📊", "Performance tracking", "Every campaign includes open rates, click rates, conversions, and revenue generated. so you see what's working."],
         ].map(([icon, title, desc], i) => (
           <FI key={i} delay={i * 0.05}>
             <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "24px 22px" }}>
@@ -285,10 +291,10 @@ function MidCTA() {
       <FI>
         <div style={{ background: "rgba(43,127,255,0.04)", border: "1px solid rgba(43,127,255,0.12)", borderRadius: 18, padding: "32px 28px", display: "flex", gap: 24, alignItems: "center", flexWrap: "wrap" }} className="mcta">
           <div style={{ flex: 1, minWidth: 260 }}>
-            <h3 style={{ fontSize: 18, fontWeight: 700, color: "#fff", marginBottom: 8 }}>Your POS data is a goldmine</h3>
-            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", lineHeight: 1.6, marginBottom: 0 }}>
-              We connect to your existing system, identify lapsed customers, and bring them back with automated campaigns. No manual work required.
+            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.55)", lineHeight: 1.6, marginBottom: 4, fontStyle: "italic" }}>
+              "I had no idea my POS data was so valuable. Fresh Leads turned a spreadsheet of names into $12,000+ in recovered revenue in two months."
             </p>
+            <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>- Robert L., BrightSpin Laundry, Denver CO</p>
           </div>
           <a href="#cta" style={{ background: B, color: "#fff", padding: "14px 24px", borderRadius: 10, fontWeight: 700, fontSize: 14, textDecoration: "none", boxShadow: "0 2px 14px rgba(43,127,255,0.25)", whiteSpace: "nowrap" }}>Get Your Free Audit →</a>
         </div>
@@ -307,13 +313,13 @@ function Objections() {
       </FI>
       <FI delay={0.05}>
         <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 20 }}>
-          This is the most common concern we hear. And it makes sense. Nobody wants to be annoying. But here's the difference: a random promotional blast to everyone IS annoying. A personalized "we miss you" text to someone who hasn't visited in 30 days with a specific offer? That feels like a personal invitation.
+          This is the most common concern we hear. and it makes sense. Nobody wants to be annoying. But here's the difference: a random promotional blast to everyone IS annoying. A personalized "we miss you" text to someone who hasn't visited in 30 days with a specific offer? That feels like a personal invitation.
         </p>
         <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 20 }}>
           The key is segmentation and timing. We don't blast your entire list with the same message. We send the right message to the right person at the right time. A new customer gets a welcome sequence. A lapsed customer gets a win-back offer. A VIP gets early access to a promotion. Each message feels relevant because it IS relevant.
         </p>
         <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", lineHeight: 1.7 }}>
-          The proof is in the numbers: our unsubscribe rates average 0.4%. Well below the 1-2% industry standard. Customers don't leave because the messages add value to their lives.
+          The proof is in the numbers: our unsubscribe rates average 0.4%. well below the 1-2% industry standard. Customers don't leave because the messages add value to their lives.
         </p>
       </FI>
     </div>
@@ -325,9 +331,9 @@ function FAQ() {
   const Q = [
     ["How do you build my list?", "We integrate with your POS to capture data automatically. We also set up QR codes, review flows, and lead magnets that grow your list organically."],
     ["What kind of results should I expect?", "Our clients see 30-45% open rates on SMS, 25-35% on email, and a measurable increase in repeat visits within the first month. Email ROI averages $36 per $1 spent."],
-    ["Do I have to write the messages?", "No. We write all copy, design emails, and set up automation. You approve campaigns before they go live."],
+    ["Do I have to write the messages?", "No. we write all copy, design emails, and set up automation. You approve campaigns before they go live."],
     ["Can I use my existing customer list?", "Absolutely. We'll import your POS data, clean it up, and start campaigns immediately."],
-    ["How is this different from Mailchimp or Constant Contact?", "Those tools give you a platform. We give you a strategy, custom copy, segmentation, automation, and ongoing optimization. All managed for you. You don't have to learn or run anything."],
+    ["How is this different from Mailchimp or Constant Contact?", "Those tools give you a platform. We give you a strategy, custom copy, segmentation, automation, and ongoing optimization. all managed for you. You don't have to learn or run anything."],
   ];
   return (<section style={{ background: BG, padding: "80px 24px" }}>
     <div style={{ maxWidth: 700, margin: "0 auto" }}>
@@ -357,7 +363,7 @@ function CTA() {
           <h2 style={{ fontSize: "clamp(24px,4vw,34px)", fontWeight: 800, color: "#fff", marginBottom: 12 }}>Ready to re-engage your customers?</h2>
           <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", maxWidth: 440, margin: "0 auto 20px", lineHeight: 1.6 }}>Book a free call and we'll map out an email & SMS strategy tailored to your laundromat.</p>
           <a href="/contact" style={{ display: "inline-block", background: B, color: "#fff", padding: "14px 30px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)" }}>Schedule Your Free Audit →</a>
-          <p style={{ fontSize: 13, color: "rgba(255,255,255,0.3)", marginTop: 14, fontStyle: "italic" }}>No contracts. No commitment. Just a clear plan for your email & SMS strategy.</p>
+          <p style={{ fontSize: 13, color: "rgba(255,255,255,0.3)", marginTop: 14, fontStyle: "italic" }}>"Turned our dead customer list into $12K of recovered revenue.". Robert L.</p>
         </div>
       </FI>
     </div>

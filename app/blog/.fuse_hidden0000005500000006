@@ -125,10 +125,10 @@ const CATS = ["All", "Advertising", "Email & SMS", "AI Tools", "Reviews", "Strat
 
 const POSTS = [
   { title: "7 Geo-Fencing Strategies That Drive Foot Traffic to Your Laundromat", slug: "geo-fencing-strategies", cat: "Advertising", date: "Mar 10, 2026", read: "5 min", preview: "Geo-fencing is one of the most powerful tools in a laundromat owner's marketing arsenal. By creating virtual boundaries around your location and competitors, you can serve ads to the exact people most likely to walk through your door. Here are 7 strategies our clients use to consistently drive new foot traffic.", featured: true },
-  { title: "How AI Chatbots Are Helping Laundromats Capture 3x More Leads", slug: "ai-chatbots-laundromat-leads", cat: "AI Tools", date: "Mar 3, 2026", read: "4 min", preview: "Most laundromat websites lose 90% of their visitors because nobody's available to answer questions. An AI chatbot changes that. Handling inquiries, booking appointments, and capturing contact info 24/7. We break down the setup, training, and results." },
+  { title: "How AI Chatbots Are Helping Laundromats Capture 3x More Leads", slug: "ai-chatbots-laundromat-leads", cat: "AI Tools", date: "Mar 3, 2026", read: "4 min", preview: "Most laundromat websites lose 90% of their visitors because nobody's available to answer questions. An AI chatbot changes that. handling inquiries, booking appointments, and capturing contact info 24/7. We break down the setup, training, and results." },
   { title: "Email Marketing for Laundromats: The Complete 2026 Playbook", slug: "email-marketing-laundromats-2026", cat: "Email & SMS", date: "Feb 24, 2026", read: "8 min", preview: "Email has the highest ROI of any marketing channel at $36 per $1 spent. But most laundromats either skip it entirely or do it wrong. This guide covers list building, segmentation, automation sequences, and the exact emails that bring customers back." },
-  { title: "How to Land Your First Commercial Laundry Contract", slug: "first-commercial-laundry-contract", cat: "Commercial", date: "Feb 17, 2026", read: "6 min", preview: "Hotels, gyms, and spas need reliable laundry services. And they pay well for it. Here's our step-by-step system for finding, reaching out to, and closing commercial accounts in your area." },
-  { title: "Why Your Google Reviews Matter More Than Your Ad Budget", slug: "google-reviews-vs-ad-budget", cat: "Reviews", date: "Feb 10, 2026", read: "4 min", preview: "A laundromat with 200 reviews and a 4.7 rating will consistently outrank a competitor spending 3x more on ads. We explain the connection between reviews, Maps ranking, and customer trust. Plus how to systematically grow your review count." },
+  { title: "How to Land Your First Commercial Laundry Contract", slug: "first-commercial-laundry-contract", cat: "Commercial", date: "Feb 17, 2026", read: "6 min", preview: "Hotels, gyms, and spas need reliable laundry services. and they pay well for it. Here's our step-by-step system for finding, reaching out to, and closing commercial accounts in your area." },
+  { title: "Why Your Google Reviews Matter More Than Your Ad Budget", slug: "google-reviews-vs-ad-budget", cat: "Reviews", date: "Feb 10, 2026", read: "4 min", preview: "A laundromat with 200 reviews and a 4.7 rating will consistently outrank a competitor spending 3x more on ads. We explain the connection between reviews, Maps ranking, and customer trust. plus how to systematically grow your review count." },
   { title: "The 5 Biggest Marketing Mistakes Laundromat Owners Make", slug: "biggest-laundromat-marketing-mistakes", cat: "Strategy", date: "Feb 3, 2026", read: "5 min", preview: "After working with 125+ laundromats, we've seen the same mistakes over and over: no retargeting, ignoring email, generic ad creative, missing review opportunities, and treating marketing as an expense instead of an investment." },
   { title: "SMS vs Email: Which Works Better for Laundromat Customer Retention?", slug: "sms-vs-email-laundromat-retention", cat: "Email & SMS", date: "Jan 27, 2026", read: "5 min", preview: "The short answer: both, but for different things. SMS has a 98% open rate and works for time-sensitive offers. Email is better for longer content and nurture sequences. Here's how to use each one strategically." },
   { title: "How to Set Up Geo-Fencing Around Your Competitors", slug: "competitor-geo-fencing-laundromat", cat: "Advertising", date: "Jan 20, 2026", read: "4 min", preview: "Competitor geo-fencing lets you show ads to people who visit rival laundromats. It's legal, it's effective, and it's one of the fastest ways to steal market share. Here's how we set it up for our clients." },
@@ -145,7 +145,7 @@ function PageHero() {
           Laundromat marketing <span style={{ color: B }}>tips & strategies</span>
         </h1>
         <p style={{ fontSize: 17, color: "rgba(255,255,255,0.5)", maxWidth: 520, margin: "0 auto", lineHeight: 1.6 }}>
-          Proven strategies, real examples, and actionable advice to help you grow your laundromat. No fluff. Just what works.
+          Proven strategies, real examples, and actionable advice to help you grow your laundromat. No fluff. just what works.
         </p>
       </FI>
     </div>
@@ -278,7 +278,7 @@ function Newsletter() {
           <span style={{ fontSize: 28, display: "block", marginBottom: 12 }}>📬</span>
           <h2 style={{ fontSize: 22, fontWeight: 800, color: "#fff", marginBottom: 8 }}>Get laundromat marketing tips in your inbox</h2>
           <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", lineHeight: 1.6, marginBottom: 24, maxWidth: 420, margin: "0 auto 24px" }}>
-            Join 500+ laundromat owners getting weekly tips on ads, AI tools, customer retention, and growth strategies. No spam. Just real advice that works.
+            Join 500+ laundromat owners getting weekly tips on ads, AI tools, customer retention, and growth strategies. No spam. just real advice that works.
           </p>
           <div style={{ display: "flex", gap: 10, maxWidth: 420, margin: "0 auto" }}>
             <input

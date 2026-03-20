@@ -164,7 +164,7 @@ function Hero() {
             </Fade>
             <Fade delay={.1}>
               <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 460, lineHeight: 1.65, marginBottom: 28 }}>
-                We help laundromats across the U.S. Grow with geo-fenced ads, AI-powered tools, email & SMS marketing, and commercial outreach. Everything is managed for you.
+                We help laundromats across the U.S. grow with geo-fenced ads, AI-powered tools, email & SMS marketing, and commercial outreach. Everything is managed for you.
               </p>
             </Fade>
             <Fade delay={.15}>
@@ -206,7 +206,7 @@ function Hero() {
         </div>
         <Fade delay={.25}>
           <div className="stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 1, marginTop: 50, background: "rgba(255,255,255,0.06)", borderRadius: 12, overflow: "hidden", border: "1px solid rgba(255,255,255,0.06)" }}>
-            {[["150+","Laundromats served"],["3x","Avg. Client ROI"],["6","Integrated services"],["24/7","AI-powered support"]].map(([n,l],i) => (
+            {[["150+","Laundromats served"],["3x","Avg. client ROI"],["6","Integrated services"],["24/7","AI-powered support"]].map(([n,l],i) => (
               <div key={i} style={{ background: BG, padding: "18px 14px", textAlign: "center" }}>
                 <div style={{ fontSize: 22, fontWeight: 800, color: B }}>{n}</div>
                 <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", fontWeight: 550, marginTop: 2 }}>{l}</div>
@@ -314,7 +314,7 @@ function About() {
               <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", lineHeight: 1.6, margin: 0 }}>Based out of Honolulu, Hawaii. If you ever visit, let's connect in person and you can write off the trip. Just saying.</p>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, textAlign: "center" }}>
-              {[["150+","Laundromats served"],["100%","Laundromat focus"],["3x","Avg. Client ROI"]].map(([n,l],i) => (
+              {[["150+","Laundromats served"],["100%","Laundromat focus"],["3x","Avg. client ROI"]].map(([n,l],i) => (
                 <div key={i}>
                   <div style={{ fontSize: 20, fontWeight: 800, color: B }}>{n}</div>
                   <div style={{ fontSize: 10, color: "rgba(255,255,255,0.25)", marginTop: 2 }}>{l}</div>
