@@ -293,8 +293,26 @@ function FAQ() {
     ["What POS systems do you integrate with?","Our CRM integrates directly with Cents, LaundroWorks, and CCI. Customer data syncs automatically so you never need to manually enter contacts. If you use a different system, we'll work with you to find an integration path or set up manual imports."],
     ["Can this work for a brand new laundromat?","Absolutely. New laundromats are actually some of our best success stories because there's zero competition for your brand name, no bad habits to undo, and everything is set up correctly from day one. We'll focus on building awareness through geo-fencing ads, capturing every lead with the chatbot, and generating reviews fast to build your Google presence."],
   ];
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": qs.map(([q, a]) => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": a
+      }
+    }))
+  };
+
   return (
     <section id="faq" style={{ background: BG2, padding: "90px 24px" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <Fade><div style={{ textAlign: "center", marginBottom: 40 }}>
           <p style={{ color: B, fontWeight: 700, fontSize: 12, letterSpacing: "0.07em", textTransform: "uppercase", marginBottom: 8 }}>FAQ</p>
