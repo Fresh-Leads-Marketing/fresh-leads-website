@@ -290,7 +290,7 @@ function MidCTA() {
               We connect to your existing system, identify lapsed customers, and bring them back with automated campaigns. No manual work required.
             </p>
           </div>
-          <a href="#cta" style={{ background: B, color: "#fff", padding: "14px 24px", borderRadius: 10, fontWeight: 700, fontSize: 14, textDecoration: "none", boxShadow: "0 2px 14px rgba(43,127,255,0.25)", whiteSpace: "nowrap" }}>Get Your Free Audit →</a>
+          <a href="#cta" style={{ background: B, color: "#fff", padding: "14px 24px", borderRadius: 10, fontWeight: 700, fontSize: 14, textDecoration: "none", boxShadow: "0 2px 14px rgba(43,127,255,0.25)", whiteSpace: "nowrap" }}>Free Marketing Audit →</a>
         </div>
       </FI>
     </div>
@@ -331,7 +331,7 @@ function FAQ() {
   ];
   return (<section style={{ background: BG, padding: "80px 24px" }}>
     <div style={{ maxWidth: 700, margin: "0 auto" }}>
-      <FI><h2 style={{ fontSize: "clamp(24px,3vw,32px)", fontWeight: 800, color: "#fff", marginBottom: 36, textAlign: "center" }}>Common questions</h2></FI>
+      <FI><h2 style={{ fontSize: "clamp(24px,3vw,32px)", fontWeight: 800, color: "#fff", marginBottom: 36, textAlign: "center" }}>Your questions, answered</h2></FI>
       {Q.map(([q, a], i) => (
         <FI key={i} delay={i * 0.03}>
           <div onClick={() => setOpen(open === i ? null : i)} style={{ background: open === i ? "rgba(43,127,255,0.04)" : "rgba(255,255,255,0.03)", border: `1px solid ${open === i ? "rgba(43,127,255,0.2)" : "rgba(255,255,255,0.06)"}`, borderRadius: 12, marginBottom: 8, cursor: "pointer", transition: "all .25s" }}>
@@ -356,7 +356,7 @@ function CTA() {
         <div style={{ background: "linear-gradient(135deg, rgba(43,127,255,0.1), rgba(43,127,255,0.03))", border: "1px solid rgba(43,127,255,0.18)", borderRadius: 20, padding: "clamp(36px,6vw,56px) clamp(24px,5vw,44px)", textAlign: "center" }}>
           <h2 style={{ fontSize: "clamp(24px,4vw,34px)", fontWeight: 800, color: "#fff", marginBottom: 12 }}>Ready to re-engage your customers?</h2>
           <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", maxWidth: 440, margin: "0 auto 20px", lineHeight: 1.6 }}>Book a free call and we'll map out an email & SMS strategy tailored to your laundromat.</p>
-          <a href="/contact" style={{ display: "inline-block", background: B, color: "#fff", padding: "14px 30px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)" }}>Schedule Your Free Audit →</a>
+          <a href="/contact" style={{ display: "inline-block", background: B, color: "#fff", padding: "14px 30px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)" }}>Free Marketing Audit →</a>
           <p style={{ fontSize: 13, color: "rgba(255,255,255,0.3)", marginTop: 14, fontStyle: "italic" }}>No contracts. No commitment. Just a clear plan for your email & SMS strategy.</p>
         </div>
       </FI>
@@ -365,11 +365,51 @@ function CTA() {
 }
 
 function Footer() {
-  return (<footer style={{ background: BG, padding: "32px 24px 20px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-    <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-      <Logo /><span style={{ fontSize: 11, color: "rgba(255,255,255,0.2)" }}>© 2026 Fresh Leads Marketing</span>
-    </div>
-  </footer>);
+  return (
+    <footer style={{ background: BG, padding: "60px 24px 32px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <div className="footer-inner" style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 40, marginBottom: 40 }}>
+        <div>
+          <Logo />
+          <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.6, marginTop: 12, marginBottom: 16 }}>Marketing built exclusively for laundromats.</p>
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginBottom: 8 }}>
+            <div style={{ marginBottom: 6 }}>📞 <a href="tel:808-736-1539" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>808-736-1539</a></div>
+            <div>📧 <a href="mailto:info@freshleadsmarketing.com" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>info@freshleadsmarketing.com</a></div>
+          </div>
+        </div>
+
+        <div>
+          <h4 style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Quick Links</h4>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {[["Home", "/"],["Services", "/services"],["About", "/about"],["Blog", "/blog"],["FAQ", "/faq"],["Contact", "/contact"]].map(([label, href]) => (
+              <a key={href} href={href} style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{label}</a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h4 style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Services</h4>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {[["Geo-Fencing Ads", "/services/geo-fencing-ads"],["Email & SMS", "/services/email-sms"],["CRM Integration", "/services/crm"],["AI Chatbot", "/services/ai-chatbot"],["Google Reviews", "/services/google-reviews"],["B2B Outreach", "/services/b2b-outreach"]].map(([label, href]) => (
+              <a key={href} href={href} style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{label}</a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h4 style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Legal</h4>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {[["Privacy Policy", "/privacy"],["Terms of Service", "/terms"]].map(([label, href]) => (
+              <a key={href} href={href} style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{label}</a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: 24, textAlign: "center" }}>
+        <p style={{ fontSize: 12, color: "rgba(255,255,255,0.2)", margin: 0 }}>© 2026 Fresh Leads Marketing. All rights reserved.</p>
+      </div>
+    </footer>
+  );
 }
 
 export default function EmailSMSPage() {

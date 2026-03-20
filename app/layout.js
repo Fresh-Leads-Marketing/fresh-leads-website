@@ -60,7 +60,7 @@ const jsonLd = {
       "@id": "https://freshleadsmarketing.com/#localbusiness",
       name: "Fresh Leads Marketing",
       url: "https://freshleadsmarketing.com",
-      telephone: "",
+      telephone: "808-736-1539",
       email: "info@freshleadsmarketing.com",
       address: {
         "@type": "PostalAddress",

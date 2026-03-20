@@ -252,6 +252,40 @@ function Approach() {
   </section>;
 }
 
+function MeetTheFounder() {
+  return <section style={{ background: BG, padding: "80px 24px" }}>
+    <div style={{ maxWidth: 900, margin: "0 auto" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }} className="founder-section">
+        <FI>
+          <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+            <div>
+              <p style={{ color: B, fontWeight: 700, fontSize: 13, letterSpacing: ".07em", textTransform: "uppercase", marginBottom: 10 }}>Founder</p>
+              <h2 style={{ fontSize: "clamp(24px,3vw,34px)", fontWeight: 800, color: "#fff", marginBottom: 8, lineHeight: 1.15 }}>Ryan</h2>
+              <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", fontWeight: 500 }}>Founder, Fresh Leads Marketing</p>
+            </div>
+            <p style={{ fontSize: 15.5, color: "rgba(255,255,255,0.6)", lineHeight: 1.75 }}>
+              I spent over 10 years in the tourism industry marketing and advertising for hotels, restaurants, and activities across Hawaii. When a friend who owned laundromats came to me needing marketing help, I didn't expect what would happen next. Within a few months, the results spoke for themselves. Referrals started coming in consistently.
+            </p>
+            <p style={{ fontSize: 15.5, color: "rgba(255,255,255,0.6)", lineHeight: 1.75 }}>
+              That's when I made the decision to dedicate my entire focus to the laundry industry. I saw firsthand how underserved laundromat owners were when it came to real, effective marketing. Most agencies treat laundromats as an afterthought. We built Fresh Leads Marketing to change that.
+            </p>
+          </div>
+        </FI>
+        <FI delay={0.1}>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <div style={{ width: 280, height: 280, borderRadius: 16, background: "rgba(43,127,255,0.08)", border: "1px solid rgba(43,127,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 12 }}>
+              <div style={{ width: 120, height: 120, borderRadius: 12, background: "rgba(43,127,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <span style={{ fontSize: 56, fontWeight: 800, color: B }}>R</span>
+              </div>
+              <p style={{ fontSize: 13, color: "rgba(255,255,255,0.3)", textAlign: "center" }}>Headshot</p>
+            </div>
+          </div>
+        </FI>
+      </div>
+    </div>
+  </section>;
+}
+
 function Location() {
   return <section style={{ background: BG2, padding: "60px 24px" }}>
     <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
@@ -281,12 +315,51 @@ function CTA() {
 }
 
 function Footer() {
-  return <footer style={{ background: BG, padding: "36px 24px 24px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-    <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 28 }} className="footer-inner">
-      <div><Logo /><p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", maxWidth: 220, lineHeight: 1.5, marginTop: 10 }}>Built exclusively for laundromats.</p></div>
-    </div>
-    <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", marginTop: 20, paddingTop: 14, fontSize: 11, color: "rgba(255,255,255,0.2)" }}>© 2026 Fresh Leads Marketing</div>
-  </footer>;
+  return (
+    <footer style={{ background: BG, padding: "60px 24px 32px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <div className="footer-inner" style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 40, marginBottom: 40 }}>
+        <div>
+          <Logo />
+          <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.6, marginTop: 12, marginBottom: 16 }}>Marketing built exclusively for laundromats.</p>
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginBottom: 8 }}>
+            <div style={{ marginBottom: 6 }}>📞 <a href="tel:808-736-1539" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>808-736-1539</a></div>
+            <div>📧 <a href="mailto:info@freshleadsmarketing.com" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>info@freshleadsmarketing.com</a></div>
+          </div>
+        </div>
+
+        <div>
+          <h4 style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Quick Links</h4>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {[["Home", "/"],["Services", "/services"],["About", "/about"],["Blog", "/blog"],["FAQ", "/faq"],["Contact", "/contact"]].map(([label, href]) => (
+              <a key={href} href={href} style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{label}</a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h4 style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Services</h4>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {[["Geo-Fencing Ads", "/services/geo-fencing-ads"],["Email & SMS", "/services/email-sms"],["CRM Integration", "/services/crm"],["AI Chatbot", "/services/ai-chatbot"],["Google Reviews", "/services/google-reviews"],["B2B Outreach", "/services/b2b-outreach"]].map(([label, href]) => (
+              <a key={href} href={href} style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{label}</a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h4 style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Legal</h4>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {[["Privacy Policy", "/privacy"],["Terms of Service", "/terms"]].map(([label, href]) => (
+              <a key={href} href={href} style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{label}</a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: 24, textAlign: "center" }}>
+        <p style={{ fontSize: 12, color: "rgba(255,255,255,0.2)", margin: 0 }}>© 2026 Fresh Leads Marketing. All rights reserved.</p>
+      </div>
+    </footer>
+  );
 }
 
 export default function AboutPage() {
@@ -297,6 +370,7 @@ export default function AboutPage() {
     <Story />
     <Expertise />
     <Approach />
+    <MeetTheFounder />
     <Location />
     <CTA />
     <Footer />

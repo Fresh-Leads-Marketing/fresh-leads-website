@@ -221,9 +221,9 @@ function Hero() {
 
 const SVC = [
   ["📍","Geo-Fencing Ads","Facebook & Google","Hyper-targeted ad campaigns reaching customers near your laundromat and competitors. Full management of design, copy, targeting, A/B testing, and conversion tracking."],
-  ["📱","Email & SMS Marketing","Re-engagement","Automated campaigns bringing lapsed customers back with personalized offers. Welcome sequences, domain setup, segmentation, and deliverability handled for you."],
+  ["📱","Email & SMS Marketing","Re-engagement","Automated sequences for new customers, lapsed visitors, and promotional offers. All managed for you."],
   ["🤖","AI Chatbot & Voice Bot","24/7 support","Custom AI chatbot on your website and social plus an AI voice agent answering calls. Capture leads, book appointments, and handle questions around the clock."],
-  ["📊","Custom CRM","Customer data","POS and laundry software contacts sync into one dashboard. Track interactions, segment by behavior, and trigger automated campaigns with full visibility."],
+  ["📊","Custom CRM","Customer intelligence","Your POS customer data syncs automatically into one dashboard via API. See who's visiting, who's lapsed, and trigger re-engagement campaigns that bring customers back."],
   ["📧","B2B Cold Outreach","Commercial leads","We build prospect lists, write sequences, and manage replies targeting hotels, gyms, and salons. Clients get 5-15 qualified commercial leads per month."],
   ["⭐","Google Reviews","Reputation","Systematic review generation via automated SMS requests. Higher review counts mean higher Maps rankings and more walk-ins without extra ad spend."],
 ];
@@ -254,6 +254,74 @@ function Services() {
   );
 }
 
+function Pricing() {
+  const features = [
+    { category: "Paid Ads (Done-For-You)", items: ["Google Ads management", "Facebook & Instagram Ads management", "Campaign strategy, setup, and optimization", "Ad creative design and copywriting"] },
+    { category: "Lead Follow-Up & CRM", items: ["Instant email & SMS follow-up for new leads", "Centralized lead tracking", "No missed leads, no manual follow-ups"] },
+    { category: "Customer Re-Engagement (2/month)", items: ["Email + SMS campaigns to past customers", "Designed to drive repeat visits", "Requires POS API integration"] },
+    { category: "New Customer Welcome Automation", items: ["Automatic customer capture via POS API", "Welcome email & SMS sequence", "Automated Google review requests"] },
+    { category: "AI Automation & Chatbots", items: ["Website, SMS, and Facebook Messenger chatbots", "AI-powered Google review responses", "Trained on your business"] },
+    { category: "B2B Cold Email Outreach", items: ["Dedicated sending domain setup", "Email warming and deliverability", "Lead replies go to your inbox"] }
+  ];
+
+  return (
+    <section id="pricing" style={{ background: BG2, padding: "90px 24px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <Fade>
+          <div style={{ textAlign: "center", marginBottom: 50 }}>
+            <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", marginBottom: 12 }}>One plan. Everything included.</h2>
+            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 600, margin: "0 auto", lineHeight: 1.6 }}>No hidden fees. No long-term contracts. Just a complete marketing system that grows your laundromat.</p>
+          </div>
+        </Fade>
+
+        <Fade delay={0.05}>
+          <div style={{ maxWidth: 600, margin: "0 auto 50px", background: BG, border: "1.5px solid rgba(43,127,255,0.3)", borderRadius: 18, padding: "40px 36px", textAlign: "center", position: "relative", overflow: "hidden" }}>
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(43,127,255,0.1) 0%, rgba(43,127,255,0.02) 100%)", pointerEvents: "none" }} />
+            <div style={{ position: "relative", zIndex: 1 }}>
+              <h3 style={{ fontSize: 22, fontWeight: 750, color: "#fff", marginBottom: 16 }}>All-In-One Growth Package</h3>
+              <div style={{ marginBottom: 16 }}>
+                <div style={{ fontSize: "clamp(42px,6vw,54px)", fontWeight: 900, color: B, lineHeight: 1 }}>$1,000</div>
+                <div style={{ fontSize: 14, color: "rgba(255,255,255,0.4)", marginTop: 4 }}>/month</div>
+              </div>
+              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", marginBottom: 20, fontWeight: 550 }}>+$199/month per additional location</div>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginBottom: 24 }}>Done-for-you marketing designed to bring in new customers, re-engage past customers, and automate follow-up.</p>
+              <a href="/contact" style={{ display: "inline-block", background: B, color: "#fff", padding: "13px 26px", borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)" }}>Free Marketing Audit →</a>
+            </div>
+          </div>
+        </Fade>
+
+        <Fade delay={0.1}>
+          <div style={{ marginBottom: 40 }}>
+            <div className="pricing-features" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
+              {features.map((f, i) => (
+                <div key={i} style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "20px 18px" }}>
+                  <h4 style={{ fontSize: 14, fontWeight: 700, color: "#fff", marginBottom: 12 }}>{f.category}</h4>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                    {f.items.map((item, j) => (
+                      <li key={j} style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", marginBottom: j < f.items.length - 1 ? 8 : 0, display: "flex", alignItems: "flex-start", gap: 8 }}>
+                        <span style={{ color: B, flexShrink: 0, marginTop: 2 }}>✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Fade>
+
+        <Fade delay={0.15}>
+          <div style={{ background: "rgba(43,127,255,0.06)", border: "1px solid rgba(43,127,255,0.12)", borderRadius: 12, padding: "24px 20px", textAlign: "center" }}>
+            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", margin: 0, lineHeight: 1.6 }}>
+              <span style={{ fontWeight: 600, color: "#fff" }}>$1,000/month</span> first location. <span style={{ fontWeight: 600, color: "#fff" }}>$199/month</span> each additional. All managed in one system.
+            </p>
+          </div>
+        </Fade>
+      </div>
+    </section>
+  );
+}
+
 function Process() {
   const steps = [["01","Discovery Call","We hop on a free 30-minute call to learn about your laundromat, your market, and your goals. No sales pitch. We'll research your area beforehand so we come prepared with insights about your competition and opportunities."],["02","Custom Strategy","Based on your market, competition, and budget, we build a tailored growth plan. You'll know exactly which services will have the biggest impact and what results to expect in months 1, 3, and 6."],["03","Launch & Optimize","We handle everything from ad creative to email copy to chatbot setup. Campaigns go live, and we optimize weekly based on real performance data. You don't lift a finger."],["04","Report & Scale","You get clear monthly reports showing exactly what's working. No vanity metrics. As we find winning strategies, we scale them to maximize your ROI and keep growing your customer base."]];
   return (
@@ -275,6 +343,11 @@ function Process() {
             </Fade>
           ))}
         </div>
+        <div style={{ marginTop: 44, textAlign: "center" }}>
+          <Fade delay={0.24}>
+            <a href="/contact" style={{ display: "inline-block", background: B, color: "#fff", padding: "14px 26px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 2px 20px rgba(43,127,255,0.3)" }}>Free Marketing Audit →</a>
+          </Fade>
+        </div>
       </div>
     </section>
   );
@@ -291,7 +364,7 @@ function About() {
             <h2 style={{ fontSize: "clamp(26px,3.5vw,36px)", fontWeight: 800, color: "#fff", marginBottom: 14, lineHeight: 1.15 }}>Exclusively for laundromats. Nothing else.</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 12 }}>We built Fresh Leads to serve laundromats and only laundromats. Every strategy, every AI tool, every template is designed specifically for the laundry business. No generic playbooks. No one-size-fits-all nonsense.</p>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 22 }}>Across 150+ laundromat clients, we've learned what actually works to drive growth, build loyalty, and maximize revenue for your business.</p>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 28 }}>
               {["Laundromat-only focus","Full-service agency","AI-powered tools","Real results"].map((t,i) => (
                 <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>
                   <span style={{ color: B, fontSize: 14 }}>✓</span>
@@ -324,6 +397,11 @@ function About() {
           </div>
         </Fade>
       </div>
+      <div style={{ marginTop: 50, textAlign: "center" }}>
+        <Fade delay={0.2}>
+          <a href="/about" style={{ display: "inline-block", background: B, color: "#fff", padding: "14px 26px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 2px 20px rgba(43,127,255,0.3)" }}>Learn More About Us →</a>
+        </Fade>
+      </div>
     </section>
   );
 }
@@ -337,7 +415,7 @@ function FAQ() {
     ["How fast will I see results?","Most clients see their first leads within 1-2 weeks of launching ads. By month 2-3, we've gathered enough data to deeply optimize your campaigns. That's when ROI typically hits 2-4x. Email and SMS campaigns can generate revenue within days if you have an existing customer list. Review generation starts showing Google Maps ranking improvements within 60-90 days. The full system builds momentum over time, with months 4-6 being where most clients see the biggest jumps."],
     ["How much does the Laundromat Growth System cost?","Pricing depends on your market size, number of locations, and specific goals. We'll walk you through options on our discovery call. What we can tell you is that most clients see a positive ROI within the first 60-90 days, and our average client generates 3x or more return on their total marketing investment."],
     ["Do I need to be tech-savvy to use this?","Not at all. We handle everything: ad creation, campaign management, email copywriting, chatbot training, CRM setup, review automation, and reporting. You'll get a dashboard where you can see your results anytime, but you don't need to touch anything. We send you clear, simple reports and hop on calls to walk through performance whenever you want."],
-    ["What if I've tried marketing before and it didn't work?","This is the most common thing we hear. Almost every time, the issue is the same: the previous agency ran generic campaigns that weren't built for laundromats. They targeted too broad, used stock creative, and had no understanding of the laundry industry. We're different because we only work with laundromats. Every ad template, email sequence, and targeting strategy has been tested across 125+ laundromat clients. We already know what works."],
+    ["What if I've tried marketing before and it didn't work?","This is the most common thing we hear. Almost every time, the issue is the same: the previous agency ran generic campaigns that weren't built for laundromats. They targeted too broad, used stock creative, and had no understanding of the laundry industry. We're different because we only work with laundromats. Every ad template, email sequence, and targeting strategy has been tested across 150+ laundromat clients. We already know what works."],
     ["How do you track and report results?","You get a real-time dashboard plus detailed monthly reports covering every channel: ad performance, email open rates, SMS engagement, review growth, lead counts, and revenue attribution. We tie everything back to actual dollars so you know exactly what your marketing investment is generating. No vanity metrics, no fluff. Just the numbers that matter to your bottom line."],
     ["What POS systems do you integrate with?","Our CRM integrates directly with Cents, LaundroWorks, and CCI. Customer data syncs automatically so you never need to manually enter contacts. If you use a different system, we'll work with you to find an integration path or set up manual imports."],
     ["Can this work for a brand new laundromat?","Absolutely. New laundromats are actually some of our best success stories because there's zero competition for your brand name, no bad habits to undo, and everything is set up correctly from day one. We'll focus on building awareness through geo-fencing ads, capturing every lead with the chatbot, and generating reviews fast to build your Google presence."],
@@ -365,7 +443,7 @@ function FAQ() {
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <Fade><div style={{ textAlign: "center", marginBottom: 40 }}>
           <p style={{ color: B, fontWeight: 700, fontSize: 12, letterSpacing: "0.07em", textTransform: "uppercase", marginBottom: 8 }}>FAQ</p>
-          <h2 style={{ fontSize: "clamp(26px,3.5vw,36px)", fontWeight: 800, color: "#fff" }}>Common questions</h2>
+          <h2 style={{ fontSize: "clamp(26px,3.5vw,36px)", fontWeight: 800, color: "#fff" }}>Your questions, answered</h2>
         </div></Fade>
         <div className="faqg" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
           {qs.map(([q,a],i) => (
@@ -419,14 +497,47 @@ function CTA() {
 
 function Footer() {
   return (
-    <footer style={{ background: BG, padding: "36px 24px 20px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-      <div className="footer-inner" style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
-        <Logo />
-        <p style={{ fontSize: 11, color: "rgba(255,255,255,0.2)" }}>© 2026 Fresh Leads Marketing. Honolulu, HI.</p>
-        <div style={{ display: "flex", gap: 14 }}>
-          <a href="https://www.facebook.com/freshleadsmarketing" target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,0.3)", fontSize: 11, textDecoration: "none" }}>Facebook</a>
-          <a href="https://www.instagram.com/freshleadsmarketing" target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,0.3)", fontSize: 11, textDecoration: "none" }}>Instagram</a>
+    <footer style={{ background: BG, padding: "60px 24px 32px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <div className="footer-inner" style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 40, marginBottom: 40 }}>
+        <div>
+          <Logo />
+          <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.6, marginTop: 12, marginBottom: 16 }}>Marketing built exclusively for laundromats.</p>
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginBottom: 8 }}>
+            <div style={{ marginBottom: 6 }}>📞 <a href="tel:808-736-1539" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>808-736-1539</a></div>
+            <div>📧 <a href="mailto:info@freshleadsmarketing.com" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>info@freshleadsmarketing.com</a></div>
+          </div>
         </div>
+
+        <div>
+          <h4 style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Quick Links</h4>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {[["Home", "/"],["Services", "/services"],["About", "/about"],["Blog", "/blog"],["FAQ", "/faq"],["Contact", "/contact"]].map(([label, href]) => (
+              <a key={href} href={href} style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{label}</a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h4 style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Services</h4>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {[["Geo-Fencing Ads", "/services/geo-fencing-ads"],["Email & SMS", "/services/email-sms"],["CRM Integration", "/services/crm"],["AI Chatbot", "/services/ai-chatbot"],["Google Reviews", "/services/google-reviews"],["B2B Outreach", "/services/b2b-outreach"]].map(([label, href]) => (
+              <a key={href} href={href} style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{label}</a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h4 style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Legal</h4>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {[["Privacy Policy", "/privacy"],["Terms of Service", "/terms"]].map(([label, href]) => (
+              <a key={href} href={href} style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{label}</a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: 24, textAlign: "center" }}>
+        <p style={{ fontSize: 12, color: "rgba(255,255,255,0.2)", margin: 0 }}>© 2026 Fresh Leads Marketing. All rights reserved.</p>
       </div>
     </footer>
   );
@@ -438,6 +549,7 @@ export default function App() {
       <Nav />
       <Hero />
       <Services />
+      <Pricing />
       <Process />
       <About />
       <FAQ />
