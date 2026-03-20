@@ -71,21 +71,76 @@ function ServicesDropdown() {
   );
 }
 
-function Nav() {
+function MobileMenu({ open, onClose }) {
+  if (!open) return null;
+  const links = [
+    ["Home", "/"],
+    ["Services", "/services"],
+    ["Geo-Fencing Ads", "/services/geo-fencing-ads"],
+    ["AI Chatbot", "/services/ai-chatbot"],
+    ["Email & SMS", "/services/email-sms"],
+    ["CRM Integration", "/services/crm"],
+    ["B2B Outreach", "/services/b2b-outreach"],
+    ["Google Reviews", "/services/google-reviews"],
+    ["About", "/about"],
+    ["Blog", "/blog"],
+    ["FAQ", "/faq"],
+    ["Contact", "/contact"],
+  ];
   return (
-    <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(7,9,13,0.92)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
-        <Logo />
-        <div className="dn" style={{ display: "flex", alignItems: "center", gap: 24 }}>
-          <a href="/" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>Home</a>
-          <ServicesDropdown />
-          {["About", "Blog", "FAQ", "Contact"].map(l => (
-            <a key={l} href={l==="About"?"/about":l==="Blog"?"/blog":l==="FAQ"?"/faq":"/contact"} style={{ color: l === "FAQ" ? "#fff" : "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: l === "FAQ" ? 650 : 550 }}>{l}</a>
-          ))}
-          <a href="/contact" style={{ background: B, color: "#fff", padding: "9px 20px", borderRadius: 9, fontWeight: 650, fontSize: 13, textDecoration: "none" }}>Free Marketing Audit</a>
+    <div className="mobile-menu-overlay" onClick={onClose}>
+      <div onClick={e => e.stopPropagation()} style={{ flex: 1 }}>
+        <div style={{ position: "absolute", top: 20, right: 24 }}>
+          <button onClick={onClose} style={{ background: "none", border: "none", color: "#fff", fontSize: 28, cursor: "pointer", padding: 8 }}>✕</button>
         </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          {links.map(([label, href]) => {
+            const isSub = ["Geo-Fencing Ads","AI Chatbot","Email & SMS","CRM Integration","B2B Outreach","Google Reviews"].includes(label);
+            return (
+              <a key={href+label} href={href} onClick={onClose} style={{
+                color: isSub ? "rgba(255,255,255,0.4)" : "#fff",
+                textDecoration: "none",
+                fontSize: isSub ? 15 : 20,
+                fontWeight: isSub ? 500 : 700,
+                padding: isSub ? "6px 0 6px 20px" : "10px 0",
+                borderBottom: label === "Google Reviews" || label === "Contact" ? "none" : label === "Services" ? "none" : "1px solid rgba(255,255,255,0.05)",
+              }}>{label}</a>
+            );
+          })}
+        </div>
+        <a href="/contact" style={{ display: "block", background: B, color: "#fff", padding: "16px 0", borderRadius: 12, fontWeight: 700, fontSize: 16, textDecoration: "none", textAlign: "center", marginTop: 28 }}>Free Marketing Audit</a>
       </div>
-    </nav>
+    </div>
+  );
+}
+
+function Nav() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  useEffect(() => {
+    if (mobileOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+  return (
+    <>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(7,9,13,0.92)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
+          <Logo />
+          <div className="dn" style={{ display: "flex", alignItems: "center", gap: 24 }}>
+            <a href="/" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>Home</a>
+            <ServicesDropdown />
+            {["About", "Blog", "FAQ", "Contact"].map(l => (
+              <a key={l} href={l==="About"?"/about":l==="Blog"?"/blog":l==="FAQ"?"/faq":"/contact"} style={{ color: l === "FAQ" ? "#fff" : "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: l === "FAQ" ? 650 : 550 }}>{l}</a>
+            ))}
+            <a href="/contact" style={{ background: B, color: "#fff", padding: "9px 20px", borderRadius: 9, fontWeight: 650, fontSize: 13, textDecoration: "none" }}>Free Marketing Audit</a>
+          </div>
+          <button className="mobile-menu-btn" onClick={() => setMobileOpen(true)} style={{ background: "none", border: "none", cursor: "pointer", padding: 8, display: "none", alignItems: "center", justifyContent: "center" }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </nav>
+      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
+    </>
   );
 }
 
@@ -221,7 +276,7 @@ export default function FAQPage() {
 
       {/* Quick Nav */}
       <section style={{ padding: "0 24px 50px" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto", display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center" }}>
+        <div style={{ maxWidth: 800, margin: "0 auto", display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center" }} className="cat-pills">
           {CATEGORIES.map((cat, i) => (
             <FI key={i} delay={i * 0.04}>
               <a href={`#cat-${i}`} style={{
@@ -281,7 +336,7 @@ export default function FAQPage() {
 
       {/* Footer */}
       <footer style={{ background: BG, borderTop: "1px solid rgba(255,255,255,0.06)", padding: "40px 24px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }} className="footer-inner">
           <Logo />
           <p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", margin: 0 }}>Built exclusively for laundromats.</p>
         </div>

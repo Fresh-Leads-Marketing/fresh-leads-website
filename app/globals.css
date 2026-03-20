@@ -12,12 +12,85 @@ body { background: #07090D; font-family: 'DM Sans', -apple-system, BlinkMacSyste
 
 input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
 
+/* Mobile hamburger button - hidden on desktop */
+.mobile-menu-btn { display: none; }
+
+/* Mobile overlay - hidden by default */
+.mobile-menu-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(7,9,13,0.97); backdrop-filter: blur(20px);
+  z-index: 200; display: flex; flex-direction: column;
+  padding: 80px 32px 40px; overflow-y: auto;
+}
+
+/* ===== MOBILE BREAKPOINT ===== */
 @media (max-width: 768px) {
-  .desktop-nav { display: none !important; }
-  .mobile-btn { display: block !important; }
-  .hero-grid, .about-grid, .csg, .fg, .hg, .cg, .eg, .faqg, .sg { grid-template-columns: 1fr !important; }
-  .hero-graphic { display: none !important; }
-  .mcta { flex-direction: column !important; text-align: center; }
-  .og { grid-template-columns: 1fr !important; }
+  /* Hide desktop nav links */
   .dn { display: none !important; }
+  .desktop-nav { display: none !important; }
+
+  /* Show hamburger button */
+  .mobile-menu-btn { display: flex !important; }
+
+  /* Grid collapses */
+  .hero-grid, .about-grid, .csg, .fg, .hg, .cg, .eg, .faqg, .sg, .og {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Service grid: 3-col -> 1-col */
+  .svc-grid { grid-template-columns: 1fr !important; }
+
+  /* Process grid: 4-col -> 1-col */
+  .process-grid { grid-template-columns: 1fr !important; }
+
+  /* Stats bar: 4-col -> 2-col */
+  .stats-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* About section grid */
+  .about-section-grid { grid-template-columns: 1fr !important; }
+
+  /* About inner stats: 3-col -> 3-col (keep, they're small) */
+
+  /* About check grid: 2-col -> 1-col */
+  .check-grid { grid-template-columns: 1fr !important; }
+
+  /* Contact form grid */
+  .contact-grid { grid-template-columns: 1fr !important; }
+
+  /* Contact info grid */
+  .contact-info-grid { grid-template-columns: 1fr !important; }
+
+  /* Hero graphic hidden on mobile */
+  .hero-graphic { display: none !important; }
+
+  /* Hero CTA buttons stack */
+  .mcta, .hero-cta { flex-direction: column !important; text-align: center; }
+  .hero-cta a { width: 100%; text-align: center; }
+
+  /* Testimonial cards smaller on mobile */
+  .testimonial-card { min-width: 280px !important; max-width: 280px !important; }
+
+  /* Services detail page grids */
+  .detail-grid { grid-template-columns: 1fr !important; }
+
+  /* Blog post grid */
+  .blog-grid { grid-template-columns: 1fr !important; }
+
+  /* Category pills scroll */
+  .cat-pills { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Expertise grid on about page */
+  .expertise-grid { grid-template-columns: 1fr !important; }
+
+  /* Footer stacks */
+  .footer-inner { flex-direction: column !important; text-align: center; gap: 12px !important; }
+}
+
+/* ===== SMALL MOBILE (< 480px) ===== */
+@media (max-width: 480px) {
+  /* Stats go single column on very small screens */
+  .stats-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* Even smaller testimonial cards */
+  .testimonial-card { min-width: 260px !important; max-width: 260px !important; }
 }

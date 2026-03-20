@@ -71,24 +71,76 @@ function ServicesDropdown() {
   );
 }
 
-function Nav() {
+function MobileMenu({ open, onClose }) {
+  if (!open) return null;
+  const links = [
+    ["Home", "/"],
+    ["Services", "/services"],
+    ["Geo-Fencing Ads", "/services/geo-fencing-ads"],
+    ["AI Chatbot", "/services/ai-chatbot"],
+    ["Email & SMS", "/services/email-sms"],
+    ["CRM Integration", "/services/crm"],
+    ["B2B Outreach", "/services/b2b-outreach"],
+    ["Google Reviews", "/services/google-reviews"],
+    ["About", "/about"],
+    ["Blog", "/blog"],
+    ["FAQ", "/faq"],
+    ["Contact", "/contact"],
+  ];
   return (
-    <nav style={{
-      position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-      background: "rgba(7,9,13,0.92)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.08)"
-    }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
-        <Logo />
-        <div style={{ display: "flex", alignItems: "center", gap: 24 }} className="dn">
-          <a href="/" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>Home</a>
-          <ServicesDropdown />
-          {["About", "Blog", "FAQ", "Contact"].map(l => (
-            <a key={l} href={l==="About"?"/about":l==="Blog"?"/blog":l==="FAQ"?"/faq":"/contact"} style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>{l}</a>
-          ))}
-          <a href="/contact" style={{ background: B, color: "#fff", padding: "9px 20px", borderRadius: 9, fontWeight: 650, fontSize: 13, textDecoration: "none" }}>Free Marketing Audit</a>
+    <div className="mobile-menu-overlay" onClick={onClose}>
+      <div onClick={e => e.stopPropagation()} style={{ flex: 1 }}>
+        <div style={{ position: "absolute", top: 20, right: 24 }}>
+          <button onClick={onClose} style={{ background: "none", border: "none", color: "#fff", fontSize: 28, cursor: "pointer", padding: 8 }}>✕</button>
         </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          {links.map(([label, href]) => (
+            <a key={href+label} href={href} onClick={onClose} style={{
+              color: label.startsWith("Geo") || label.startsWith("AI C") || label.startsWith("Email") || label.startsWith("CRM") || label.startsWith("B2B") || label.startsWith("Google R") ? "rgba(255,255,255,0.4)" : "#fff",
+              textDecoration: "none",
+              fontSize: label.startsWith("Geo") || label.startsWith("AI C") || label.startsWith("Email") || label.startsWith("CRM") || label.startsWith("B2B") || label.startsWith("Google R") ? 15 : 20,
+              fontWeight: label.startsWith("Geo") || label.startsWith("AI C") || label.startsWith("Email") || label.startsWith("CRM") || label.startsWith("B2B") || label.startsWith("Google R") ? 500 : 700,
+              padding: label.startsWith("Geo") || label.startsWith("AI C") || label.startsWith("Email") || label.startsWith("CRM") || label.startsWith("B2B") || label.startsWith("Google R") ? "6px 0 6px 20px" : "10px 0",
+              borderBottom: label === "Google Reviews" || label === "Contact" ? "none" : label === "Services" ? "none" : "1px solid rgba(255,255,255,0.05)",
+            }}>{label}</a>
+          ))}
+        </div>
+        <a href="/contact" style={{ display: "block", background: B, color: "#fff", padding: "16px 0", borderRadius: 12, fontWeight: 700, fontSize: 16, textDecoration: "none", textAlign: "center", marginTop: 28 }}>Free Marketing Audit</a>
       </div>
-    </nav>
+    </div>
+  );
+}
+
+function Nav() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  useEffect(() => {
+    if (mobileOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+  return (
+    <>
+      <nav style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
+        background: "rgba(7,9,13,0.92)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.08)"
+      }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
+          <Logo />
+          <div style={{ display: "flex", alignItems: "center", gap: 24 }} className="dn">
+            <a href="/" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>Home</a>
+            <ServicesDropdown />
+            {["About", "Blog", "FAQ", "Contact"].map(l => (
+              <a key={l} href={l==="About"?"/about":l==="Blog"?"/blog":l==="FAQ"?"/faq":"/contact"} style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>{l}</a>
+            ))}
+            <a href="/contact" style={{ background: B, color: "#fff", padding: "9px 20px", borderRadius: 9, fontWeight: 650, fontSize: 13, textDecoration: "none" }}>Free Marketing Audit</a>
+          </div>
+          <button className="mobile-menu-btn" onClick={() => setMobileOpen(true)} style={{ background: "none", border: "none", cursor: "pointer", padding: 8, display: "none", alignItems: "center", justifyContent: "center" }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </nav>
+      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
+    </>
   );
 }
 
@@ -97,7 +149,7 @@ function Hero() {
     <section style={{ background: BG, position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 50% at 65% 30%, rgba(43,127,255,0.07) 0%, transparent 60%)" }} />
       <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto", padding: "120px 24px 70px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "center" }}>
+        <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "center" }}>
           <div>
             <Fade>
               <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(43,127,255,0.08)", border: "1px solid rgba(43,127,255,0.15)", borderRadius: 50, padding: "5px 14px 5px 10px", marginBottom: 22 }}>
@@ -116,13 +168,13 @@ function Hero() {
               </p>
             </Fade>
             <Fade delay={.15}>
-              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+              <div className="hero-cta" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <a href="/contact" style={{ background: B, color: "#fff", padding: "14px 26px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 2px 20px rgba(43,127,255,0.3)" }}>Get a Free Marketing Audit →</a>
                 <a href="/services" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.7)", padding: "13px 22px", borderRadius: 10, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>See Our Services</a>
               </div>
             </Fade>
           </div>
-          <Fade delay={.12}>
+          <Fade delay={.12} className="hero-graphic">
             <svg width="100%" viewBox="0 0 440 340" fill="none">
               <rect x="10" y="20" width="250" height="155" rx="10" fill={BG3} stroke="rgba(255,255,255,0.06)" />
               <rect x="10" y="20" width="250" height="26" rx="10" fill="rgba(43,127,255,0.05)" />
@@ -153,7 +205,7 @@ function Hero() {
           </Fade>
         </div>
         <Fade delay={.25}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 1, marginTop: 50, background: "rgba(255,255,255,0.06)", borderRadius: 12, overflow: "hidden", border: "1px solid rgba(255,255,255,0.06)" }}>
+          <div className="stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 1, marginTop: 50, background: "rgba(255,255,255,0.06)", borderRadius: 12, overflow: "hidden", border: "1px solid rgba(255,255,255,0.06)" }}>
             {[["150+","Laundromats served"],["3x","Avg. client ROI"],["6","Integrated services"],["24/7","AI-powered support"]].map(([n,l],i) => (
               <div key={i} style={{ background: BG, padding: "18px 14px", textAlign: "center" }}>
                 <div style={{ fontSize: 22, fontWeight: 800, color: B }}>{n}</div>
@@ -185,7 +237,7 @@ function Services() {
           <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", marginBottom: 12 }}>Everything your laundromat needs to grow</h2>
           <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 560, marginBottom: 44, lineHeight: 1.6 }}>A complete marketing stack purpose-built for laundromats.</p>
         </Fade>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14 }}>
+        <div className="svc-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14 }}>
           {SVC.map(([icon,title,sub,desc], i) => (
             <Fade key={i} delay={i * .04}>
               <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "26px 24px", display: "flex", flexDirection: "column", height: "100%" }}>
@@ -211,7 +263,7 @@ function Process() {
           <p style={{ color: B, fontWeight: 700, fontSize: 12, letterSpacing: "0.07em", textTransform: "uppercase", marginBottom: 8 }}>How it works</p>
           <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 800, color: "#fff" }}>From first call to more customers</h2>
         </div></Fade>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14 }}>
+        <div className="process-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14 }}>
           {steps.map(([n,t,d],i) => (
             <Fade key={i} delay={i*.06}>
               <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "24px 20px", position: "relative", overflow: "hidden", height: "100%" }}>
@@ -249,7 +301,7 @@ function Testimonials() {
       <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} style={{ overflow: "hidden" }}>
         <div style={{ display: "flex", gap: 16, animation: "scrollCards 40s linear infinite", animationPlayState: paused ? "paused" : "running", width: "max-content" }}>
           {doubled.map(([q,name,loc], i) => (
-            <div key={i} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "24px 22px", minWidth: 350, maxWidth: 350, flexShrink: 0 }}>
+            <div key={i} className="testimonial-card" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "24px 22px", minWidth: 350, maxWidth: 350, flexShrink: 0 }}>
               <div style={{ display: "flex", gap: 2, marginBottom: 10 }}>{[1,2,3,4,5].map(s => <span key={s} style={{ color: "#F59E0B", fontSize: 12 }}>★</span>)}</div>
               <p style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.55, marginBottom: 16 }}>"{q}"</p>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -270,7 +322,7 @@ function Testimonials() {
 function About() {
   return (
     <section id="about" style={{ background: BG, padding: "90px 24px" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 48, alignItems: "center" }}>
+      <div className="about-section-grid" style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 48, alignItems: "center" }}>
         <Fade>
           <div>
             <p style={{ color: B, fontWeight: 700, fontSize: 12, letterSpacing: "0.07em", textTransform: "uppercase", marginBottom: 8 }}>About Fresh Leads</p>
@@ -406,7 +458,7 @@ function CTA() {
 function Footer() {
   return (
     <footer style={{ background: BG, padding: "36px 24px 20px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
+      <div className="footer-inner" style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
         <Logo />
         <p style={{ fontSize: 11, color: "rgba(255,255,255,0.2)" }}>© 2026 Fresh Leads Marketing. Honolulu, HI.</p>
         <div style={{ display: "flex", gap: 14 }}>

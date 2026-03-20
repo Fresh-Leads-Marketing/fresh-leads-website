@@ -36,11 +36,76 @@ function ServicesDropdown() {
     </div>
   );
 }
-function Nav(){return(<nav style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(7,9,13,0.92)",backdropFilter:"blur(20px)",borderBottom:"1px solid rgba(255,255,255,0.08)"}}><div style={{maxWidth:1200,margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:68}}><a href="/"><Logo/></a><div className="dn" style={{display:"flex",alignItems:"center",gap:24}}><a href="/" style={{color:"rgba(255,255,255,0.5)",textDecoration:"none",fontSize:13,fontWeight:550}}>Home</a><ServicesDropdown/>{["About","Blog","FAQ","Contact"].map(l=><a key={l} href={l==="About"?"/about":l==="Blog"?"/blog":l==="FAQ"?"/faq":"/contact"} style={{color:"rgba(255,255,255,0.5)",textDecoration:"none",fontSize:13,fontWeight:550}}>{l}</a>)}<a href="#cta" style={{background:B,color:"#fff",padding:"9px 20px",borderRadius:9,fontWeight:650,fontSize:13,textDecoration:"none"}}>Free Marketing Audit</a></div></div></nav>)}
+function MobileMenu({ open, onClose }) {
+  if (!open) return null;
+  const links = [
+    ["Home", "/"],
+    ["Services", "/services"],
+    ["Geo-Fencing Ads", "/services/geo-fencing-ads"],
+    ["AI Chatbot", "/services/ai-chatbot"],
+    ["Email & SMS", "/services/email-sms"],
+    ["CRM Integration", "/services/crm"],
+    ["B2B Outreach", "/services/b2b-outreach"],
+    ["Google Reviews", "/services/google-reviews"],
+    ["About", "/about"],
+    ["Blog", "/blog"],
+    ["FAQ", "/faq"],
+    ["Contact", "/contact"],
+  ];
+  return (
+    <div className="mobile-menu-overlay" onClick={onClose}>
+      <div onClick={e => e.stopPropagation()} style={{ flex: 1 }}>
+        <div style={{ position: "absolute", top: 20, right: 24 }}>
+          <button onClick={onClose} style={{ background: "none", border: "none", color: "#fff", fontSize: 28, cursor: "pointer", padding: 8 }}>✕</button>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          {links.map(([label, href]) => {
+            const isSub = ["Geo-Fencing Ads","AI Chatbot","Email & SMS","CRM Integration","B2B Outreach","Google Reviews"].includes(label);
+            return (
+              <a key={href+label} href={href} onClick={onClose} style={{
+                color: isSub ? "rgba(255,255,255,0.4)" : "#fff",
+                textDecoration: "none",
+                fontSize: isSub ? 15 : 20,
+                fontWeight: isSub ? 500 : 700,
+                padding: isSub ? "6px 0 6px 20px" : "10px 0",
+                borderBottom: label === "Google Reviews" || label === "Contact" ? "none" : label === "Services" ? "none" : "1px solid rgba(255,255,255,0.05)",
+              }}>{label}</a>
+            );
+          })}
+        </div>
+        <a href="/contact" style={{ display: "block", background: "#2B7FFF", color: "#fff", padding: "16px 0", borderRadius: 12, fontWeight: 700, fontSize: 16, textDecoration: "none", textAlign: "center", marginTop: 28 }}>Free Marketing Audit</a>
+      </div>
+    </div>
+  );
+}
+
+function Nav() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  useEffect(() => {
+    if (mobileOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+  return (
+    <>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(7,9,13,0.92)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
+          <Logo />
+          <div className="dn" style={{ display: "flex", alignItems: "center", gap: 24 }}>
+          </div>
+          <button className="mobile-menu-btn" onClick={() => setMobileOpen(true)} style={{ background: "none", border: "none", cursor: "pointer", padding: 8, display: "none", alignItems: "center", justifyContent: "center" }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </nav>
+      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
+    </>
+  );
+}
 
 function Hero(){return(<section style={{background:BG,padding:"130px 24px 70px",position:"relative"}}><div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse 60% 40% at 50% 20%, rgba(43,127,255,0.07) 0%, transparent 60%)"}}/><div style={{maxWidth:1100,margin:"0 auto",position:"relative"}}><div className="hg" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:44,alignItems:"center"}}><FI><div><a href="/services" style={{color:B,fontSize:13,fontWeight:600,textDecoration:"none",display:"inline-block",marginBottom:16}}>← All Services</a><span style={{fontSize:32,display:"block",marginBottom:12}}>⭐</span><h1 style={{fontSize:"clamp(30px,4.5vw,46px)",fontWeight:800,color:"#fff",lineHeight:1.1,letterSpacing:"-.03em",marginBottom:16}}>Google Reviews for <span style={{color:B}}>Laundromats</span></h1><p style={{fontSize:17,color:"rgba(255,255,255,0.5)",lineHeight:1.65,marginBottom:28}}>Systematically generate 5-star reviews. More reviews = higher Google Maps ranking = more people find you when searching "laundromat near me." Free traffic that compounds forever.</p><a href="/contact" style={{background:B,color:"#fff",padding:"14px 26px",borderRadius:10,fontWeight:700,fontSize:15,textDecoration:"none",boxShadow:"0 2px 16px rgba(43,127,255,0.3)"}}>Get Started →</a></div></FI><FI delay={0.1}><svg width="100%" viewBox="0 0 400 300" fill="none"><rect x="0" y="0" width="400" height="300" rx="16" fill={BG3} stroke="rgba(255,255,255,0.07)"/><rect x="90" y="16" width="220" height="76" rx="12" fill="rgba(43,127,255,0.05)" stroke="rgba(43,127,255,0.1)"/><text x="200" y="48" textAnchor="middle" fill={B} fontSize="32" fontWeight="800" fontFamily="sans-serif">4.8</text><text x="148" y="72" fill="#F59E0B" fontSize="14" fontFamily="sans-serif">★ ★ ★ ★ ★</text><text x="220" y="72" fill="rgba(255,255,255,0.3)" fontSize="9" fontFamily="sans-serif">247 reviews</text>{[["Great service, super clean!","Maria G. · ★★★★★"],["Best laundromat in town","James R. · ★★★★★"],["Fast pickup & delivery!","Lisa M. · ★★★★★"],["Friendly staff, fair prices","David K. · ★★★★★"]].map(([text,author],i)=>(<g key={i}><rect x="20" y={106+i*42} width="360" height="34" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)"/><text x="36" y={120+i*42} fill="rgba(255,255,255,0.5)" fontSize="9" fontFamily="sans-serif">"{text}"</text><text x="36" y={132+i*42} fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="sans-serif">{author}</text></g>))}</svg></FI></div></div></section>)}
 
-function CaseStudy(){return(<section style={{background:BG2,padding:"70px 24px"}}><div style={{maxWidth:900,margin:"0 auto"}}><FI><p style={{color:B,fontWeight:700,fontSize:13,letterSpacing:".07em",textTransform:"uppercase",marginBottom:24,textAlign:"center"}}>Client results</p></FI><div className="csg" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}><FI><div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.07)",borderRadius:16,padding:"28px 26px"}}><div style={{display:"flex",gap:3,marginBottom:10}}>{[1,2,3,4,5].map(s=><span key={s} style={{color:"#F59E0B",fontSize:12}}>★</span>)}</div><p style={{fontSize:15,color:"rgba(255,255,255,0.6)",lineHeight:1.65,marginBottom:16}}>"Went from <span style={{color:B,fontWeight:700}}>34 reviews to 187 in 4 months</span>. Maps ranking jumped to top 3. Getting 20+ new walk-ins per week from Google — without spending on ads."</p><div style={{display:"flex",alignItems:"center",gap:10}}><div style={{width:34,height:34,borderRadius:8,background:"rgba(43,127,255,0.08)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:13,fontWeight:800,color:B}}>M</div><div><div style={{fontSize:13,fontWeight:700,color:"#fff"}}>Mike D.</div><div style={{fontSize:11,color:"rgba(255,255,255,0.3)"}}>FreshSpin · Portland, OR</div></div></div><div style={{display:"flex",gap:12,marginTop:16,paddingTop:16,borderTop:"1px solid rgba(255,255,255,0.06)"}}>{[["Reviews gained","153","in 4 months"],["Maps rank","Top 3","from page 2"],["Walk-ins","20+","/week"]].map(([l,v,s],i)=><div key={i} style={{textAlign:"center",flex:1}}><div style={{fontSize:11,color:"rgba(255,255,255,0.3)"}}>{l}</div><div style={{fontSize:18,fontWeight:800,color:i===2?"#22C55E":B}}>{v}</div><div style={{fontSize:10,color:"rgba(255,255,255,0.2)"}}>{s}</div></div>)}</div></div></FI><FI delay={0.08}><div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.07)",borderRadius:16,padding:"28px 26px"}}><div style={{display:"flex",gap:3,marginBottom:10}}>{[1,2,3,4,5].map(s=><span key={s} style={{color:"#F59E0B",fontSize:12}}>★</span>)}</div><p style={{fontSize:15,color:"rgba(255,255,255,0.6)",lineHeight:1.65,marginBottom:16}}>"Competitor had 200+ reviews, we had 28. After 6 months, <span style={{color:B,fontWeight:700}}>we're at 245 with a 4.9 rating</span>. Now WE'RE the one customers see first."</p><div style={{display:"flex",alignItems:"center",gap:10}}><div style={{width:34,height:34,borderRadius:8,background:"rgba(43,127,255,0.08)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:13,fontWeight:800,color:B}}>N</div><div><div style={{fontSize:13,fontWeight:700,color:"#fff"}}>Nancy C.</div><div style={{fontSize:11,color:"rgba(255,255,255,0.3)"}}>Sparkle Wash · Nashville, TN</div></div></div><div style={{display:"flex",gap:12,marginTop:16,paddingTop:16,borderTop:"1px solid rgba(255,255,255,0.06)"}}>{[["Reviews","28 → 245","+775%"],["Rating","4.9","maintained"],["Rank","#1","locally"]].map(([l,v,s],i)=><div key={i} style={{textAlign:"center",flex:1}}><div style={{fontSize:11,color:"rgba(255,255,255,0.3)"}}>{l}</div><div style={{fontSize:18,fontWeight:800,color:i===0?"#22C55E":B}}>{v}</div><div style={{fontSize:10,color:"rgba(255,255,255,0.2)"}}>{s}</div></div>)}</div></div></FI></div></div></section>)}
+function CaseStudy(){return(<section style={{background:BG2,padding:"70px 24px"}}><div style={{maxWidth:900,margin:"0 auto"}}><FI><p style={{color:B,fontWeight:700,fontSize:13,letterSpacing:".07em",textTransform:"uppercase",marginBottom:24,textAlign:"center"}}>Client results</p></FI><div className="csg detail-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr",gap:16}}><FI><div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.07)",borderRadius:16,padding:"28px 26px"}}><div style={{display:"flex",gap:3,marginBottom:10}}>{[1,2,3,4,5].map(s=><span key={s} style={{color:"#F59E0B",fontSize:12}}>★</span>)}</div><p style={{fontSize:15,color:"rgba(255,255,255,0.6)",lineHeight:1.65,marginBottom:16}}>"Went from <span style={{color:B,fontWeight:700}}>34 reviews to 187 in 4 months</span>. Maps ranking jumped to top 3. Getting 20+ new walk-ins per week from Google — without spending on ads."</p><div style={{display:"flex",alignItems:"center",gap:10}}><div style={{width:34,height:34,borderRadius:8,background:"rgba(43,127,255,0.08)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:13,fontWeight:800,color:B}}>M</div><div><div style={{fontSize:13,fontWeight:700,color:"#fff"}}>Mike D.</div><div style={{fontSize:11,color:"rgba(255,255,255,0.3)"}}>FreshSpin · Portland, OR</div></div></div><div style={{display:"flex",gap:12,marginTop:16,paddingTop:16,borderTop:"1px solid rgba(255,255,255,0.06)"}}>{[["Reviews gained","153","in 4 months"],["Maps rank","Top 3","from page 2"],["Walk-ins","20+","/week"]].map(([l,v,s],i)=><div key={i} style={{textAlign:"center",flex:1}}><div style={{fontSize:11,color:"rgba(255,255,255,0.3)"}}>{l}</div><div style={{fontSize:18,fontWeight:800,color:i===2?"#22C55E":B}}>{v}</div><div style={{fontSize:10,color:"rgba(255,255,255,0.2)"}}>{s}</div></div>)}</div></div></FI><FI delay={0.08}><div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.07)",borderRadius:16,padding:"28px 26px"}}><div style={{display:"flex",gap:3,marginBottom:10}}>{[1,2,3,4,5].map(s=><span key={s} style={{color:"#F59E0B",fontSize:12}}>★</span>)}</div><p style={{fontSize:15,color:"rgba(255,255,255,0.6)",lineHeight:1.65,marginBottom:16}}>"Competitor had 200+ reviews, we had 28. After 6 months, <span style={{color:B,fontWeight:700}}>we're at 245 with a 4.9 rating</span>. Now WE'RE the one customers see first."</p><div style={{display:"flex",alignItems:"center",gap:10}}><div style={{width:34,height:34,borderRadius:8,background:"rgba(43,127,255,0.08)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:13,fontWeight:800,color:B}}>N</div><div><div style={{fontSize:13,fontWeight:700,color:"#fff"}}>Nancy C.</div><div style={{fontSize:11,color:"rgba(255,255,255,0.3)"}}>Sparkle Wash · Nashville, TN</div></div></div><div style={{display:"flex",gap:12,marginTop:16,paddingTop:16,borderTop:"1px solid rgba(255,255,255,0.06)"}}>{[["Reviews","28 → 245","+775%"],["Rating","4.9","maintained"],["Rank","#1","locally"]].map(([l,v,s],i)=><div key={i} style={{textAlign:"center",flex:1}}><div style={{fontSize:11,color:"rgba(255,255,255,0.3)"}}>{l}</div><div style={{fontSize:18,fontWeight:800,color:i===0?"#22C55E":B}}>{v}</div><div style={{fontSize:10,color:"rgba(255,255,255,0.2)"}}>{s}</div></div>)}</div></div></FI></div></div></section>)}
 
 function WhyReviews(){return(<section style={{background:BG,padding:"80px 24px"}}><div style={{maxWidth:900,margin:"0 auto"}}><FI><h2 style={{fontSize:"clamp(24px,3vw,34px)",fontWeight:800,color:"#fff",marginBottom:36,textAlign:"center"}}>Why reviews are your most valuable asset</h2></FI><div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(260px, 1fr))",gap:14}}>{[["📍","Higher Maps ranking","More 5-star reviews = higher position in local search results."],["🤝","Instant trust","88% of consumers trust reviews as much as personal recommendations."],["💰","Free traffic forever","Unlike ads, reviews keep driving traffic permanently."],["🛡️","Competitive moat","250 reviews vs 30 is nearly impossible to catch."],["📈","More clicks","4.5+ star businesses get 28% more clicks from search."],["🔄","Feedback loop","Learn what's working and what needs fixing directly from customers."]].map(([icon,title,desc],i)=>(<FI key={i} delay={i*0.05}><div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.07)",borderRadius:14,padding:"24px 22px"}}><span style={{fontSize:22}}>{icon}</span><h3 style={{fontSize:15,fontWeight:720,color:"#fff",marginTop:10,marginBottom:6}}>{title}</h3><p style={{fontSize:13.5,color:"rgba(255,255,255,0.45)",lineHeight:1.6}}>{desc}</p></div></FI>))}</div></div></section>)}
 

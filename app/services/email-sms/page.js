@@ -54,18 +54,75 @@ function ServicesDropdown() {
   );
 }
 
-function Nav() {
-  return (<nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(7,9,13,0.92)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-    <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
-      <Logo />
-      <div className="dn" style={{ display: "flex", alignItems: "center", gap: 24 }}>
-        <a href="/" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>Home</a>
-        <ServicesDropdown />
-        {["About", "Blog", "FAQ", "Contact"].map(l => <a key={l} href={l==="About"?"/about":l==="Blog"?"/blog":l==="FAQ"?"/faq":"/contact"} style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>{l}</a>)}
-        <a href="#cta" style={{ background: B, color: "#fff", padding: "9px 20px", borderRadius: 9, fontWeight: 650, fontSize: 13, textDecoration: "none" }}>Free Marketing Audit</a>
+function MobileMenu({ open, onClose }) {
+  if (!open) return null;
+  const links = [
+    ["Home", "/"],
+    ["Services", "/services"],
+    ["Geo-Fencing Ads", "/services/geo-fencing-ads"],
+    ["AI Chatbot", "/services/ai-chatbot"],
+    ["Email & SMS", "/services/email-sms"],
+    ["CRM Integration", "/services/crm"],
+    ["B2B Outreach", "/services/b2b-outreach"],
+    ["Google Reviews", "/services/google-reviews"],
+    ["About", "/about"],
+    ["Blog", "/blog"],
+    ["FAQ", "/faq"],
+    ["Contact", "/contact"],
+  ];
+  return (
+    <div className="mobile-menu-overlay" onClick={onClose}>
+      <div onClick={e => e.stopPropagation()} style={{ flex: 1 }}>
+        <div style={{ position: "absolute", top: 20, right: 24 }}>
+          <button onClick={onClose} style={{ background: "none", border: "none", color: "#fff", fontSize: 28, cursor: "pointer", padding: 8 }}>✕</button>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          {links.map(([label, href]) => {
+            const isSub = ["Geo-Fencing Ads","AI Chatbot","Email & SMS","CRM Integration","B2B Outreach","Google Reviews"].includes(label);
+            return (
+              <a key={href+label} href={href} onClick={onClose} style={{
+                color: isSub ? "rgba(255,255,255,0.4)" : "#fff",
+                textDecoration: "none",
+                fontSize: isSub ? 15 : 20,
+                fontWeight: isSub ? 500 : 700,
+                padding: isSub ? "6px 0 6px 20px" : "10px 0",
+                borderBottom: label === "Google Reviews" || label === "Contact" ? "none" : label === "Services" ? "none" : "1px solid rgba(255,255,255,0.05)",
+              }}>{label}</a>
+            );
+          })}
+        </div>
+        <a href="/contact" style={{ display: "block", background: "#2B7FFF", color: "#fff", padding: "16px 0", borderRadius: 12, fontWeight: 700, fontSize: 16, textDecoration: "none", textAlign: "center", marginTop: 28 }}>Free Marketing Audit</a>
       </div>
     </div>
-  </nav>);
+  );
+}
+
+function Nav() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  useEffect(() => {
+    if (mobileOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+  return (
+    <>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(7,9,13,0.92)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
+          <Logo />
+          <div className="dn" style={{ display: "flex", alignItems: "center", gap: 24 }}>
+            <a href="/" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>Home</a>
+            <ServicesDropdown />
+            {["About", "Blog", "FAQ", "Contact"].map(l => <a key={l} href={l==="About"?"/about":l==="Blog"?"/blog":l==="FAQ"?"/faq":"/contact"} style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>{l}</a>)}
+            <a href="#cta" style={{ background: B, color: "#fff", padding: "9px 20px", borderRadius: 9, fontWeight: 650, fontSize: 13, textDecoration: "none" }}>Free Marketing Audit</a>
+          </div>
+          <button className="mobile-menu-btn" onClick={() => setMobileOpen(true)} style={{ background: "none", border: "none", cursor: "pointer", padding: 8, display: "none", alignItems: "center", justifyContent: "center" }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </nav>
+      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
+    </>
+  );
 }
 
 function Hero() {
@@ -127,7 +184,7 @@ function CaseStudy() {
   return (<section style={{ background: BG2, padding: "70px 24px" }}>
     <div style={{ maxWidth: 900, margin: "0 auto" }}>
       <FI><p style={{ color: B, fontWeight: 700, fontSize: 13, letterSpacing: ".07em", textTransform: "uppercase", marginBottom: 24, textAlign: "center" }}>Client results</p></FI>
-      <div className="csg" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+      <div className="csg detail-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <FI>
           <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "28px 26px" }}>
             <div style={{ display: "flex", gap: 3, marginBottom: 10 }}>{[1,2,3,4,5].map(s => <span key={s} style={{ color: "#F59E0B", fontSize: 12 }}>★</span>)}</div>
@@ -328,7 +385,9 @@ export default function EmailSMSPage() {
       *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
       html{scroll-behavior:smooth}body{background:#07090D;overflow-x:hidden}
       ::selection{background:rgba(43,127,255,0.25)}
-      @media(max-width:768px){.dn{display:none!important}.hg,.csg{grid-template-columns:1fr!important}.mcta{flex-direction:column;text-align:center}}
+      .mobile-menu-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(7,9,13,0.95);backdrop-filter:blur(10px);z-index:200;display:flex;align-items:flex-start}
+      .mobile-menu-overlay>div{width:100%;max-width:90%;padding:100px 24px 40px;color:#fff;font-size:16px;line-height:1.5;overflow-y:auto}
+      @media(max-width:768px){.dn{display:none!important}.hg,.csg{grid-template-columns:1fr!important}.mcta{flex-direction:column;text-align:center}.mobile-menu-btn{display:flex!important}}
     `}</style>
     <Nav /><Hero /><CaseStudy /><Campaigns /><WhoThisIsFor /><MidCTA /><Objections /><FAQ /><CTA /><Footer />
   </div>);
