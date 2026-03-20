@@ -80,9 +80,7 @@ function CalendarSection() {
                 src="https://link.freshleadsmarketing.com/widget/booking/fTHzSQY7rRoHcQPNC9NV"
                 style={{ width: "100%", minHeight: 700, border: "none", overflow: "hidden", borderRadius: 12, background: "#fff" }}
                 scrolling="no"
-                id="fTHzSQY7rRoHcQPNC9NV_embed"
-                allow="payment; camera; microphone"
-                referrerPolicy="no-referrer-when-downgrade"
+                id="fTHzSQY7rRoHcQPNC9NV_1773990578915"
               />
             ) : (
               <div style={{ width: "100%", minHeight: 700, borderRadius: 12, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -97,7 +95,7 @@ function CalendarSection() {
     {mounted && (
       <Script
         src="https://link.freshleadsmarketing.com/js/form_embed.js"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
       />
     )}
   </section>;
