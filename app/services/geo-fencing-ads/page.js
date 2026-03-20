@@ -407,7 +407,7 @@ function Objections() {
 function FAQ() {
   const [open, setOpen] = useState(null);
   const questions = [
-    ["How much should I budget for ad spend?", "Most clients start with $500-1,500/month in ad spend on top of our management fee. We recommend a specific budget split across Google and Facebook based on your market size and goals. Even $500/month generates meaningful results in most markets."],
+    ["How much should I budget for ad spend?", "We recommend starting with $300-1,000/month in ad spend on top of our management fee, with the ability to increase your budget after analyzing your market data and initial results. We'll recommend a specific budget split across Google and Facebook based on your market size and goals. Even $300/month generates meaningful results in most markets."],
     ["How quickly will I see results?", "Google Ads can generate calls and visits within the first week since you're targeting people actively searching. Facebook and Instagram typically take 2-4 weeks to build momentum as the algorithm learns your audience. By month 2-3, both platforms are fully optimized."],
     ["Do I need to be on both Google and Facebook?", "We strongly recommend it. Google captures people who are ready to visit a laundromat right now. Facebook builds awareness and reaches people before they start searching. Together they create a complete marketing system."],
     ["What is geo-fencing and is it legal?", "Geo-fencing draws a virtual boundary around a location, like a competitor's laundromat or an apartment complex. When someone enters that zone, they become eligible to see your ads on Facebook and Instagram. It's completely legal and one of our most effective strategies."],

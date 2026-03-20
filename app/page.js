@@ -206,7 +206,7 @@ function Hero() {
         </div>
         <Fade delay={.25}>
           <div className="stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 1, marginTop: 50, background: "rgba(255,255,255,0.06)", borderRadius: 12, overflow: "hidden", border: "1px solid rgba(255,255,255,0.06)" }}>
-            {[["150+","Laundromats served"],["3x","Avg. Client ROI"],["6","Integrated services"],["24/7","AI-powered support"]].map(([n,l],i) => (
+            {[["100+","Laundromats served"],["3x","Avg. Client ROI"],["6","Integrated services"],["24/7","AI-powered support"]].map(([n,l],i) => (
               <div key={i} style={{ background: BG, padding: "18px 14px", textAlign: "center" }}>
                 <div style={{ fontSize: 22, fontWeight: 800, color: B }}>{n}</div>
                 <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", fontWeight: 550, marginTop: 2 }}>{l}</div>
@@ -258,7 +258,7 @@ function Pricing() {
   const features = [
     { category: "Paid Ads (Done-For-You)", items: ["Google Ads management", "Facebook & Instagram Ads management", "Campaign strategy, setup, and optimization", "Ad creative design and copywriting"] },
     { category: "Lead Follow-Up & CRM", items: ["Instant email & SMS follow-up for new leads", "Centralized lead tracking", "No missed leads, no manual follow-ups"] },
-    { category: "Customer Re-Engagement (2/month)", items: ["Email + SMS campaigns to past customers", "Designed to drive repeat visits", "Requires POS API integration"] },
+    { category: "Customer Re-Engagement", items: ["Automated identification of lapsed customers", "Email + SMS re-engagement campaigns to drive repeat visits", "Requires POS API integration"] },
     { category: "New Customer Welcome Automation", items: ["Automatic customer capture via POS API", "Welcome email & SMS sequence", "Automated Google review requests"] },
     { category: "AI Automation & Chatbots", items: ["Website, SMS, and Facebook Messenger chatbots", "AI-powered Google review responses", "Trained on your business"] },
     { category: "B2B Cold Email Outreach", items: ["Dedicated sending domain setup", "Email warming and deliverability", "Lead replies go to your inbox"] }
@@ -363,7 +363,7 @@ function About() {
             <p style={{ color: B, fontWeight: 700, fontSize: 12, letterSpacing: "0.07em", textTransform: "uppercase", marginBottom: 8 }}>About Fresh Leads</p>
             <h2 style={{ fontSize: "clamp(26px,3.5vw,36px)", fontWeight: 800, color: "#fff", marginBottom: 14, lineHeight: 1.15 }}>Exclusively for laundromats. Nothing else.</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 12 }}>We built Fresh Leads to serve laundromats and only laundromats. Every strategy, every AI tool, every template is designed specifically for the laundry business. No generic playbooks. No one-size-fits-all nonsense.</p>
-            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 22 }}>Across 150+ laundromat clients, we've learned what actually works to drive growth, build loyalty, and maximize revenue for your business.</p>
+            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 22 }}>Across 100+ laundromat clients, we've learned what actually works to drive growth, build loyalty, and maximize revenue for your business.</p>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 28 }}>
               {["Laundromat-only focus","Full-service agency","AI-powered tools","Real results"].map((t,i) => (
                 <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -387,7 +387,7 @@ function About() {
               <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", lineHeight: 1.6, margin: 0 }}>Based out of Honolulu, Hawaii. If you ever visit, let's connect in person and you can write off the trip. Just saying.</p>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, textAlign: "center" }}>
-              {[["150+","Laundromats served"],["100%","Laundromat focus"],["3x","Avg. Client ROI"]].map(([n,l],i) => (
+              {[["100+","Laundromats served"],["100%","Laundromat focus"],["3x","Avg. Client ROI"]].map(([n,l],i) => (
                 <div key={i}>
                   <div style={{ fontSize: 20, fontWeight: 800, color: B }}>{n}</div>
                   <div style={{ fontSize: 10, color: "rgba(255,255,255,0.25)", marginTop: 2 }}>{l}</div>
@@ -415,7 +415,7 @@ function FAQ() {
     ["How fast will I see results?","Most clients see their first leads within 1-2 weeks of launching ads. By month 2-3, we've gathered enough data to deeply optimize your campaigns. That's when ROI typically hits 2-4x. Email and SMS campaigns can generate revenue within days if you have an existing customer list. Review generation starts showing Google Maps ranking improvements within 60-90 days. The full system builds momentum over time, with months 4-6 being where most clients see the biggest jumps."],
     ["How much does the Laundromat Growth System cost?","Pricing depends on your market size, number of locations, and specific goals. We'll walk you through options on our discovery call. What we can tell you is that most clients see a positive ROI within the first 60-90 days, and our average client generates 3x or more return on their total marketing investment."],
     ["Do I need to be tech-savvy to use this?","Not at all. We handle everything: ad creation, campaign management, email copywriting, chatbot training, CRM setup, review automation, and reporting. You'll get a dashboard where you can see your results anytime, but you don't need to touch anything. We send you clear, simple reports and hop on calls to walk through performance whenever you want."],
-    ["What if I've tried marketing before and it didn't work?","This is the most common thing we hear. Almost every time, the issue is the same: the previous agency ran generic campaigns that weren't built for laundromats. They targeted too broad, used stock creative, and had no understanding of the laundry industry. We're different because we only work with laundromats. Every ad template, email sequence, and targeting strategy has been tested across 150+ laundromat clients. We already know what works."],
+    ["What if I've tried marketing before and it didn't work?","This is the most common thing we hear. Almost every time, the issue is the same: the previous agency ran generic campaigns that weren't built for laundromats. They targeted too broad, used stock creative, and had no understanding of the laundry industry. We're different because we only work with laundromats. Every ad template, email sequence, and targeting strategy has been tested across 100+ laundromat clients. We already know what works."],
     ["How do you track and report results?","You get a real-time dashboard plus detailed monthly reports covering every channel: ad performance, email open rates, SMS engagement, review growth, lead counts, and revenue attribution. We tie everything back to actual dollars so you know exactly what your marketing investment is generating. No vanity metrics, no fluff. Just the numbers that matter to your bottom line."],
     ["What POS systems do you integrate with?","Our CRM integrates directly with Cents, LaundroWorks, and CCI. Customer data syncs automatically so you never need to manually enter contacts. If you use a different system, we'll work with you to find an integration path or set up manual imports."],
     ["Can this work for a brand new laundromat?","Absolutely. New laundromats are actually some of our best success stories because there's zero competition for your brand name, no bad habits to undo, and everything is set up correctly from day one. We'll focus on building awareness through geo-fencing ads, capturing every lead with the chatbot, and generating reviews fast to build your Google presence."],

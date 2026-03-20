@@ -131,7 +131,7 @@ function Hero() {
           A marketing agency <span style={{ color: B }}>built for laundromats</span>
         </h1>
         <p style={{ fontSize: 17, color: "rgba(255,255,255,0.5)", maxWidth: 540, margin: "0 auto", lineHeight: 1.6 }}>
-          150+ laundromats served across the United States.
+          100+ laundromats served across the United States.
         </p>
       </FI>
     </div>
@@ -143,7 +143,7 @@ function Stats() {
     <div style={{ maxWidth: 900, margin: "0 auto" }}>
       <FI>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14 }} className="stats-grid">
-          {[["150+", "Laundromats served"], ["3x", "Avg. Client ROI"], ["6", "Integrated services"], ["24/7", "AI-powered support"]].map(([n, l], i) => (
+          {[["100+", "Laundromats served"], ["3x", "Avg. Client ROI"], ["6", "Integrated services"], ["24/7", "AI-powered support"]].map(([n, l], i) => (
             <div key={i} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "28px 20px", textAlign: "center" }}>
               <div style={{ fontSize: 30, fontWeight: 800, color: B }}>{n}</div>
               <div style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", fontWeight: 550, marginTop: 4 }}>{l}</div>

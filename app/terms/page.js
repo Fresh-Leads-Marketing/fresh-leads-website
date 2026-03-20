@@ -221,7 +221,7 @@ export default function TermsOfServicePage() {
 
               <h2 style={{ color: "#fff", fontSize: 22, fontWeight: 700, marginTop: 40, marginBottom: 16 }}>7. Performance and Results</h2>
               <p style={{ marginBottom: 24 }}>
-                While we implement industry-leading strategies based on proven results across 150+ laundromat clients, we cannot guarantee specific results or return on investment. Results depend on many factors including market conditions, competition, your location, service offerings, and implementation of our recommendations. We commit to continuous optimization and transparent reporting on all metrics within your control.
+                While we implement industry-leading strategies based on proven results across 100+ laundromat clients, we cannot guarantee specific results or return on investment. Results depend on many factors including market conditions, competition, your location, service offerings, and implementation of our recommendations. We commit to continuous optimization and transparent reporting on all metrics within your control.
               </p>
 
               <h2 style={{ color: "#fff", fontSize: 22, fontWeight: 700, marginTop: 40, marginBottom: 16 }}>8. Contract Term and Termination</h2>
