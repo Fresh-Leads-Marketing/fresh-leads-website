@@ -4,7 +4,39 @@ const B="#2B7FFF",BG="#07090D",BG2="#0C1017",BG3="#101520";
 function useV(t=0.1){const r=useRef(null),[v,s]=useState(false);useEffect(()=>{const e=r.current;if(!e)return;const o=new IntersectionObserver(([x])=>{if(x.isIntersecting){s(true);o.disconnect()}},{threshold:t});o.observe(e);return()=>o.disconnect()},[t]);return[r,v]}
 function FI({children,delay=0}){const[r,v]=useV();return(<div ref={r} style={{opacity:v?1:0,transform:v?"translateY(0)":"translateY(24px)",transition:`opacity .6s ease ${delay}s, transform .6s ease ${delay}s`}}>{children}</div>)}
 function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:32,width:"auto",display:"block"}}/>)}
-function Nav(){return(<nav style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(7,9,13,0.92)",backdropFilter:"blur(20px)",borderBottom:"1px solid rgba(255,255,255,0.08)"}}><div style={{maxWidth:1200,margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:68}}><a href="/"><Logo/></a><div className="dn" style={{display:"flex",alignItems:"center",gap:24}}>{[["Home","/"],["Services","/services"],["About","/about"],["Blog","/blog"],["Contact","/contact"]].map(([l,h])=>(<a key={l} href={h} style={{color:l==="Services"?"#fff":"rgba(255,255,255,0.5)",textDecoration:"none",fontSize:13,fontWeight:l==="Services"?650:550}}>{l}</a>))}<a href="/contact" style={{background:B,color:"#fff",padding:"9px 20px",borderRadius:9,fontWeight:650,fontSize:13,textDecoration:"none"}}>Free Audit</a></div></div></nav>)}
+function ServicesDropdown() {
+  const [open, setOpen] = useState(false);
+  const timer = useRef(null);
+  const show = () => { clearTimeout(timer.current); setOpen(true); };
+  const hide = () => { timer.current = setTimeout(() => setOpen(false), 150); };
+  const items = [
+    ["Geo-Fencing Ads", "/services/geo-fencing-ads"],
+    ["AI Chatbot", "/services/ai-chatbot"],
+    ["Email & SMS", "/services/email-sms"],
+    ["CRM Integration", "/services/crm"],
+    ["B2B Outreach", "/services/b2b-outreach"],
+    ["Google Reviews", "/services/google-reviews"],
+  ];
+  return (
+    <div style={{ position: "relative" }} onMouseEnter={show} onMouseLeave={hide}>
+      <a href="/services" style={{ color: "#fff", textDecoration: "none", fontSize: 13, fontWeight: 650, display: "flex", alignItems: "center", gap: 4 }}>
+        Services <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2.5 4L5 6.5L7.5 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      </a>
+      {open && (
+        <div style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", paddingTop: 10 }}>
+          <div style={{ background: "rgba(12,16,23,0.98)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, padding: "8px 0", minWidth: 200, boxShadow: "0 8px 32px rgba(0,0,0,0.5)", backdropFilter: "blur(20px)" }}>
+            {items.map(([label, href]) => (
+              <a key={href} href={href} style={{ display: "block", padding: "9px 18px", color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13, fontWeight: 500, transition: "background .15s" }} onMouseEnter={e => { e.target.style.background = "rgba(43,127,255,0.08)"; e.target.style.color = "#fff"; }} onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.color = "rgba(255,255,255,0.6)"; }}>{label}</a>
+            ))}
+            <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", margin: "6px 0" }} />
+            <a href="/services" style={{ display: "block", padding: "9px 18px", color: "#2B7FFF", textDecoration: "none", fontSize: 13, fontWeight: 650 }}>All Services →</a>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+function Nav(){return(<nav style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(7,9,13,0.92)",backdropFilter:"blur(20px)",borderBottom:"1px solid rgba(255,255,255,0.08)"}}><div style={{maxWidth:1200,margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:68}}><a href="/"><Logo/></a><div className="dn" style={{display:"flex",alignItems:"center",gap:24}}><a href="/" style={{color:"rgba(255,255,255,0.5)",textDecoration:"none",fontSize:13,fontWeight:550}}>Home</a><ServicesDropdown/>{["About","Blog","Contact"].map(l=><a key={l} href={l==="About"?"/about":l==="Blog"?"/blog":"/contact"} style={{color:"rgba(255,255,255,0.5)",textDecoration:"none",fontSize:13,fontWeight:550}}>{l}</a>)}<a href="#cta" style={{background:B,color:"#fff",padding:"9px 20px",borderRadius:9,fontWeight:650,fontSize:13,textDecoration:"none"}}>Free Marketing Audit</a></div></div></nav>)}
 
 function Hero(){return(<section style={{background:BG,padding:"130px 24px 70px",position:"relative"}}><div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse 60% 40% at 50% 20%, rgba(43,127,255,0.07) 0%, transparent 60%)"}}/><div style={{maxWidth:1100,margin:"0 auto",position:"relative"}}><div className="hg" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:44,alignItems:"center"}}><FI><div><a href="/services" style={{color:B,fontSize:13,fontWeight:600,textDecoration:"none",display:"inline-block",marginBottom:16}}>← All Services</a><span style={{fontSize:32,display:"block",marginBottom:12}}>⭐</span><h1 style={{fontSize:"clamp(30px,4.5vw,46px)",fontWeight:800,color:"#fff",lineHeight:1.1,letterSpacing:"-.03em",marginBottom:16}}>Google Reviews for <span style={{color:B}}>Laundromats</span></h1><p style={{fontSize:17,color:"rgba(255,255,255,0.5)",lineHeight:1.65,marginBottom:28}}>Systematically generate 5-star reviews. More reviews = higher Google Maps ranking = more people find you when searching "laundromat near me." Free traffic that compounds forever.</p><a href="/contact" style={{background:B,color:"#fff",padding:"14px 26px",borderRadius:10,fontWeight:700,fontSize:15,textDecoration:"none",boxShadow:"0 2px 16px rgba(43,127,255,0.3)"}}>Get Started →</a></div></FI><FI delay={0.1}><svg width="100%" viewBox="0 0 400 300" fill="none"><rect x="0" y="0" width="400" height="300" rx="16" fill={BG3} stroke="rgba(255,255,255,0.07)"/><rect x="90" y="16" width="220" height="76" rx="12" fill="rgba(43,127,255,0.05)" stroke="rgba(43,127,255,0.1)"/><text x="200" y="48" textAnchor="middle" fill={B} fontSize="32" fontWeight="800" fontFamily="sans-serif">4.8</text><text x="148" y="72" fill="#F59E0B" fontSize="14" fontFamily="sans-serif">★ ★ ★ ★ ★</text><text x="220" y="72" fill="rgba(255,255,255,0.3)" fontSize="9" fontFamily="sans-serif">247 reviews</text>{[["Great service, super clean!","Maria G. · ★★★★★"],["Best laundromat in town","James R. · ★★★★★"],["Fast pickup & delivery!","Lisa M. · ★★★★★"],["Friendly staff, fair prices","David K. · ★★★★★"]].map(([text,author],i)=>(<g key={i}><rect x="20" y={106+i*42} width="360" height="34" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)"/><text x="36" y={120+i*42} fill="rgba(255,255,255,0.5)" fontSize="9" fontFamily="sans-serif">"{text}"</text><text x="36" y={132+i*42} fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="sans-serif">{author}</text></g>))}</svg></FI></div></div></section>)}
 

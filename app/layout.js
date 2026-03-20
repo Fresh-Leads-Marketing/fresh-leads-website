@@ -61,7 +61,7 @@ const jsonLd = {
       name: "Fresh Leads Marketing",
       url: "https://freshleadsmarketing.com",
       telephone: "",
-      email: "hello@freshleadsmarketing.com",
+      email: "info@freshleadsmarketing.com",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Honolulu",

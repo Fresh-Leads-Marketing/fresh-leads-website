@@ -16,8 +16,51 @@ function FI({ children, delay = 0 }) {
   return <div ref={r} style={{ opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(24px)", transition: `opacity .6s ease ${delay}s, transform .6s ease ${delay}s` }}>{children}</div>;
 }
 function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:32,width:"auto",display:"block"}}/>)}
+function ServicesDropdown({ active }) {
+  const [open, setOpen] = useState(false);
+  const timer = useRef(null);
+  const show = () => { clearTimeout(timer.current); setOpen(true); };
+  const hide = () => { timer.current = setTimeout(() => setOpen(false), 150); };
+  const items = [
+    ["Geo-Fencing Ads", "/services/geo-fencing-ads"],
+    ["AI Chatbot", "/services/ai-chatbot"],
+    ["Email & SMS", "/services/email-sms"],
+    ["CRM Integration", "/services/crm"],
+    ["B2B Outreach", "/services/b2b-outreach"],
+    ["Google Reviews", "/services/google-reviews"],
+  ];
+  return (
+    <div style={{ position: "relative" }} onMouseEnter={show} onMouseLeave={hide}>
+      <a href="/services" style={{ color: active ? "#fff" : "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: active ? 650 : 550, display: "flex", alignItems: "center", gap: 4 }}>
+        Services <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2.5 4L5 6.5L7.5 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      </a>
+      {open && (
+        <div style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", paddingTop: 10 }}>
+          <div style={{ background: "rgba(12,16,23,0.98)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, padding: "8px 0", minWidth: 200, boxShadow: "0 8px 32px rgba(0,0,0,0.5)", backdropFilter: "blur(20px)" }}>
+            {items.map(([label, href]) => (
+              <a key={href} href={href} style={{ display: "block", padding: "9px 18px", color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13, fontWeight: 500, transition: "background .15s" }} onMouseEnter={e => { e.target.style.background = "rgba(43,127,255,0.08)"; e.target.style.color = "#fff"; }} onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.color = "rgba(255,255,255,0.6)"; }}>{label}</a>
+            ))}
+            <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", margin: "6px 0" }} />
+            <a href="/services" style={{ display: "block", padding: "9px 18px", color: B, textDecoration: "none", fontSize: 13, fontWeight: 650 }}>All Services →</a>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function Nav() {
-  return <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(7,9,13,0.92)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}><div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}><Logo /><div className="dn" style={{ display: "flex", alignItems: "center", gap: 24 }}>{["Home","Services","About","Blog","Contact"].map(l=><a key={l} href={l==="Home"?"/":l==="Services"?"/services":l==="About"?"/about":l==="Blog"?"/blog":"/contact"} style={{ color: l==="Contact"?"#fff":"rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: l==="Contact"?650:550 }}>{l}</a>)}</div></div></nav>;
+  return <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(7,9,13,0.92)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+    <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
+      <Logo />
+      <div className="dn" style={{ display: "flex", alignItems: "center", gap: 24 }}>
+        <a href="/" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>Home</a>
+        <ServicesDropdown active={false} />
+        {["About", "Blog", "Contact"].map(l => <a key={l} href={l==="About"?"/about":l==="Blog"?"/blog":"/contact"} style={{ color: l === "Contact" ? "#fff" : "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: l === "Contact" ? 650 : 550 }}>{l}</a>)}
+        <a href="/contact" style={{ background: B, color: "#fff", padding: "9px 20px", borderRadius: 9, fontWeight: 650, fontSize: 13, textDecoration: "none" }}>Free Marketing Audit</a>
+      </div>
+    </div>
+  </nav>;
 }
 
 function Hero() {
@@ -167,7 +210,7 @@ function Info() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 14 }}>
           {[
             ["\uD83D\uDCCD", "Location", "Honolulu, HI (serving nationwide)"],
-            ["\uD83D\uDCE7", "Email", "hello@freshleadsmarketing.com"],
+            ["\uD83D\uDCE7", "Email", "info@freshleadsmarketing.com"],
             ["\u23F0", "Response time", "Within 24 hours"],
           ].map(([icon, label, value], i) => (
             <div key={i} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "20px 18px", textAlign: "center" }}>
