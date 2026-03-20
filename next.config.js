@@ -8,7 +8,15 @@ const nextConfig = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: "frame-src 'self' https://link.freshleadsmarketing.com https://*.gohighlevel.com https://*.leadconnectorhq.com;",
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://link.freshleadsmarketing.com https://*.gohighlevel.com https://*.leadconnectorhq.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com",
+              "frame-src 'self' https://link.freshleadsmarketing.com https://*.gohighlevel.com https://*.leadconnectorhq.com",
+              "connect-src 'self' https://link.freshleadsmarketing.com https://*.gohighlevel.com https://*.leadconnectorhq.com",
+              "img-src 'self' data: https: blob:",
+            ].join('; '),
           },
         ],
       },

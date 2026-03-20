@@ -10,11 +10,14 @@ body { background: #07090D; font-family: 'DM Sans', -apple-system, BlinkMacSyste
   100% { transform: translateX(-50%); }
 }
 
+input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
+
 @media (max-width: 768px) {
   .desktop-nav { display: none !important; }
   .mobile-btn { display: block !important; }
-  .hero-grid, .about-grid, .csg, .fg, .hg { grid-template-columns: 1fr !important; }
+  .hero-grid, .about-grid, .csg, .fg, .hg, .cg { grid-template-columns: 1fr !important; }
   .hero-graphic { display: none !important; }
   .mcta { flex-direction: column !important; text-align: center; }
   .og { grid-template-columns: 1fr !important; }
+  .dn { display: none !important; }
 }

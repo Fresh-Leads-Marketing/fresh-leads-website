@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Script from "next/script";
 
 const B = "#2B7FFF";
 const BG = "#07090D";
@@ -26,7 +27,7 @@ function Hero() {
       <FI>
         <p style={{ color: B, fontWeight: 700, fontSize: 13, letterSpacing: ".07em", textTransform: "uppercase", marginBottom: 12 }}>Contact Us</p>
         <h1 style={{ fontSize: "clamp(32px,5vw,48px)", fontWeight: 800, color: "#fff", lineHeight: 1.1, letterSpacing: "-.03em", marginBottom: 16 }}>
-          Let's grow your <span style={{ color: B }}>laundromat</span>
+          Let&apos;s grow your <span style={{ color: B }}>laundromat</span>
         </h1>
         <p style={{ fontSize: 17, color: "rgba(255,255,255,0.5)", maxWidth: 480, margin: "0 auto", lineHeight: 1.6 }}>
           Schedule a free discovery call or send us a message. We respond within 24 hours.
@@ -37,16 +38,10 @@ function Hero() {
 }
 
 function CalendarSection() {
-  const calRef = useRef(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (calRef.current) {
-      const script = document.createElement("script");
-      script.src = "https://link.freshleadsmarketing.com/js/form_embed.js";
-      script.type = "text/javascript";
-      document.body.appendChild(script);
-      return () => { if (document.body.contains(script)) document.body.removeChild(script); };
-    }
+    setMounted(true);
   }, []);
 
   return <section style={{ background: BG2, padding: "70px 24px" }}>
@@ -56,15 +51,15 @@ function CalendarSection() {
           <div>
             <h2 style={{ fontSize: 26, fontWeight: 800, color: "#fff", marginBottom: 8 }}>Book your free discovery call</h2>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.45)", lineHeight: 1.6, marginBottom: 28 }}>
-              Pick a time that works for you. In 30 minutes, we'll audit your market, review your competition, and outline a custom growth strategy for your laundromat.
+              Pick a time that works for you. In 30 minutes, we&apos;ll audit your market, review your competition, and outline a custom growth strategy for your laundromat.
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               {[
-                ["⏱️", "30 minutes", "Quick, focused, and actionable"],
-                ["📊", "Market audit", "We research your area before the call"],
-                ["🎯", "Custom strategy", "You'll leave with a clear plan"],
-                ["💰", "100% free", "No commitment, no pressure"],
+                ["\u23F1\uFE0F", "30 minutes", "Quick, focused, and actionable"],
+                ["\uD83D\uDCCA", "Market audit", "We research your area before the call"],
+                ["\uD83C\uDFAF", "Custom strategy", "You\u2019ll leave with a clear plan"],
+                ["\uD83D\uDCB0", "100% free", "No commitment, no pressure"],
               ].map(([icon, title, sub], i) => (
                 <div key={i} style={{ display: "flex", gap: 12, alignItems: "center" }}>
                   <span style={{ fontSize: 18 }}>{icon}</span>
@@ -79,19 +74,32 @@ function CalendarSection() {
         </FI>
 
         <FI delay={0.1}>
-          <div ref={calRef} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "4px", overflow: "hidden", minHeight: 700 }}>
-            <iframe
-              src="https://link.freshleadsmarketing.com/widget/booking/fTHzSQY7rRoHcQPNC9NV"
-              style={{ width: "100%", minHeight: 700, border: "none", overflow: "hidden", borderRadius: 12, background: "#fff" }}
-              scrolling="no"
-              id="fTHzSQY7rRoHcQPNC9NV_embed"
-              allow="payment; camera; microphone"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "4px", overflow: "hidden", minHeight: 700 }}>
+            {mounted ? (
+              <iframe
+                src="https://link.freshleadsmarketing.com/widget/booking/fTHzSQY7rRoHcQPNC9NV"
+                style={{ width: "100%", minHeight: 700, border: "none", overflow: "hidden", borderRadius: 12, background: "#fff" }}
+                scrolling="no"
+                id="fTHzSQY7rRoHcQPNC9NV_embed"
+                allow="payment; camera; microphone"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            ) : (
+              <div style={{ width: "100%", minHeight: 700, borderRadius: 12, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ color: "#999", fontSize: 14 }}>Loading calendar...</div>
+              </div>
+            )}
           </div>
         </FI>
       </div>
     </div>
+
+    {mounted && (
+      <Script
+        src="https://link.freshleadsmarketing.com/js/form_embed.js"
+        strategy="lazyOnload"
+      />
+    )}
   </section>;
 }
 
@@ -101,7 +109,7 @@ function ContactForm() {
       <FI>
         <div style={{ textAlign: "center", marginBottom: 32 }}>
           <h2 style={{ fontSize: 24, fontWeight: 800, color: "#fff", marginBottom: 8 }}>Prefer to send a message?</h2>
-          <p style={{ fontSize: 14, color: "rgba(255,255,255,0.4)" }}>Fill out the form and we'll get back to you within 24 hours.</p>
+          <p style={{ fontSize: 14, color: "rgba(255,255,255,0.4)" }}>Fill out the form and we&apos;ll get back to you within 24 hours.</p>
         </div>
 
         {[
@@ -133,7 +141,7 @@ function ContactForm() {
           width: "100%", background: B, color: "#fff", padding: "13px", borderRadius: 10,
           border: "none", fontWeight: 700, fontSize: 15, cursor: "pointer",
           fontFamily: "'DM Sans', sans-serif", boxShadow: "0 2px 16px rgba(43,127,255,0.3)",
-        }}>Send Message →</button>
+        }}>Send Message &rarr;</button>
       </FI>
     </div>
   </section>;
@@ -145,9 +153,9 @@ function Info() {
       <FI>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 14 }}>
           {[
-            ["📍", "Location", "Honolulu, HI (serving nationwide)"],
-            ["📧", "Email", "hello@freshleadsmarketing.com"],
-            ["⏰", "Response time", "Within 24 hours"],
+            ["\uD83D\uDCCD", "Location", "Honolulu, HI (serving nationwide)"],
+            ["\uD83D\uDCE7", "Email", "hello@freshleadsmarketing.com"],
+            ["\u23F0", "Response time", "Within 24 hours"],
           ].map(([icon, label, value], i) => (
             <div key={i} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "20px 18px", textAlign: "center" }}>
               <span style={{ fontSize: 20, display: "block", marginBottom: 8 }}>{icon}</span>
@@ -166,19 +174,12 @@ function Footer() {
     <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 28 }}>
       <div><Logo /><p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", maxWidth: 220, lineHeight: 1.5, marginTop: 10 }}>The #1 laundromat marketing agency.</p></div>
     </div>
-    <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", marginTop: 20, paddingTop: 14, fontSize: 11, color: "rgba(255,255,255,0.2)" }}>© 2026 Fresh Leads Marketing</div>
+    <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", marginTop: 20, paddingTop: 14, fontSize: 11, color: "rgba(255,255,255,0.2)" }}>&copy; 2026 Fresh Leads Marketing</div>
   </footer>;
 }
 
 export default function ContactPage() {
   return <div style={{ fontFamily: "'DM Sans', -apple-system, sans-serif", background: BG, minHeight: "100vh" }}>
-    <style>{`
-      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
-      *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:#07090D;overflow-x:hidden}
-      ::selection{background:rgba(43,127,255,0.25)}
-      input::placeholder,textarea::placeholder{color:rgba(255,255,255,0.2)}
-      @media(max-width:768px){.dn{display:none!important}.cg{grid-template-columns:1fr!important}}
-    `}</style>
     <Nav />
     <Hero />
     <CalendarSection />
