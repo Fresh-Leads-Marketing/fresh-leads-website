@@ -61,6 +61,7 @@ function MobileMenu({ open, onClose }) {
     ["Google Reviews", "/services/google-reviews"],
     ["B2B Outreach", "/services/b2b-outreach"],
     ["About", "/about"],
+    ["Pricing", "/pricing"],
     ["Blog", "/blog"],
     ["FAQ", "/faq"],
     ["Contact", "/contact"],
@@ -107,7 +108,7 @@ function Nav() {
           <div className="dn" style={{ display: "flex", alignItems: "center", gap: 24 }}>
             <a href="/" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>Home</a>
             <ServicesDropdown active={false} />
-            {["About", "Blog", "FAQ", "Contact"].map(l => <a key={l} href={l==="About"?"/about":l==="Blog"?"/blog":l==="FAQ"?"/faq":"/contact"} style={{ color: l === "Contact" ? "#fff" : "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: l === "Contact" ? 650 : 550 }}>{l}</a>)}
+            {["About", "Pricing", "Blog", "FAQ", "Contact"].map(l => <a key={l} href={l==="About"?"/about":l==="Pricing"?"/pricing":l==="Blog"?"/blog":l==="FAQ"?"/faq":"/contact"} style={{ color: l === "Contact" ? "#fff" : "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: l === "Contact" ? 650 : 550 }}>{l}</a>)}
             <a href="/contact" style={{ background: B, color: "#fff", padding: "9px 20px", borderRadius: 9, fontWeight: 650, fontSize: 13, textDecoration: "none" }}>Free Marketing Audit</a>
           </div>
           <button className="mobile-menu-btn" onClick={() => setMobileOpen(true)} style={{ background: "none", border: "none", cursor: "pointer", padding: 8, display: "none", alignItems: "center", justifyContent: "center" }}>
@@ -298,7 +299,7 @@ function Footer() {
         <div>
           <h4 style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Quick Links</h4>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {[["Home", "/"],["Services", "/services"],["About", "/about"],["Blog", "/blog"],["FAQ", "/faq"],["Contact", "/contact"]].map(([label, href]) => (
+            {[["Home", "/"],["Services", "/services"],["About", "/about"],["Pricing", "/pricing"],["Blog", "/blog"],["FAQ", "/faq"],["Contact", "/contact"]].map(([label, href]) => (
               <a key={href} href={href} style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{label}</a>
             ))}
           </div>

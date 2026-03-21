@@ -83,6 +83,7 @@ function MobileMenu({ open, onClose }) {
     ["Google Reviews", "/services/google-reviews"],
     ["B2B Outreach", "/services/b2b-outreach"],
     ["About", "/about"],
+    ["Pricing", "/pricing"],
     ["Blog", "/blog"],
     ["FAQ", "/faq"],
     ["Contact", "/contact"],
@@ -129,8 +130,8 @@ function Nav() {
           <div style={{ display: "flex", alignItems: "center", gap: 24 }} className="dn">
             <a href="/" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>Home</a>
             <ServicesDropdown />
-            {["About", "Blog", "FAQ", "Contact"].map(l => (
-              <a key={l} href={l==="About"?"/about":l==="Blog"?"/blog":l==="FAQ"?"/faq":"/contact"} style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>{l}</a>
+            {["About", "Pricing", "Blog", "FAQ", "Contact"].map(l => (
+              <a key={l} href={l==="About"?"/about":l==="Pricing"?"/pricing":l==="Blog"?"/blog":l==="FAQ"?"/faq":"/contact"} style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>{l}</a>
             ))}
             <a href="/contact" style={{ background: B, color: "#fff", padding: "9px 20px", borderRadius: 9, fontWeight: 650, fontSize: 13, textDecoration: "none" }}>Free Marketing Audit</a>
           </div>
@@ -412,8 +413,8 @@ function FAQ() {
     ["What is the Laundromat Growth System?","The Laundromat Growth System is our all-in-one marketing package built specifically for laundromats. It includes everything you need to grow: geo-fencing ads on Facebook and Google, email and SMS automation, an AI chatbot and voice bot, a custom CRM synced to your POS, B2B commercial outreach, and Google review generation. Everything works together as one system so your marketing compounds instead of operating in silos."],
     ["Why can't I just pick individual services?","We don't offer à la carte services because isolated tactics don't work. Running ads without email follow-up means you're paying for leads that never come back. Getting reviews without a CRM means you can't track who's responding. The Laundromat Growth System is designed so every piece feeds the others. Ads bring in new customers, the CRM segments them, email and SMS bring them back, the chatbot captures leads 24/7, and reviews build your reputation. That's how you get compounding growth instead of one-off results."],
     ["How do geo-fencing ads work for laundromats?","We draw virtual boundaries around your laundromat, your competitors' locations, apartment complexes, and high-traffic areas. When someone enters that zone with their phone, they become eligible to see your ads on Facebook, Instagram, and Google. This means you're reaching people who are physically near your business, not blasting ads to an entire city. Our clients typically see a 3-4x return on ad spend with cost per lead between $4-8."],
-    ["How fast will I see results?","Most clients see their first leads within 1-2 weeks of launching ads. By month 2-3, we've gathered enough data to deeply optimize your campaigns. That's when ROI typically hits 2-4x. Email and SMS campaigns can generate revenue within days if you have an existing customer list. Review generation starts showing Google Maps ranking improvements within 60-90 days. The full system builds momentum over time, with months 4-6 being where most clients see the biggest jumps."],
-    ["How much does the Laundromat Growth System cost?","Pricing depends on your market size, number of locations, and specific goals. We'll walk you through options on our discovery call. What we can tell you is that most clients see a positive ROI within the first 60-90 days, and our average client generates 3x or more return on their total marketing investment."],
+    ["How fast will I see results?","Most clients see their first leads within the first 1 to 2 weeks of launching ads. Google Ads can generate calls and direction requests within days since you're targeting people actively searching for a laundromat. Facebook and Instagram typically take 2 to 4 weeks to build momentum. By month 2 to 3, campaigns are fully optimized and that's when ROI really starts to compound."],
+    ["How much does Fresh Leads Marketing cost?","Our All-In-One Growth Package is $1,000 per month for your first location. If you have multiple locations, each additional location is $199 per month. That price includes everything: Google Ads management, Facebook and Instagram Ads management, email and SMS marketing, CRM, AI chatbots, Google review management with AI auto-responses, and B2B cold email outreach. There are no hidden fees."],
     ["Do I need to be tech-savvy to use this?","Not at all. We handle everything: ad creation, campaign management, email copywriting, chatbot training, CRM setup, review automation, and reporting. You'll get a dashboard where you can see your results anytime, but you don't need to touch anything. We send you clear, simple reports and hop on calls to walk through performance whenever you want."],
     ["What if I've tried marketing before and it didn't work?","This is the most common thing we hear. Almost every time, the issue is the same: the previous agency ran generic campaigns that weren't built for laundromats. They targeted too broad, used stock creative, and had no understanding of the laundry industry. We're different because we only work with laundromats. Every ad template, email sequence, and targeting strategy has been tested across 100+ laundromat clients. We already know what works."],
     ["How do you track and report results?","You get a real-time dashboard plus detailed monthly reports covering every channel: ad performance, email open rates, SMS engagement, review growth, lead counts, and revenue attribution. We tie everything back to actual dollars so you know exactly what your marketing investment is generating. No vanity metrics, no fluff. Just the numbers that matter to your bottom line."],
@@ -511,7 +512,7 @@ function Footer() {
         <div>
           <h4 style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Quick Links</h4>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {[["Home", "/"],["Services", "/services"],["About", "/about"],["Blog", "/blog"],["FAQ", "/faq"],["Contact", "/contact"]].map(([label, href]) => (
+            {[["Home", "/"],["Services", "/services"],["About", "/about"],["Pricing", "/pricing"],["Blog", "/blog"],["FAQ", "/faq"],["Contact", "/contact"]].map(([label, href]) => (
               <a key={href} href={href} style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{label}</a>
             ))}
           </div>

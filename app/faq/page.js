@@ -83,6 +83,7 @@ function MobileMenu({ open, onClose }) {
     ["Google Reviews", "/services/google-reviews"],
     ["B2B Outreach", "/services/b2b-outreach"],
     ["About", "/about"],
+    ["Pricing", "/pricing"],
     ["Blog", "/blog"],
     ["FAQ", "/faq"],
     ["Contact", "/contact"],
@@ -129,8 +130,8 @@ function Nav() {
           <div className="dn" style={{ display: "flex", alignItems: "center", gap: 24 }}>
             <a href="/" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: 550 }}>Home</a>
             <ServicesDropdown />
-            {["About", "Blog", "FAQ", "Contact"].map(l => (
-              <a key={l} href={l==="About"?"/about":l==="Blog"?"/blog":l==="FAQ"?"/faq":"/contact"} style={{ color: l === "FAQ" ? "#fff" : "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: l === "FAQ" ? 650 : 550 }}>{l}</a>
+            {["About", "Pricing", "Blog", "FAQ", "Contact"].map(l => (
+              <a key={l} href={l==="About"?"/about":l==="Pricing"?"/pricing":l==="Blog"?"/blog":l==="FAQ"?"/faq":"/contact"} style={{ color: l === "FAQ" ? "#fff" : "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 13, fontWeight: l === "FAQ" ? 650 : 550 }}>{l}</a>
             ))}
             <a href="/contact" style={{ background: B, color: "#fff", padding: "9px 20px", borderRadius: 9, fontWeight: 650, fontSize: 13, textDecoration: "none" }}>Free Marketing Audit</a>
           </div>
@@ -151,17 +152,17 @@ const CATEGORIES = [
     faqs: [
       ["What is the Laundromat Growth System?", "The Laundromat Growth System is our all-in-one marketing package built specifically for laundromats. It includes everything you need to grow: geo-fencing ads on Facebook and Google, email and SMS automation, an AI chatbot and voice bot, a custom CRM synced to your POS, B2B commercial outreach, and Google review generation. Everything works together as one system so your marketing compounds instead of operating in silos."],
       ["Why can't I just pick individual services?", "We don't offer a la carte services because isolated tactics don't work. Running ads without email follow-up means you're paying for leads that never come back. Getting reviews without a CRM means you can't track who's responding. The Laundromat Growth System is designed so every piece feeds the others. Ads bring in new customers, the CRM segments them, email and SMS bring them back, the chatbot captures leads 24/7, and reviews build your reputation. That's how you get compounding growth instead of one-off results."],
-      ["Do you only work with laundromats?", "Yes. We work exclusively with laundromats, including self-service laundromats, wash-and-fold operations, laundry pickup and delivery services, and commercial laundry businesses. This specialization means every strategy, ad template, and automation sequence has been tested and refined across 100+ laundromat clients. We understand the industry inside and out."],
-      ["What if I've tried marketing before and it didn't work?", "This is the most common thing we hear. Almost every time, the issue is the same: the previous agency ran generic campaigns that weren't built for laundromats. They targeted too broad, used stock creative, and had no understanding of the laundry industry. We're different because we only work with laundromats. Every ad template, email sequence, and targeting strategy has been tested across 100+ laundromat clients. We already know what works."],
+      ["Do you only work with laundromats?", "Yes. We work exclusively with laundromats, including self-service laundromats, wash-and-fold operations, laundry pickup and delivery services, and commercial laundry businesses. This specialization means every strategy, ad template, and automation sequence has been tested and refined across over 100 laundromat clients. We understand the industry inside and out."],
+      ["What if I've tried marketing before and it didn't work?", "This is the most common thing we hear. Almost every time, the issue is the same: the previous agency ran generic campaigns that weren't built for laundromats. They targeted too broad, used stock creative, and had no understanding of the laundry industry. We're different because we only work with laundromats. Every ad template, email sequence, and targeting strategy has been tested across over 100 laundromat clients. We already know what works."],
     ]
   },
   {
     title: "Getting Started",
     icon: "🚀",
     faqs: [
-      ["How do I get started?", "It starts with a free marketing audit. Book a call through our website, and we'll review your current online presence, local competition, and growth opportunities. If we're a good fit, we'll put together a custom strategy and have you launched within 2 weeks of signing."],
-      ["What does the onboarding process look like?", "Once you sign on, onboarding takes about 7-10 business days. During that time we collect your business info, branding assets, and POS/CRM access. We build out your ad campaigns, configure your chatbot, set up email and SMS sequences, connect your CRM, and launch your review automation. You'll have a dedicated account manager walking you through every step."],
-      ["What do you need from me to get started?", "We keep it simple. We'll need access to your Google Business Profile, your Facebook Business page, login credentials for your POS system (for CRM integration), your logo and any brand photos you have, and about 30 minutes for a kickoff call. If you don't have some of these, no worries. We'll help you set them up."],
+      ["How do I get started?", "The first step is booking a free discovery call. During that 30 to 60 minute call, we'll learn about your business, research your market, review your competition, and outline a custom growth plan. There's no commitment required. You can book a call at freshleadsmarketing.com/contact or reach out to us directly."],
+      ["What happens during the discovery call?", "The discovery call is a free 30 to 60 minute consultation where we learn about your laundromat, your goals, and your market. Before the call, we research your area so we come prepared with insights about your competition and opportunities. By the end of the call, you'll have a clear picture of what we'd do for your business and what results to expect."],
+      ["What do I need to provide to get started?", "We'll need access to your Meta Business Suite account, your Google Ads account, your domain DNS so we can set up email sending, and your POS system credentials for the API integration. If you don't have ad accounts set up yet, we'll help you create them. We walk you through everything on the kickoff call."],
       ["Can this work for a brand new laundromat?", "Absolutely. New laundromats are actually some of our best success stories because there's zero competition for your brand name, no bad habits to undo, and everything is set up correctly from day one. We'll focus on building awareness through geo-fencing ads, capturing every lead with the chatbot, and generating reviews fast to build your Google presence."],
       ["Do I need to be tech-savvy to use this?", "Not at all. We handle everything: ad creation, campaign management, email copywriting, chatbot training, CRM setup, review automation, and reporting. You'll get a dashboard where you can see your results anytime, but you don't need to touch anything. We send you clear, simple reports and hop on calls to walk through performance whenever you want."],
     ]
@@ -181,20 +182,20 @@ const CATEGORIES = [
     icon: "⚙️",
     faqs: [
       ["How do geo-fencing ads work for laundromats?", "We draw virtual boundaries around your laundromat, your competitors' locations, apartment complexes, and high-traffic areas. When someone enters that zone with their phone, they become eligible to see your ads on Facebook, Instagram, and Google. This means you're reaching people who are physically near your business, not blasting ads to an entire city. Our clients typically see a 3-4x return on ad spend with cost per lead between $4-8."],
-      ["What does the AI chatbot do?", "The AI chatbot lives on your website and answers customer questions 24/7. It can handle inquiries about hours, pricing, services, locations, and more. It also captures contact information from every visitor, books appointments for wash-and-fold or pickup/delivery, and sends the lead directly to your CRM. Most laundromat websites lose 90% of visitors because no one's available to help. The chatbot changes that."],
+      ["How do your AI chatbots work for laundromats?", "Our AI chatbots are available on your website, via SMS texting, and on Facebook Messenger. They handle customer questions 24/7, including hours of operation, services offered, pricing, directions, and more. The chatbot is trained specifically on your business, your services, and your FAQs so it gives accurate, helpful answers every time. The chatbot does not handle booking or scheduling—it directs customers to contact you for anything that requires a conversation with your team."],
       ["What POS systems do you integrate with?", "Our CRM integrates directly with Cents, LaundroWorks, and CCI. Customer data syncs automatically so you never need to manually enter contacts. If you use a different system, we'll work with you to find an integration path or set up manual imports that keep your data flowing."],
       ["How does B2B outreach work?", "We identify hotels, gyms, spas, Airbnbs, and other commercial accounts in your area that need laundry services. Then we run targeted outreach campaigns through warmed-up email channels to book meetings. This is a high-value service because commercial contracts are recurring revenue with predictable volume. Most laundromat owners don't have the time or system to do this consistently, so we handle it end to end."],
-      ["How does the review automation work?", "After a customer visits your laundromat, our system sends a timed SMS or email asking them to leave a Google review. We make it one-tap easy with a direct link to your Google profile. We also monitor your reviews and alert you to any negative ones so you can respond quickly. Consistent review growth directly impacts your Google Maps ranking, which is where most laundromat customers start their search."],
+      ["Can you help us increase our online reviews?", "Yes. We set up automated review request sequences that go out to customers after they visit your laundromat. The requests are sent via email and SMS at the right time to maximize the chance of getting a response. More 5-star reviews means a higher Google Maps ranking, which means more people find you when they search 'laundromat near me.' We also respond to all your Google reviews with professional, personalized responses using AI, so every customer feedback gets acknowledged."],
     ]
   },
   {
     title: "Pricing & Contracts",
     icon: "💰",
     faqs: [
-      ["How much does the Laundromat Growth System cost?", "Pricing depends on your market size, number of locations, and specific goals. We'll walk you through options on our discovery call. What we can tell you is that most clients see a positive ROI within the first 60-90 days, and our average client generates 3x or more return on their total marketing investment."],
-      ["Are there long-term contracts?", "We offer month-to-month agreements after an initial 90-day commitment. The 90 days gives us enough time to build, launch, optimize, and demonstrate real results. After that, you stay because it's working, not because you're locked in. Our client retention rate is over 90%, which speaks to the results we deliver."],
-      ["Is there an ad spend minimum?", "We recommend a minimum of $1,000/month in ad spend across Google and Facebook combined to generate meaningful results. Most of our clients invest between $1,500-3,000/month in ad spend depending on their market and goals. This is separate from our management fee. We'll recommend the right budget during your audit based on your specific market."],
-      ["Do you charge a setup fee?", "There is a one-time onboarding fee that covers campaign buildout, CRM configuration, chatbot training, and all the initial setup work. This is a significant amount of custom work done specifically for your business, and it ensures everything is built right from day one. We'll cover exact pricing on your discovery call."],
+      ["How much does Fresh Leads Marketing cost?", "Our All-In-One Growth Package is $1,000 per month for your first location. If you have multiple locations, each additional location is $199 per month. That price includes everything: Google Ads management, Facebook and Instagram Ads management, email and SMS marketing, CRM, AI chatbots, Google review management with AI auto-responses, and B2B cold email outreach. There are no hidden fees."],
+      ["Do I need to sign a long-term contract?", "No. We offer month-to-month agreements. There are no long-term commitments required. We believe our results should earn your business every month, not a contract. That said, marketing works best with consistency, and most clients who stay for 3+ months see significantly better results as campaigns optimize over time."],
+      ["How much should I budget for ad spend?", "Most laundromats start with $300 to $1,000 per month in ad spend on top of our management fee. After we analyze the initial data, we increase the budget from there based on what's working. We'll recommend a starting budget during your discovery call based on your area and competition."],
+      ["How long does it take to get set up?", "Our setup process is fast. After we complete the kickoff call, your ads are live within 48 hours if it falls during Monday through Friday business hours. The rest of the system (CRM, chatbots, email and SMS automations, review management) is configured during the first week."],
     ]
   },
 ];
@@ -349,7 +350,7 @@ export default function FAQPage() {
           <div>
             <h4 style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Quick Links</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              {[["Home", "/"],["Services", "/services"],["About", "/about"],["Blog", "/blog"],["FAQ", "/faq"],["Contact", "/contact"]].map(([label, href]) => (
+              {[["Home", "/"],["Services", "/services"],["About", "/about"],["Pricing", "/pricing"],["Blog", "/blog"],["FAQ", "/faq"],["Contact", "/contact"]].map(([label, href]) => (
                 <a key={href} href={href} style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{label}</a>
               ))}
             </div>
