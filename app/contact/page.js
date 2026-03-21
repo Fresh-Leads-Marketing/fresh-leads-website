@@ -164,7 +164,6 @@ function CalendarSection() {
               style={{ width: "100%", minHeight: 700, border: "none", overflow: "hidden", borderRadius: 12, background: "#fff" }}
               scrolling="no"
               id="fTHzSQY7rRoHcQPNC9NV_1773990578915"
-              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation"
               title="Book a Discovery Call"
             />
           ) : (
@@ -212,54 +211,52 @@ function ContactForm() {
   };
 
   const inputStyle = {
-    width: "100%", background: "#fff", border: "1px solid #ddd",
-    borderRadius: 9, padding: "11px 14px", color: "#1a1a1a", fontSize: 14,
+    width: "100%", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.18)",
+    borderRadius: 9, padding: "11px 14px", color: "#fff", fontSize: 14,
     fontFamily: "'DM Sans', sans-serif", outline: "none",
   };
 
   return <section style={{ background: BG, padding: "70px 24px" }}>
     <div style={{ maxWidth: 600, margin: "0 auto" }}>
       <FI>
-        <div style={{ background: "#f5f5f5", borderRadius: 16, padding: "36px 32px" }}>
-          <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <h2 style={{ fontSize: 24, fontWeight: 800, color: "#111", marginBottom: 8 }}>Prefer to send a message?</h2>
-            <p style={{ fontSize: 14, color: "#666" }}>Fill out the form and we&apos;ll get back to you within 24 hours.</p>
-          </div>
-
-          {status === "sent" ? (
-            <div style={{ background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)", borderRadius: 12, padding: "28px 24px", textAlign: "center" }}>
-              <p style={{ fontSize: 16, fontWeight: 700, color: "#22C55E", marginBottom: 6 }}>Message sent!</p>
-              <p style={{ fontSize: 14, color: "#555" }}>We&apos;ll get back to you within 24 hours.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              {[
-                ["Full name", "text", "John Smith", "name"],
-                ["Email", "email", "john@mylaundromat.com", "email"],
-                ["Laundromat name", "text", "Smith's Cleaners", "laundromat"],
-                ["How many locations?", "text", "1", "locations"],
-              ].map(([label, type, placeholder, key], i) => (
-                <div key={i} style={{ marginBottom: 14 }}>
-                  <label htmlFor={`field-${key}`} style={{ display: "block", fontSize: 13, fontWeight: 600, color: "#444", marginBottom: 5 }}>{label}</label>
-                  <input id={`field-${key}`} name={key} type={type} placeholder={placeholder} required={i < 2} value={form[key]} onChange={e => setForm({ ...form, [key]: e.target.value })} style={inputStyle} />
-                </div>
-              ))}
-
-              <div style={{ marginBottom: 14 }}>
-                <label htmlFor="field-services" style={{ display: "block", fontSize: 13, fontWeight: 600, color: "#444", marginBottom: 5 }}>What services are you interested in?</label>
-                <textarea id="field-services" name="services" placeholder="Tell us about your goals..." value={form.services} onChange={e => setForm({ ...form, services: e.target.value })} style={{ ...inputStyle, minHeight: 100, resize: "vertical" }} />
-              </div>
-
-              <button type="submit" disabled={status === "sending"} style={{
-                width: "100%", background: status === "sending" ? "rgba(43,127,255,0.5)" : B, color: "#fff", padding: "13px", borderRadius: 10,
-                border: "none", fontWeight: 700, fontSize: 15, cursor: status === "sending" ? "not-allowed" : "pointer",
-                fontFamily: "'DM Sans', sans-serif", boxShadow: "0 2px 16px rgba(43,127,255,0.3)",
-              }}>{status === "sending" ? "Sending..." : "Send Message \u2192"}</button>
-
-              {status === "error" && <p style={{ color: "#EF4444", fontSize: 13, marginTop: 10, textAlign: "center" }}>Something went wrong. Please try again or email us directly.</p>}
-            </form>
-          )}
+        <div style={{ textAlign: "center", marginBottom: 32 }}>
+          <h2 style={{ fontSize: 24, fontWeight: 800, color: "#fff", marginBottom: 8 }}>Prefer to send a message?</h2>
+          <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)" }}>Fill out the form and we&apos;ll get back to you within 24 hours.</p>
         </div>
+
+        {status === "sent" ? (
+          <div style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)", borderRadius: 12, padding: "28px 24px", textAlign: "center" }}>
+            <p style={{ fontSize: 16, fontWeight: 700, color: "#22C55E", marginBottom: 6 }}>Message sent!</p>
+            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)" }}>We&apos;ll get back to you within 24 hours.</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            {[
+              ["Full name", "text", "John Smith", "name"],
+              ["Email", "email", "john@mylaundromat.com", "email"],
+              ["Laundromat name", "text", "Smith's Cleaners", "laundromat"],
+              ["How many locations?", "text", "1", "locations"],
+            ].map(([label, type, placeholder, key], i) => (
+              <div key={i} style={{ marginBottom: 14 }}>
+                <label htmlFor={`field-${key}`} style={{ display: "block", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.65)", marginBottom: 5 }}>{label}</label>
+                <input id={`field-${key}`} name={key} type={type} placeholder={placeholder} required={i < 2} value={form[key]} onChange={e => setForm({ ...form, [key]: e.target.value })} style={inputStyle} />
+              </div>
+            ))}
+
+            <div style={{ marginBottom: 14 }}>
+              <label htmlFor="field-services" style={{ display: "block", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.65)", marginBottom: 5 }}>What services are you interested in?</label>
+              <textarea id="field-services" name="services" placeholder="Tell us about your goals..." value={form.services} onChange={e => setForm({ ...form, services: e.target.value })} style={{ ...inputStyle, minHeight: 100, resize: "vertical" }} />
+            </div>
+
+            <button type="submit" disabled={status === "sending"} style={{
+              width: "100%", background: status === "sending" ? "rgba(43,127,255,0.5)" : B, color: "#fff", padding: "13px", borderRadius: 10,
+              border: "none", fontWeight: 700, fontSize: 15, cursor: status === "sending" ? "not-allowed" : "pointer",
+              fontFamily: "'DM Sans', sans-serif", boxShadow: "0 2px 16px rgba(43,127,255,0.3)",
+            }}>{status === "sending" ? "Sending..." : "Send Message \u2192"}</button>
+
+            {status === "error" && <p style={{ color: "#EF4444", fontSize: 13, marginTop: 10, textAlign: "center" }}>Something went wrong. Please try again or email us directly.</p>}
+          </form>
+        )}
       </FI>
     </div>
   </section>;
