@@ -198,7 +198,7 @@ function WhatIsIncluded() {
     {
       title: "Paid Ads Management (Done-For-You)",
       icon: "📢",
-      items: ["Google Ads management", "Facebook & Instagram Ads management", "Campaign strategy, setup, and optimization", "Ad creative design and copywriting", "Ongoing performance monitoring"]
+      items: ["Google & Facebook Ads management", "Geo-fencing ad campaigns", "Campaign strategy, setup, and optimization", "Ad creative design and copywriting", "Ongoing performance monitoring"]
     },
     {
       title: "Lead Follow-Up & CRM",

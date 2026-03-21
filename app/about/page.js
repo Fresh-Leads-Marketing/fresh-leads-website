@@ -274,12 +274,7 @@ function MeetTheFounder() {
         </FI>
         <FI delay={0.1}>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <div style={{ width: 280, height: 280, borderRadius: 16, background: "rgba(43,127,255,0.08)", border: "1px solid rgba(43,127,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 12 }}>
-              <div style={{ width: 120, height: 120, borderRadius: 12, background: "rgba(43,127,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ fontSize: 56, fontWeight: 800, color: B }}>R</span>
-              </div>
-              <p style={{ fontSize: 13, color: "rgba(255,255,255,0.3)", textAlign: "center" }}>Headshot</p>
-            </div>
+            <img src="/ryan-headshot.jpg" alt="Ryan, Founder of Fresh Leads Marketing" style={{ width: 320, height: "auto", borderRadius: 16, border: "1px solid rgba(43,127,255,0.15)", objectFit: "cover" }} />
           </div>
         </FI>
       </div>
