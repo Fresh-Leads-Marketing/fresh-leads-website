@@ -164,6 +164,8 @@ function CalendarSection() {
               style={{ width: "100%", minHeight: 700, border: "none", overflow: "hidden", borderRadius: 12, background: "#fff" }}
               scrolling="no"
               id="fTHzSQY7rRoHcQPNC9NV_1773990578915"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+              title="Book a Discovery Call"
             />
           ) : (
             <div style={{ width: "100%", minHeight: 700, borderRadius: 12, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -268,7 +270,7 @@ function Info() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 14 }}>
           {[
             ["\uD83D\uDCCD", "Location", "Honolulu, HI (serving nationwide)"],
-            ["\uD83D\uDCE7", "Email", "info@freshleadsmarketing.com"],
+            ["\uD83D\uDCE7", "Email", "info"+"@"+"freshleadsmarketing.com"],
             ["\u23F0", "Response time", "Within 24 hours"],
           ].map(([icon, label, value], i) => (
             <div key={i} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "20px 18px", textAlign: "center" }}>
@@ -292,7 +294,7 @@ function Footer() {
           <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.6, marginTop: 12, marginBottom: 16 }}>Marketing built exclusively for laundromats.</p>
           <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginBottom: 8 }}>
             <div style={{ marginBottom: 6 }}>📞 <a href="tel:808-736-1539" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>808-736-1539</a></div>
-            <div>📧 <a href="mailto:info@freshleadsmarketing.com" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>info@freshleadsmarketing.com</a></div>
+            <div>📧 <a href={"mailto:"+"info"+"@"+"freshleadsmarketing.com"} style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{['info','@','freshleadsmarketing','.com'].join('')}</a></div>
           </div>
         </div>
 

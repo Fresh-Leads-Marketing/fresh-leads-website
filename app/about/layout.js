@@ -10,6 +10,11 @@ export const metadata = {
     url: "https://freshleadsmarketing.com/about",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | Fresh Leads Marketing | Laundromat Marketing Agency",
+    description: "Fresh Leads Marketing is a full-service marketing agency built exclusively for laundromats. Based in Honolulu, serving 100+ laundromat clients nationwide.",
+  },
 };
 
 const organizationSchema = {

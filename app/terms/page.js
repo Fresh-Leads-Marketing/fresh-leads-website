@@ -270,7 +270,7 @@ export default function TermsOfServicePage() {
               </p>
               <div style={{ background: "rgba(43,127,255,0.08)", border: "1px solid rgba(43,127,255,0.15)", borderRadius: 12, padding: 20, marginTop: 16, marginBottom: 40 }}>
                 <p style={{ margin: "0 0 8px 0", fontWeight: 600 }}>Fresh Leads Marketing</p>
-                <p style={{ margin: "0 0 4px 0" }}>Email: info@freshleadsmarketing.com</p>
+                <p style={{ margin: "0 0 4px 0" }}>Email: {"info"+"@"+"freshleadsmarketing.com"}</p>
                 <p style={{ margin: "0 0 4px 0" }}>Phone: 808-736-1539</p>
                 <p style={{ margin: 0 }}>Location: Honolulu, Hawaii</p>
               </div>
@@ -288,7 +288,7 @@ export default function TermsOfServicePage() {
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.6, marginTop: 12, marginBottom: 16 }}>Marketing built exclusively for laundromats.</p>
             <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginBottom: 8 }}>
               <div style={{ marginBottom: 6 }}>📞 <a href="tel:808-736-1539" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>808-736-1539</a></div>
-              <div>📧 <a href="mailto:info@freshleadsmarketing.com" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>info@freshleadsmarketing.com</a></div>
+              <div>📧 <a href={"mailto:"+"info"+"@"+"freshleadsmarketing.com"} style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{['info','@','freshleadsmarketing','.com'].join('')}</a></div>
             </div>
           </div>
 

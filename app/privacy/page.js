@@ -244,7 +244,7 @@ export default function PrivacyPolicyPage() {
 
               <h2 style={{ color: "#fff", fontSize: 22, fontWeight: 700, marginTop: 40, marginBottom: 16 }}>7. CCPA Compliance</h2>
               <p style={{ marginBottom: 24 }}>
-                If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA). We comply with all CCPA requirements regarding your personal information. For more information about your CCPA rights, please contact us at info@freshleadsmarketing.com.
+                If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA). We comply with all CCPA requirements regarding your personal information. For more information about your CCPA rights, please contact us at info [at] freshleadsmarketing.com.
               </p>
 
               <h2 style={{ color: "#fff", fontSize: 22, fontWeight: 700, marginTop: 40, marginBottom: 16 }}>8. Cookies and Tracking</h2>
@@ -268,7 +268,7 @@ export default function PrivacyPolicyPage() {
               </p>
               <div style={{ background: "rgba(43,127,255,0.08)", border: "1px solid rgba(43,127,255,0.15)", borderRadius: 12, padding: 20, marginTop: 16, marginBottom: 40 }}>
                 <p style={{ margin: "0 0 8px 0", fontWeight: 600 }}>Fresh Leads Marketing</p>
-                <p style={{ margin: "0 0 4px 0" }}>Email: info@freshleadsmarketing.com</p>
+                <p style={{ margin: "0 0 4px 0" }}>Email: {"info"+"@"+"freshleadsmarketing.com"}</p>
                 <p style={{ margin: "0 0 4px 0" }}>Phone: 808-736-1539</p>
                 <p style={{ margin: 0 }}>Location: Honolulu, Hawaii</p>
               </div>
@@ -286,7 +286,7 @@ export default function PrivacyPolicyPage() {
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.6, marginTop: 12, marginBottom: 16 }}>Marketing built exclusively for laundromats.</p>
             <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginBottom: 8 }}>
               <div style={{ marginBottom: 6 }}>📞 <a href="tel:808-736-1539" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>808-736-1539</a></div>
-              <div>📧 <a href="mailto:info@freshleadsmarketing.com" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>info@freshleadsmarketing.com</a></div>
+              <div>📧 <a href={"mailto:"+"info"+"@"+"freshleadsmarketing.com"} style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{['info','@','freshleadsmarketing','.com'].join('')}</a></div>
             </div>
           </div>
 
