@@ -146,27 +146,14 @@ function Objections() {
 }
 
 function TryItOut() {
-  const [voiceLoaded, setVoiceLoaded] = useState(false);
-  const [voiceUses, setVoiceUses] = useState(0);
-  const MAX_VOICE_USES = 2;
-
-  const loadVoiceWidget = () => {
-    if (voiceUses >= MAX_VOICE_USES || voiceLoaded) return;
-    setVoiceLoaded(true);
-    setVoiceUses(prev => prev + 1);
-  };
-
   useEffect(() => {
-    if (!voiceLoaded) return;
-    const container = document.getElementById("voice-widget-container");
-    if (!container) return;
     const script = document.createElement("script");
     script.src = "https://beta.leadconnectorhq.com/loader.js";
     script.setAttribute("data-resources-url", "https://beta.leadconnectorhq.com/chat-widget/loader.js");
     script.setAttribute("data-widget-id", "69be08d9db14804b0b82bfce");
-    container.appendChild(script);
-  }, [voiceLoaded]);
-
+    document.getElementById("voice-widget-container").appendChild(script);
+    return () => { if (script.parentNode) script.parentNode.removeChild(script); };
+  }, []);
   return (
     <section style={{ background: BG, padding: "80px 24px" }}>
       <div style={{ maxWidth: 800, margin: "0 auto" }}>
@@ -183,18 +170,7 @@ function TryItOut() {
               <div style={{ fontSize: 36, marginBottom: 16 }}>📞</div>
               <h3 style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 12 }}>AI Voice Bot</h3>
               <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65, marginBottom: 20, flex: 1 }}>Call the Sparklean Laundromat AI Voice Bot. Ask about self-service pricing, wash and fold turnaround times, pickup and delivery areas — anything a real customer would call about. Listen to how natural it sounds.</p>
-              {!voiceLoaded ? (
-                voiceUses >= MAX_VOICE_USES ? (
-                  <div style={{ background: "rgba(255,255,255,0.05)", borderRadius: 10, padding: "14px 18px", textAlign: "center" }}>
-                    <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", margin: 0 }}>Demo limit reached for this session. <a href="/contact" style={{ color: B, textDecoration: "none", fontWeight: 600 }}>Contact us</a> to learn more.</p>
-                  </div>
-                ) : (
-                  <button onClick={loadVoiceWidget} style={{ background: B, color: "#fff", border: "none", borderRadius: 10, padding: "13px 24px", fontWeight: 700, fontSize: 14, cursor: "pointer", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 2px 16px rgba(43,127,255,0.3)", transition: "transform .15s" }} onMouseEnter={e => e.target.style.transform = "scale(1.02)"} onMouseLeave={e => e.target.style.transform = "scale(1)"}>
-                    Try the Voice AI Demo
-                  </button>
-                )
-              ) : (
-                <div id="voice-widget-container" style={{ minHeight: 48 }} />
+              <div id="voice-widget-container" style={{ minHeight: 48 }} />
               )}
             </div>
           </FI>
