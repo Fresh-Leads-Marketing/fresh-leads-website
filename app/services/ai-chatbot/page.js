@@ -171,7 +171,6 @@ function TryItOut() {
               <h3 style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 12 }}>AI Voice Bot</h3>
               <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65, marginBottom: 20, flex: 1 }}>Call the Sparklean Laundromat AI Voice Bot. Ask about self-service pricing, wash and fold turnaround times, pickup and delivery areas — anything a real customer would call about. Listen to how natural it sounds.</p>
               <div id="voice-widget-container" style={{ minHeight: 48 }} />
-              )}
             </div>
           </FI>
           <FI delay={0.08}>
