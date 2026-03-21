@@ -146,14 +146,6 @@ function Objections() {
 }
 
 function TryItOut() {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://beta.leadconnectorhq.com/loader.js";
-    script.setAttribute("data-resources-url", "https://beta.leadconnectorhq.com/chat-widget/loader.js");
-    script.setAttribute("data-widget-id", "69be08d9db14804b0b82bfce");
-    document.getElementById("voice-widget-container").appendChild(script);
-    return () => { if (script.parentNode) script.parentNode.removeChild(script); };
-  }, []);
   return (
     <section style={{ background: BG, padding: "80px 24px" }}>
       <div style={{ maxWidth: 800, margin: "0 auto" }}>
@@ -170,7 +162,7 @@ function TryItOut() {
               <div style={{ fontSize: 36, marginBottom: 16 }}>📞</div>
               <h3 style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 12 }}>AI Voice Bot</h3>
               <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65, marginBottom: 20, flex: 1 }}>Call the Sparklean Laundromat AI Voice Bot. Ask about self-service pricing, wash and fold turnaround times, pickup and delivery areas — anything a real customer would call about. Listen to how natural it sounds.</p>
-              <div id="voice-widget-container" style={{ minHeight: 48 }} />
+              <a href="tel:8087361539" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 10, background: B, color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 10, textDecoration: "none", transition: "opacity .2s" }} onMouseEnter={e => e.currentTarget.style.opacity = "0.85"} onMouseLeave={e => e.currentTarget.style.opacity = "1"}>📞 Call (808) 736-1539</a>
             </div>
           </FI>
           <FI delay={0.08}>
