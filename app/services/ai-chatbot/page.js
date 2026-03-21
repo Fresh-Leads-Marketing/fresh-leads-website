@@ -154,6 +154,10 @@ function TryItOut() {
     if (voiceUses >= MAX_VOICE_USES || voiceLoaded) return;
     setVoiceLoaded(true);
     setVoiceUses(prev => prev + 1);
+  };
+
+  useEffect(() => {
+    if (!voiceLoaded) return;
     const container = document.getElementById("voice-widget-container");
     if (!container) return;
     const script = document.createElement("script");
@@ -161,7 +165,7 @@ function TryItOut() {
     script.setAttribute("data-resources-url", "https://beta.leadconnectorhq.com/chat-widget/loader.js");
     script.setAttribute("data-widget-id", "69be08d9db14804b0b82bfce");
     container.appendChild(script);
-  };
+  }, [voiceLoaded]);
 
   return (
     <section style={{ background: BG, padding: "80px 24px" }}>
