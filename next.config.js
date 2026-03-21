@@ -42,7 +42,7 @@ const nextConfig = {
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "X-XSS-Protection", value: "1; mode=block" },
-          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(self https://beta.leadconnectorhq.com https://widgets.leadconnectorhq.com), geolocation=()" },
           {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
@@ -55,7 +55,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https: blob:",
-              "connect-src 'self' https://beta.leadconnectorhq.com https://widgets.leadconnectorhq.com https://services.leadconnectorhq.com https://formsubmit.co",
+              "connect-src 'self' https://beta.leadconnectorhq.com https://widgets.leadconnectorhq.com https://services.leadconnectorhq.com https://formsubmit.co wss://beta.leadconnectorhq.com wss://widgets.leadconnectorhq.com https://*.leadconnectorhq.com",
               "frame-src 'self' https://api.leadconnectorhq.com https://beta.leadconnectorhq.com https://link.leadconnectorhq.com https://link.freshleadsmarketing.com",
               "media-src 'self' https:",
             ].join("; "),
