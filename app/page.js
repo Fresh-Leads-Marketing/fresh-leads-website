@@ -160,7 +160,7 @@ function Hero() {
             </Fade>
             <Fade delay={.05}>
               <h1 style={{ fontSize: "clamp(34px,5vw,58px)", fontWeight: 800, color: "#fff", lineHeight: 1.06, letterSpacing: "-0.035em", marginBottom: 18 }}>
-                More customers. <span style={{ color: B }}>More revenue.</span><br />For your laundromat.
+                Dominate your local <span style={{ color: B }}>laundry market.</span>
               </h1>
             </Fade>
             <Fade delay={.1}>
