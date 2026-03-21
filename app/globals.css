@@ -33,7 +33,7 @@ input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
   .mobile-menu-btn { display: flex !important; }
 
   /* Grid collapses */
-  .hero-grid, .about-grid, .csg, .fg, .hg, .cg, .eg, .faqg, .sg, .og {
+  .hero-grid, .about-grid, .csg, .fg, .hg, .cg, .eg, .faqg, .sg, .og, .try-grid {
     grid-template-columns: 1fr !important;
   }
 

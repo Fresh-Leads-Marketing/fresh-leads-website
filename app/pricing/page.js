@@ -47,7 +47,7 @@ function ServicesDropdown() {
     ["Geo-Fencing Ads", "/services/geo-fencing-ads"],
     ["Email & SMS", "/services/email-sms"],
     ["CRM Integration", "/services/crm"],
-    ["AI Chatbot", "/services/ai-chatbot"],
+    ["AI Chatbot & Voice AI", "/services/ai-chatbot"],
     ["Google Reviews", "/services/google-reviews"],
     ["B2B Outreach", "/services/b2b-outreach"],
   ];
@@ -79,7 +79,7 @@ function MobileMenu({ open, onClose }) {
     ["Geo-Fencing Ads", "/services/geo-fencing-ads"],
     ["Email & SMS", "/services/email-sms"],
     ["CRM Integration", "/services/crm"],
-    ["AI Chatbot", "/services/ai-chatbot"],
+    ["AI Chatbot & Voice AI", "/services/ai-chatbot"],
     ["Google Reviews", "/services/google-reviews"],
     ["B2B Outreach", "/services/b2b-outreach"],
     ["About", "/about"],
@@ -395,7 +395,7 @@ function Footer() {
         <div>
           <h4 style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Services</h4>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {[["Geo-Fencing Ads", "/services/geo-fencing-ads"],["Email & SMS", "/services/email-sms"],["CRM Integration", "/services/crm"],["AI Chatbot", "/services/ai-chatbot"],["Google Reviews", "/services/google-reviews"],["B2B Outreach", "/services/b2b-outreach"]].map(([label, href]) => (
+            {[["Geo-Fencing Ads", "/services/geo-fencing-ads"],["Email & SMS", "/services/email-sms"],["CRM Integration", "/services/crm"],["AI Chatbot & Voice AI", "/services/ai-chatbot"],["Google Reviews", "/services/google-reviews"],["B2B Outreach", "/services/b2b-outreach"]].map(([label, href]) => (
               <a key={href} href={href} style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{label}</a>
             ))}
           </div>

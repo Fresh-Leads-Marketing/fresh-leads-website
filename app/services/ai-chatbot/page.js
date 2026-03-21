@@ -27,7 +27,7 @@ function ServicesDropdown() {
     ["Geo-Fencing Ads", "/services/geo-fencing-ads"],
     ["Email & SMS", "/services/email-sms"],
     ["CRM Integration", "/services/crm"],
-    ["AI Chatbot", "/services/ai-chatbot"],
+    ["AI Chatbot & Voice AI", "/services/ai-chatbot"],
     ["Google Reviews", "/services/google-reviews"],
     ["B2B Outreach", "/services/b2b-outreach"],
   ];
@@ -58,7 +58,7 @@ function MobileMenu({ open, onClose }) {
     ["Geo-Fencing Ads", "/services/geo-fencing-ads"],
     ["Email & SMS", "/services/email-sms"],
     ["CRM Integration", "/services/crm"],
-    ["AI Chatbot", "/services/ai-chatbot"],
+    ["AI Chatbot & Voice AI", "/services/ai-chatbot"],
     ["Google Reviews", "/services/google-reviews"],
     ["B2B Outreach", "/services/b2b-outreach"],
     ["About", "/about"],
@@ -75,7 +75,7 @@ function MobileMenu({ open, onClose }) {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
           {links.map(([label, href]) => {
-            const isSub = ["Geo-Fencing Ads","AI Chatbot","Email & SMS","CRM Integration","B2B Outreach","Google Reviews"].includes(label);
+            const isSub = ["Geo-Fencing Ads","AI Chatbot & Voice AI","Email & SMS","CRM Integration","B2B Outreach","Google Reviews"].includes(label);
             return (
               <a key={href+label} href={href} onClick={onClose} style={{
                 color: isSub ? "rgba(255,255,255,0.4)" : "#fff",
@@ -145,6 +145,50 @@ function Objections() {
   return (<section style={{ background: BG2, padding: "80px 24px" }}><div style={{ maxWidth: 800, margin: "0 auto" }}><FI><h2 style={{ fontSize: "clamp(24px,3vw,32px)", fontWeight: 800, color: "#fff", marginBottom: 36, textAlign: "center" }}>"Will it sound robotic?"</h2></FI><FI delay={0.05}><p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 20, maxWidth: 650, margin: "0 auto 20px" }}>Today's voice bots sound like a friendly receptionist. Natural pacing, conversational tone. Most callers don't realize they're talking to AI. The chatbot feels like texting with a helpful staff member.</p><p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, maxWidth: 650, margin: "0 auto" }}>What customers actually hate isn't AI. It's being ignored. A call that rings 8 times and goes to voicemail costs you business. An AI that picks up immediately is a dramatically better experience.</p></FI></div></section>);
 }
 
+function TryItOut() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://beta.leadconnectorhq.com/loader.js";
+    script.setAttribute("data-resources-url", "https://beta.leadconnectorhq.com/chat-widget/loader.js");
+    script.setAttribute("data-widget-id", "69be08d9db14804b0b82bfce");
+    document.getElementById("voice-widget-container").appendChild(script);
+    return () => { if (script.parentNode) script.parentNode.removeChild(script); };
+  }, []);
+  return (
+    <section style={{ background: BG, padding: "80px 24px" }}>
+      <div style={{ maxWidth: 800, margin: "0 auto" }}>
+        <FI>
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <p style={{ color: B, fontWeight: 700, fontSize: 13, letterSpacing: ".07em", textTransform: "uppercase", marginBottom: 12 }}>Try it yourself</p>
+            <h2 style={{ fontSize: "clamp(24px,3.5vw,36px)", fontWeight: 800, color: "#fff", marginBottom: 14 }}>Test our AI live</h2>
+            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 560, margin: "0 auto", lineHeight: 1.65 }}>See exactly how our AI works before you commit. Two ways to try it right now:</p>
+          </div>
+        </FI>
+        <div className="try-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+          <FI>
+            <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "32px 28px", height: "100%", display: "flex", flexDirection: "column" }}>
+              <div style={{ fontSize: 36, marginBottom: 16 }}>📞</div>
+              <h3 style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 12 }}>AI Voice Bot</h3>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65, marginBottom: 20, flex: 1 }}>Click the button below to test our AI Voice Bot. It will answer just like it would for your laundromat customers — handling questions about hours, services, pricing, and more. Natural, conversational, and available 24/7.</p>
+              <div id="voice-widget-container" style={{ minHeight: 48 }} />
+            </div>
+          </FI>
+          <FI delay={0.08}>
+            <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "32px 28px", height: "100%", display: "flex", flexDirection: "column" }}>
+              <div style={{ fontSize: 36, marginBottom: 16 }}>💬</div>
+              <h3 style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 12 }}>AI Chatbot</h3>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65, marginBottom: 20, flex: 1 }}>See the chat widget in the bottom-right corner of this page? That's our AI Chatbot in action. Click it and ask anything — hours, services, pricing, pickup and delivery. It handles the same questions your customers ask every day, instantly and accurately.</p>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, color: B, fontSize: 14, fontWeight: 600 }}>
+                <span style={{ fontSize: 18 }}>↘</span> Look for the chat bubble in the bottom right
+              </div>
+            </div>
+          </FI>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FAQ() {
   const [open, setOpen] = useState(null);
   const Q = [["Can the chatbot handle booking or scheduling?","No, the chatbot does not handle booking or scheduling. It's designed to answer customer questions, provide information about your services and hours, and direct people to contact you for anything that requires a conversation with your team."],["What happens if the chatbot can't answer a question?","If the chatbot encounters a question it can't handle, it will direct the customer to reach out to your team at the phone number provided. The chatbot is designed to handle the majority of common questions, but it knows when to point someone to a real person."],["Can I customize what the chatbot says?","Yes. During setup, we provide you with a FAQ template. You add your specific questions and answers to the template, and that's what the AI is trained on. If anything changes about your business, you update the template and we retrain the chatbot so it always gives current, accurate information."],["Is the chatbot available 24/7?","Yes. The AI chatbot runs around the clock, which means customers can get answers and assistance even when your laundromat is closed or your staff is busy. This is especially valuable for after-hours inquiries when most calls go unanswered."],["Will the chatbot sound robotic?","No. Our AI chatbots are designed to have natural, conversational responses. Most customers don't realize they're talking to AI. The chatbot is trained on your specific business details so it speaks in a way that feels like a helpful member of your staff, not a generic robot."]];
@@ -154,8 +198,8 @@ function FAQ() {
 function CTA() {
   return (<section style={{ background: BG2, padding: "90px 24px" }}><div style={{ maxWidth: 700, margin: "0 auto" }}><FI><div style={{ background: "linear-gradient(135deg, rgba(43,127,255,0.1), rgba(43,127,255,0.03))", border: "1px solid rgba(43,127,255,0.18)", borderRadius: 20, padding: "clamp(36px,6vw,56px) clamp(24px,5vw,44px)", textAlign: "center" }}><h2 style={{ fontSize: "clamp(24px,4vw,34px)", fontWeight: 800, color: "#fff", marginBottom: 12 }}>Ready to get started?</h2><p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", maxWidth: 440, margin: "0 auto 20px", lineHeight: 1.6 }}>No contracts. No commitment. Just a clear plan for your chatbot.</p><a href="/contact" style={{ display: "inline-block", background: B, color: "#fff", padding: "14px 30px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)" }}>Free Marketing Audit →</a></div></FI></div></section>);
 }
-function Footer() { return (<footer style={{background:BG,padding:"60px 24px 32px",borderTop:"1px solid rgba(255,255,255,0.05)"}}><div className="footer-inner" style={{maxWidth:1200,margin:"0 auto",display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:40,marginBottom:40}}><div><Logo/><p style={{fontSize:13,color:"rgba(255,255,255,0.4)",lineHeight:1.6,marginTop:12,marginBottom:16}}>Marketing built exclusively for laundromats.</p><div style={{fontSize:13,color:"rgba(255,255,255,0.4)",marginBottom:8}}><div style={{marginBottom:6}}>📞 <a href="tel:808-736-1539" style={{color:"rgba(255,255,255,0.6)",textDecoration:"none"}}>808-736-1539</a></div><div>📧 <a href="mailto:info@freshleadsmarketing.com" style={{color:"rgba(255,255,255,0.6)",textDecoration:"none"}}>info@freshleadsmarketing.com</a></div></div></div><div><h4 style={{fontSize:13,fontWeight:700,color:"#fff",marginBottom:16}}>Quick Links</h4><div style={{display:"flex",flexDirection:"column",gap:8}}>{[["Home","/"],["Services","/services"],["About","/about"],["Pricing","/pricing"],["Blog","/blog"],["FAQ","/faq"],["Contact","/contact"]].map(([label,href])=>(<a key={href} href={href} style={{fontSize:13,color:"rgba(255,255,255,0.4)",textDecoration:"none",transition:"color .2s"}} onMouseEnter={e=>e.target.style.color="#fff"} onMouseLeave={e=>e.target.style.color="rgba(255,255,255,0.4)"}>{label}</a>))}</div></div><div><h4 style={{fontSize:13,fontWeight:700,color:"#fff",marginBottom:16}}>Services</h4><div style={{display:"flex",flexDirection:"column",gap:8}}>{[["Geo-Fencing Ads","/services/geo-fencing-ads"],["Email & SMS","/services/email-sms"],["CRM Integration","/services/crm"],["AI Chatbot","/services/ai-chatbot"],["Google Reviews","/services/google-reviews"],["B2B Outreach","/services/b2b-outreach"]].map(([label,href])=>(<a key={href} href={href} style={{fontSize:13,color:"rgba(255,255,255,0.4)",textDecoration:"none",transition:"color .2s"}} onMouseEnter={e=>e.target.style.color="#fff"} onMouseLeave={e=>e.target.style.color="rgba(255,255,255,0.4)"}>{label}</a>))}</div></div><div><h4 style={{fontSize:13,fontWeight:700,color:"#fff",marginBottom:16}}>Legal</h4><div style={{display:"flex",flexDirection:"column",gap:8}}>{[["Privacy Policy","/privacy"],["Terms of Service","/terms"]].map(([label,href])=>(<a key={href} href={href} style={{fontSize:13,color:"rgba(255,255,255,0.4)",textDecoration:"none",transition:"color .2s"}} onMouseEnter={e=>e.target.style.color="#fff"} onMouseLeave={e=>e.target.style.color="rgba(255,255,255,0.4)"}>{label}</a>))}</div></div></div><div style={{borderTop:"1px solid rgba(255,255,255,0.05)",paddingTop:24,textAlign:"center"}}><p style={{fontSize:12,color:"rgba(255,255,255,0.2)",margin:0}}>© 2026 Fresh Leads Marketing. All rights reserved.</p></div></footer>); }
+function Footer() { return (<footer style={{background:BG,padding:"60px 24px 32px",borderTop:"1px solid rgba(255,255,255,0.05)"}}><div className="footer-inner" style={{maxWidth:1200,margin:"0 auto",display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:40,marginBottom:40}}><div><Logo/><p style={{fontSize:13,color:"rgba(255,255,255,0.4)",lineHeight:1.6,marginTop:12,marginBottom:16}}>Marketing built exclusively for laundromats.</p><div style={{fontSize:13,color:"rgba(255,255,255,0.4)",marginBottom:8}}><div style={{marginBottom:6}}>📞 <a href="tel:808-736-1539" style={{color:"rgba(255,255,255,0.6)",textDecoration:"none"}}>808-736-1539</a></div><div>📧 <a href="mailto:info@freshleadsmarketing.com" style={{color:"rgba(255,255,255,0.6)",textDecoration:"none"}}>info@freshleadsmarketing.com</a></div></div></div><div><h4 style={{fontSize:13,fontWeight:700,color:"#fff",marginBottom:16}}>Quick Links</h4><div style={{display:"flex",flexDirection:"column",gap:8}}>{[["Home","/"],["Services","/services"],["About","/about"],["Pricing","/pricing"],["Blog","/blog"],["FAQ","/faq"],["Contact","/contact"]].map(([label,href])=>(<a key={href} href={href} style={{fontSize:13,color:"rgba(255,255,255,0.4)",textDecoration:"none",transition:"color .2s"}} onMouseEnter={e=>e.target.style.color="#fff"} onMouseLeave={e=>e.target.style.color="rgba(255,255,255,0.4)"}>{label}</a>))}</div></div><div><h4 style={{fontSize:13,fontWeight:700,color:"#fff",marginBottom:16}}>Services</h4><div style={{display:"flex",flexDirection:"column",gap:8}}>{[["Geo-Fencing Ads","/services/geo-fencing-ads"],["Email & SMS","/services/email-sms"],["CRM Integration","/services/crm"],["AI Chatbot & Voice AI","/services/ai-chatbot"],["Google Reviews","/services/google-reviews"],["B2B Outreach","/services/b2b-outreach"]].map(([label,href])=>(<a key={href} href={href} style={{fontSize:13,color:"rgba(255,255,255,0.4)",textDecoration:"none",transition:"color .2s"}} onMouseEnter={e=>e.target.style.color="#fff"} onMouseLeave={e=>e.target.style.color="rgba(255,255,255,0.4)"}>{label}</a>))}</div></div><div><h4 style={{fontSize:13,fontWeight:700,color:"#fff",marginBottom:16}}>Legal</h4><div style={{display:"flex",flexDirection:"column",gap:8}}>{[["Privacy Policy","/privacy"],["Terms of Service","/terms"]].map(([label,href])=>(<a key={href} href={href} style={{fontSize:13,color:"rgba(255,255,255,0.4)",textDecoration:"none",transition:"color .2s"}} onMouseEnter={e=>e.target.style.color="#fff"} onMouseLeave={e=>e.target.style.color="rgba(255,255,255,0.4)"}>{label}</a>))}</div></div></div><div style={{borderTop:"1px solid rgba(255,255,255,0.05)",paddingTop:24,textAlign:"center"}}><p style={{fontSize:12,color:"rgba(255,255,255,0.2)",margin:0}}>© 2026 Fresh Leads Marketing. All rights reserved.</p></div></footer>); }
 
 export default function Page() {
-  return (<div style={{ fontFamily: "'DM Sans', -apple-system, sans-serif", background: BG, minHeight: "100vh" }}><Nav /><Hero /><KeyBenefits /><Features /><Objections /><FAQ /><CTA /><Footer /></div>);
+  return (<div style={{ fontFamily: "'DM Sans', -apple-system, sans-serif", background: BG, minHeight: "100vh" }}><Nav /><Hero /><KeyBenefits /><Features /><TryItOut /><Objections /><FAQ /><CTA /><Footer /></div>);
 }
