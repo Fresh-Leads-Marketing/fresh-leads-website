@@ -161,7 +161,7 @@ function TryItOut() {
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <p style={{ color: B, fontWeight: 700, fontSize: 13, letterSpacing: ".07em", textTransform: "uppercase", marginBottom: 12 }}>Try it yourself</p>
             <h2 style={{ fontSize: "clamp(24px,3.5vw,36px)", fontWeight: 800, color: "#fff", marginBottom: 14 }}>Test our AI live</h2>
-            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 560, margin: "0 auto", lineHeight: 1.65 }}>See exactly how our AI works before you commit. Two ways to try it right now:</p>
+            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 600, margin: "0 auto", lineHeight: 1.65 }}>We built a demo for a fictional laundromat called Sparklean Laundromat in Honolulu. Try both AI tools below and imagine this running for your business.</p>
           </div>
         </FI>
         <div className="try-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
@@ -169,7 +169,7 @@ function TryItOut() {
             <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "32px 28px", height: "100%", display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 36, marginBottom: 16 }}>📞</div>
               <h3 style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 12 }}>AI Voice Bot</h3>
-              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65, marginBottom: 20, flex: 1 }}>Click the button below to test our AI Voice Bot. It will answer just like it would for your laundromat customers — handling questions about hours, services, pricing, and more. Natural, conversational, and available 24/7.</p>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65, marginBottom: 20, flex: 1 }}>Call the Sparklean Laundromat AI Voice Bot. Ask about self-service pricing, wash and fold turnaround times, pickup and delivery areas — anything a real customer would call about. Listen to how natural it sounds.</p>
               <div id="voice-widget-container" style={{ minHeight: 48 }} />
             </div>
           </FI>
@@ -177,7 +177,7 @@ function TryItOut() {
             <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "32px 28px", height: "100%", display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 36, marginBottom: 16 }}>💬</div>
               <h3 style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 12 }}>AI Chatbot</h3>
-              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65, marginBottom: 20, flex: 1 }}>See the chat widget in the bottom-right corner of this page? That's our AI Chatbot in action. Click it and ask anything — hours, services, pricing, pickup and delivery. It handles the same questions your customers ask every day, instantly and accurately.</p>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65, marginBottom: 20, flex: 1 }}>Click the chat widget in the bottom-right corner. It's trained as the Sparklean Laundromat assistant. Ask about hours, wash and fold pricing, pickup and delivery availability, or anything else. This is the same experience your customers would get on your website.</p>
               <div style={{ display: "inline-flex", alignItems: "center", gap: 8, color: B, fontSize: 14, fontWeight: 600 }}>
                 <span style={{ fontSize: 18 }}>↘</span> Look for the chat bubble in the bottom right
               </div>
