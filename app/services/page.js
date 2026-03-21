@@ -311,7 +311,7 @@ function CTA() {
       <FI><div style={{ background: "linear-gradient(135deg, rgba(43,127,255,0.1), rgba(43,127,255,0.03))", border: "1px solid rgba(43,127,255,0.18)", borderRadius: 20, padding: "clamp(36px,6vw,60px) clamp(24px,5vw,44px)", textAlign: "center" }}>
         <h2 style={{ fontSize: "clamp(24px,4vw,36px)", fontWeight: 800, color: "#fff", marginBottom: 12, lineHeight: 1.15 }}>Ready to grow your laundromat?</h2>
         <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", maxWidth: 420, margin: "0 auto 24px", lineHeight: 1.6 }}>Book a free discovery call. We'll audit your market and build a custom growth plan.</p>
-        <a href="/contact" style={{ display: "inline-block", background: B, color: "#fff", padding: "14px 30px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)" }}>Schedule Your Discovery Call →</a>
+        <a href="/contact" style={{ display: "inline-block", background: B, color: "#fff", padding: "14px 30px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)" }}>Free Marketing Audit →</a>
       </div></FI>
     </div>
   </section>;
