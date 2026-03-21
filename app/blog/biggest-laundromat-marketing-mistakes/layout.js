@@ -1,18 +1,18 @@
 export const metadata = {
-  title: "5 Biggest Laundromat Marketing Mistakes & How to Fix Them | Fresh Leads",
+  title: "5 Biggest Laundromat Marketing Mistakes",
   description: "Discover the top laundromat marketing mistakes owners make: bad targeting, ignoring customer lists, generic ads, poor reviews, wrong mindset. Learn how to fix each one.",
   alternates: {
     canonical: "https://freshleadsmarketing.com/blog/biggest-laundromat-marketing-mistakes",
   },
   openGraph: {
-    title: "5 Biggest Laundromat Marketing Mistakes & How to Fix Them | Fresh Leads",
+    title: "5 Biggest Laundromat Marketing Mistakes",
     description: "Discover the top laundromat marketing mistakes owners make: bad targeting, ignoring customer lists, generic ads, poor reviews, wrong mindset. Learn how to fix each one.",
     url: "https://freshleadsmarketing.com/blog/biggest-laundromat-marketing-mistakes",
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "5 Biggest Laundromat Marketing Mistakes & How to Fix Them | Fresh Leads",
+    title: "5 Biggest Laundromat Marketing Mistakes",
     description: "Discover the top laundromat marketing mistakes owners make: bad targeting, ignoring customer lists, generic ads, poor reviews, wrong mindset. Learn how to fix each one.",
   },
 };

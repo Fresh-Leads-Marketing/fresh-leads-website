@@ -1,18 +1,18 @@
 export const metadata = {
-  title: "Building a Customer Database From Zero | New Laundromat Guide | Fresh Leads",
+  title: "Build a Customer Database | New Laundromat Guide",
   description: "Complete guide for new laundromats: connect POS, use QR codes, leverage AI chatbots, request reviews, and launch campaigns to build a customer database from scratch.",
   alternates: {
     canonical: "https://freshleadsmarketing.com/blog/building-customer-database-new-laundromat",
   },
   openGraph: {
-    title: "Building a Customer Database From Zero | New Laundromat Guide | Fresh Leads",
+    title: "Build a Customer Database | New Laundromat Guide",
     description: "Complete guide for new laundromats: connect POS, use QR codes, leverage AI chatbots, request reviews, and launch campaigns to build a customer database from scratch.",
     url: "https://freshleadsmarketing.com/blog/building-customer-database-new-laundromat",
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Building a Customer Database From Zero | New Laundromat Guide | Fresh Leads",
+    title: "Build a Customer Database | New Laundromat Guide",
     description: "Complete guide for new laundromats: connect POS, use QR codes, leverage AI chatbots, request reviews, and launch campaigns to build a customer database from scratch.",
   },
 };

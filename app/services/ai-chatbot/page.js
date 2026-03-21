@@ -176,10 +176,10 @@ function TryItOut() {
           <FI delay={0.08}>
             <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "32px 28px", height: "100%", display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 36, marginBottom: 16 }}>💬</div>
-              <h3 style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 12 }}>AI Chatbot</h3>
-              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65, marginBottom: 20, flex: 1 }}>Click the chat widget in the bottom-right corner. It's trained as the Sparklean Laundromat assistant. Ask about hours, wash and fold pricing, pickup and delivery availability, or anything else. This is the same experience your customers would get on your website.</p>
+              <h3 style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 12 }}>Chat With Us</h3>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65, marginBottom: 20, flex: 1 }}>Have questions about our services or ready to take the next step? Click the chat widget in the bottom-right corner to talk with our Fresh Leads Marketing AI assistant. Ask about pricing, what's included, how onboarding works, or anything else about working with us.</p>
               <div style={{ display: "inline-flex", alignItems: "center", gap: 8, color: B, fontSize: 14, fontWeight: 600 }}>
-                <span style={{ fontSize: 18 }}>↘</span> Look for the chat bubble in the bottom right
+                <span style={{ fontSize: 18 }}>↘</span> Chat with our AI in the bottom right
               </div>
             </div>
           </FI>

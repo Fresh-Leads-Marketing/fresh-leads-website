@@ -239,14 +239,14 @@ function ContactForm() {
               ["How many locations?", "text", "1", "locations"],
             ].map(([label, type, placeholder, key], i) => (
               <div key={i} style={{ marginBottom: 14 }}>
-                <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 5 }}>{label}</label>
-                <input type={type} placeholder={placeholder} required={i < 2} value={form[key]} onChange={e => setForm({ ...form, [key]: e.target.value })} style={inputStyle} />
+                <label htmlFor={`field-${key}`} style={{ display: "block", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 5 }}>{label}</label>
+                <input id={`field-${key}`} name={key} type={type} placeholder={placeholder} required={i < 2} value={form[key]} onChange={e => setForm({ ...form, [key]: e.target.value })} style={inputStyle} />
               </div>
             ))}
 
             <div style={{ marginBottom: 14 }}>
-              <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 5 }}>What services are you interested in?</label>
-              <textarea placeholder="Tell us about your goals..." value={form.services} onChange={e => setForm({ ...form, services: e.target.value })} style={{ ...inputStyle, minHeight: 100, resize: "vertical" }} />
+              <label htmlFor="field-services" style={{ display: "block", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 5 }}>What services are you interested in?</label>
+              <textarea id="field-services" name="services" placeholder="Tell us about your goals..." value={form.services} onChange={e => setForm({ ...form, services: e.target.value })} style={{ ...inputStyle, minHeight: 100, resize: "vertical" }} />
             </div>
 
             <button type="submit" disabled={status === "sending"} style={{

@@ -1,18 +1,18 @@
 export const metadata = {
-  title: "Laundromat Marketing Services | Geo-Fencing, AI, CRM & More | Fresh Leads",
+  title: "Laundromat Marketing Services | Fresh Leads",
   description: "Full-service laundromat marketing: geo-fencing ads, AI chatbots, email & SMS, CRM, B2B outreach, and review generation. All managed.",
   alternates: {
     canonical: "https://freshleadsmarketing.com/services",
   },
   openGraph: {
-    title: "Laundromat Marketing Services | Geo-Fencing, AI, CRM & More | Fresh Leads",
+    title: "Laundromat Marketing Services | Fresh Leads",
     description: "Full-service laundromat marketing: geo-fencing ads, AI chatbots, email & SMS, CRM, B2B outreach, and review generation. All managed.",
     url: "https://freshleadsmarketing.com/services",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Laundromat Marketing Services | Geo-Fencing, AI, CRM & More | Fresh Leads",
+    title: "Laundromat Marketing Services | Fresh Leads",
     description: "Full-service laundromat marketing: geo-fencing ads, AI chatbots, email & SMS, CRM, B2B outreach, and review generation. All managed.",
   },
 };

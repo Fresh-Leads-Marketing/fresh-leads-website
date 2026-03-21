@@ -19,7 +19,7 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://beta.leadconnectorhq.com https://widgets.leadconnectorhq.com https://cdnjs.cloudflare.com",
+              "script-src 'self' 'unsafe-inline' https://beta.leadconnectorhq.com https://widgets.leadconnectorhq.com https://cdnjs.cloudflare.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https: blob:",
