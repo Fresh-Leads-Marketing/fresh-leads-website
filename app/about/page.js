@@ -168,7 +168,7 @@ function Story() {
               Most marketing agencies treat laundromats like any other local business. They run the same generic ads, use the same cookie-cutter funnels, and copy-paste strategies from restaurants and retail. It doesn't work. Laundromats have unique customer behavior, different revenue models, and specific competitive dynamics.
             </p>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.7 }}>
-              We built Fresh Leads to fix that. Every strategy we use, every AI tool we deploy, and every campaign we run was developed specifically for the laundry industry. Tested across 125+ laundromats in markets ranging from dense urban neighborhoods to suburban strip malls.
+              We built Fresh Leads to fix that. Every strategy we use, every AI tool we deploy, and every campaign we run was developed specifically for the laundry industry. Tested across 100+ laundromats in markets ranging from dense urban neighborhoods to suburban strip malls.
             </p>
           </div>
         </FI>
@@ -265,7 +265,7 @@ function MeetTheFounder() {
               <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", fontWeight: 500 }}>Founder, Fresh Leads Marketing</p>
             </div>
             <p style={{ fontSize: 15.5, color: "rgba(255,255,255,0.6)", lineHeight: 1.75 }}>
-              I spent over 10 years in the tourism industry marketing and advertising for hotels, restaurants, and activities across Hawaii. When a friend who owned laundromats came to me needing marketing help, I didn't expect what would happen next. Within a few months, the results spoke for themselves. Referrals started coming in consistently.
+              I spent over 13 years in the tourism industry marketing and advertising for hotels, restaurants, and activities across Hawaii. When a friend who owned laundromats came to me needing marketing help, I didn't expect what would happen next. Within a few months, the results spoke for themselves. Referrals started coming in consistently.
             </p>
             <p style={{ fontSize: 15.5, color: "rgba(255,255,255,0.6)", lineHeight: 1.75 }}>
               That's when I made the decision to dedicate my entire focus to the laundry industry. I saw firsthand how underserved laundromat owners were when it came to real, effective marketing. Most agencies treat laundromats as an afterthought. We built Fresh Leads Marketing to change that.
@@ -286,8 +286,8 @@ function Location() {
   return <section style={{ background: BG2, padding: "60px 24px" }}>
     <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
       <FI>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginBottom: 12 }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 4 5 4 9c0 5 8 13 8 13s8-8 8-13c0-4-4-7-8-7z" fill={B} opacity=".2" stroke={B} strokeWidth="1.5" /><circle cx="12" cy="9" r="2.5" fill={B} /></svg>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 12 }}>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 4 5 4 9c0 5 8 13 8 13s8-8 8-13c0-4-4-7-8-7z" fill={B} opacity=".2" stroke={B} strokeWidth="1.5" /><circle cx="12" cy="9" r="2.5" fill={B} /></svg>
           <span style={{ fontSize: 15, fontWeight: 700, color: "rgba(255,255,255,0.6)" }}>Headquartered in Honolulu, Hawaii · Serving laundromats across the U.S.</span>
         </div>
         <p style={{ fontSize: 14, color: "rgba(255,255,255,0.35)", maxWidth: 480, margin: "0 auto", lineHeight: 1.6 }}>
