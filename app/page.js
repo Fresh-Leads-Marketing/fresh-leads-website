@@ -223,9 +223,9 @@ function Hero() {
 const SVC = [
   ["📍","Geo-Fencing Ads","Facebook & Google","Hyper-targeted ad campaigns reaching customers near your laundromat and competitors. Full management of design, copy, targeting, A/B testing, and conversion tracking."],
   ["📱","Email & SMS Marketing","Re-engagement","Automated sequences for new customers, lapsed visitors, and promotional offers. All managed for you."],
-  ["🤖","AI Chatbot & Voice Bot","24/7 support","Custom AI chatbot on your website and social plus an AI voice agent answering calls. Capture leads, book appointments, and handle questions around the clock."],
+  ["🤖","AI Chatbot & Voice Bot","24/7 support","Custom AI chatbot on your website and social plus an AI voice agent answering calls. Capture leads, handle FAQs, and answer customer questions around the clock."],
   ["📊","Custom CRM","Customer intelligence","Your POS customer data syncs automatically into one dashboard via API. See who's visiting, who's lapsed, and trigger re-engagement campaigns that bring customers back."],
-  ["📧","B2B Cold Outreach","Commercial leads","We build prospect lists, write sequences, and manage replies targeting hotels, gyms, and salons. Clients get 5-15 qualified commercial leads per month."],
+  ["📧","B2B Cold Outreach","Commercial leads","We build prospect lists, write sequences, and send emails targeting hotels, gyms, and salons. Replies go straight to your inbox. Clients get 5-15 qualified commercial leads per month."],
   ["⭐","Google Reviews","Reputation","Systematic review generation via automated SMS requests. Higher review counts mean higher Maps rankings and more walk-ins without extra ad spend."],
 ];
 
