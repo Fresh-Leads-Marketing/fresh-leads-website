@@ -187,9 +187,16 @@ function CalendarSection() {
 function ContactForm() {
   const [status, setStatus] = useState("idle");
   const [form, setForm] = useState({ name: "", email: "", laundromat: "", locations: "", services: "" });
+  const [honeypot, setHoneypot] = useState("");
+  const [loadTime] = useState(Date.now());
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (honeypot) { setStatus("sent"); return; }
+    if (Date.now() - loadTime < 3000) { setStatus("sent"); return; }
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(form.email)) { setStatus("error"); return; }
+    if (form.name.length < 2 || form.name === form.laundromat && form.laundromat === form.email.split("@")[0]) { setStatus("sent"); return; }
     setStatus("sending");
     try {
       const res = await fetch("https://formsubmit.co/ajax/ryan@freshleadsmarketing.com", {
@@ -203,6 +210,8 @@ function ContactForm() {
           services: form.services,
           _subject: "New lead from Fresh Leads website",
           _template: "table",
+          _captcha: "true",
+          _honeypot: "website_url",
         }),
       });
       if (res.ok) { setStatus("sent"); setForm({ name: "", email: "", laundromat: "", locations: "", services: "" }); }
@@ -231,6 +240,7 @@ function ContactForm() {
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
+            <input type="text" name="website_url" value={honeypot} onChange={e => setHoneypot(e.target.value)} style={{ position: "absolute", left: "-9999px", tabIndex: -1, opacity: 0, height: 0, width: 0 }} autoComplete="off" tabIndex={-1} aria-hidden="true" />
             {[
               ["Full name", "text", "John Smith", "name"],
               ["Email", "email", "john@mylaundromat.com", "email"],
