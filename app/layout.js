@@ -96,12 +96,16 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
-        <script
-          async
-          src="https://beta.leadconnectorhq.com/loader.js"
-          data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="66c27655d1bc9ebdb9f3acd9"
-        />
+        <script dangerouslySetInnerHTML={{ __html: `
+          if (!window.location.pathname.startsWith('/free-audit')) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://beta.leadconnectorhq.com/loader.js';
+            s.setAttribute('data-resources-url', 'https://beta.leadconnectorhq.com/chat-widget/loader.js');
+            s.setAttribute('data-widget-id', '66c27655d1bc9ebdb9f3acd9');
+            document.body.appendChild(s);
+          }
+        ` }} />
       </body>
     </html>
   );

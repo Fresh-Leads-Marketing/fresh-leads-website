@@ -82,6 +82,17 @@ input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
   /* Blog post grid */
   .blog-grid { grid-template-columns: 1fr !important; }
 
+  /* Landing page grids */
+  .lp-pain-grid { grid-template-columns: 1fr !important; }
+  .lp-svc-grid { grid-template-columns: 1fr !important; }
+  .lp-testimonial-grid { grid-template-columns: 1fr !important; }
+  .lp-steps-grid { grid-template-columns: 1fr 1fr !important; }
+  .lp-included-grid { grid-template-columns: 1fr !important; }
+  .lp-trust-bar { gap: 20px !important; }
+
+  /* Sticky mobile CTA */
+  .lp-sticky-cta { display: block !important; }
+
   /* Category pills scroll */
   .cat-pills { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
@@ -99,4 +110,7 @@ input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
 
   /* Even smaller testimonial cards */
   .testimonial-card { min-width: 260px !important; max-width: 260px !important; }
+
+  /* Landing page steps single col on very small */
+  .lp-steps-grid { grid-template-columns: 1fr !important; }
 }
