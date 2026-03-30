@@ -133,12 +133,12 @@ function Hero() {
       <div style={{ maxWidth: 800, margin: "0 auto", position: "relative", textAlign: "center" }}>
         <FI>
           <div style={{ display: "inline-block", background: "rgba(43,127,255,0.08)", border: "1px solid rgba(43,127,255,0.2)", borderRadius: 100, padding: "6px 16px", marginBottom: 24 }}>
-            <span style={{ color: B, fontSize: 13, fontWeight: 600 }}>The Only Marketing Agency Built Exclusively for Laundromats</span>
+            <span style={{ color: B, fontSize: 13, fontWeight: 600 }}>A Full-Service Marketing Agency Built Exclusively for Laundromats</span>
           </div>
         </FI>
         <FI delay={0.05}>
           <h1 style={{ fontSize: "clamp(32px, 5.5vw, 52px)", fontWeight: 800, color: "#fff", lineHeight: 1.08, letterSpacing: "-.03em", marginBottom: 18 }}>
-            Get More Customers Walking Through Your Door
+            The Marketing System Built Exclusively for Laundromats
           </h1>
         </FI>
         <FI delay={0.1}>
@@ -153,7 +153,7 @@ function Hero() {
         </FI>
         <FI delay={0.2}>
           <div className="lp-trust-bar" style={{ display: "flex", justifyContent: "center", gap: 32, marginTop: 48, flexWrap: "wrap" }}>
-            {[["100+", "Laundromats Served"], ["3x", "Avg. Client ROI"], ["No", "Contracts Ever"]].map(([num, label], i) => (
+            {[["100+", "Laundromats Served"], ["Full", "Service Agency"], ["No", "Contracts Ever"]].map(([num, label], i) => (
               <div key={i} style={{ textAlign: "center" }}>
                 <div style={{ fontSize: 28, fontWeight: 800, color: B }}>{num}</div>
                 <div style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", fontWeight: 600, letterSpacing: ".03em", marginTop: 2 }}>{label}</div>
@@ -330,7 +330,7 @@ function SocialProof() {
 function HowItWorks() {
   const steps = [
     { num: "01", title: "Book your free audit", desc: "Schedule a call below. Before we talk, we'll research your market, review your competitors, and prepare a custom analysis." },
-    { num: "02", title: "Get your custom growth plan", desc: "On the call, we'll walk through our findings and outline a tailored marketing strategy for your laundromat's goals." },
+    { num: "02", title: "Get a free marketing audit", desc: "On the call, we'll walk through a full audit of your current marketing, analyze your competition, and discuss how we can help grow your business." },
     { num: "03", title: "We launch & manage everything", desc: "Once you're on board, we set up all six marketing channels and manage them end to end. You focus on your business." },
     { num: "04", title: "See results & scale", desc: "Monthly reports show exactly what's working. As leads grow, we optimize and scale — adding locations when you're ready." },
   ];
@@ -369,7 +369,7 @@ function FAQ() {
     ["Do I need to sign a long-term contract?", "No. We work on a month-to-month basis. We believe in earning your business every month, not locking you in. That said, marketing is a long game — most clients see the best results after 60-90 days."],
     ["How fast will I see results?", "Most clients see their first leads within the first week of ads going live. Meaningful traction typically happens within 30 days. B2B commercial contracts usually come within 60 days. We provide monthly reports so you can track everything."],
     ["What POS systems do you integrate with?", "We integrate directly with Cents, LaundroWorks, and CCI. Customer data syncs automatically into your CRM. If you use a different system, we'll work with you to find an integration path."],
-    ["What if I've tried marketing before and it didn't work?", "Most laundromat owners who come to us have tried generic marketing agencies or DIY ads that didn't deliver. The difference is we specialize exclusively in laundromats — we know the industry, the customer behavior, and the strategies that work for this specific business. That focus is why our clients see 3x better results on average."],
+    ["What if I've tried marketing before and it didn't work?", "Most laundromat owners who come to us have tried generic marketing agencies or DIY ads that didn't deliver. The difference is we specialize exclusively in laundromats — we know the industry, the customer behavior, and the strategies that work for this specific business. That focus makes all the difference."],
   ];
   return (
     <section style={{ background: BG, padding: "80px 24px" }}>
@@ -415,7 +415,7 @@ function CalendarCTA() {
                 src="https://link.freshleadsmarketing.com/widget/booking/fTHzSQY7rRoHcQPNC9NV"
                 style={{ width: "100%", minHeight: 700, border: "none", overflow: "hidden", borderRadius: 12, background: "#fff" }}
                 scrolling="no"
-                id="fTHzSQY7rRoHcQPNC9NV_free_audit"
+                id="fTHzSQY7rRoHcQPNC9NV_1774829605777"
                 title="Book Your Free Marketing Audit"
               />
             ) : (
@@ -494,7 +494,6 @@ export default function FreeAuditPage() {
       <PainPoints />
       <GrowthSystem />
       <Pricing />
-      <SocialProof />
       <HowItWorks />
       <FAQ />
       <CalendarCTA />
