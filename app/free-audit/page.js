@@ -133,7 +133,7 @@ function Hero() {
       <div style={{ maxWidth: 800, margin: "0 auto", position: "relative", textAlign: "center" }}>
         <FI>
           <div style={{ display: "inline-block", background: "rgba(43,127,255,0.08)", border: "1px solid rgba(43,127,255,0.2)", borderRadius: 100, padding: "6px 16px", marginBottom: 24 }}>
-            <span style={{ color: B, fontSize: 13, fontWeight: 600 }}>A Full-Service Marketing Agency Built Exclusively for Laundromats</span>
+            <span style={{ color: B, fontSize: 13, fontWeight: 600 }}>Laundromat Marketing Agency</span>
           </div>
         </FI>
         <FI delay={0.05}>
