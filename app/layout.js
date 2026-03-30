@@ -97,7 +97,7 @@ export default function RootLayout({ children }) {
         />
         {children}
         <script dangerouslySetInnerHTML={{ __html: `
-          if (!window.location.pathname.startsWith('/free-audit')) {
+          if (!window.location.pathname.startsWith('/free-audit') && !window.location.pathname.startsWith('/booking-confirmed')) {
             var s = document.createElement('script');
             s.async = true;
             s.src = 'https://beta.leadconnectorhq.com/loader.js';
