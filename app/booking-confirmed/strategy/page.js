@@ -51,10 +51,8 @@ function FI({ children, delay = 0 }) {
 // Logo component
 function Logo() {
   return (
-    <Link href="/" className="logo-link">
-      <div style={{ fontSize: "20px", fontWeight: "700", color: "#fff" }}>
-        Fresh Leads
-      </div>
+    <Link href="/">
+      <img src="/logo.png" alt="Fresh Leads Marketing" style={{ height: 32, width: "auto", display: "block" }} />
     </Link>
   );
 }
@@ -303,7 +301,7 @@ export default function StrategyCallBooked() {
               }}
             >
               <a
-                href="tel:+1-000-000-0000"
+                href="tel:808-736-1539"
                 style={{
                   display: "inline-block",
                   padding: "12px 24px",
@@ -326,10 +324,10 @@ export default function StrategyCallBooked() {
                   e.target.style.color = B;
                 }}
               >
-                Call us
+                📞 Call (808) 736-1539
               </a>
               <a
-                href="mailto:support@freshleadsmarketing.com"
+                href="mailto:info@freshleadsmarketing.com"
                 style={{
                   display: "inline-block",
                   padding: "12px 24px",
