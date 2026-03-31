@@ -51,11 +51,11 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://beta.leadconnectorhq.com https://widgets.leadconnectorhq.com https://link.freshleadsmarketing.com https://cdnjs.cloudflare.com",
+              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://beta.leadconnectorhq.com https://widgets.leadconnectorhq.com https://link.freshleadsmarketing.com https://cdnjs.cloudflare.com https://fresh-leads-portal.vercel.app",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https: blob: https://www.googletagmanager.com https://www.google-analytics.com",
-              "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://beta.leadconnectorhq.com https://widgets.leadconnectorhq.com https://services.leadconnectorhq.com https://formsubmit.co wss://beta.leadconnectorhq.com wss://widgets.leadconnectorhq.com https://*.leadconnectorhq.com",
+              "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://beta.leadconnectorhq.com https://widgets.leadconnectorhq.com https://services.leadconnectorhq.com https://formsubmit.co wss://beta.leadconnectorhq.com wss://widgets.leadconnectorhq.com https://*.leadconnectorhq.com https://fresh-leads-portal.vercel.app",
               "frame-src 'self' https://www.googletagmanager.com https://api.leadconnectorhq.com https://beta.leadconnectorhq.com https://link.leadconnectorhq.com https://link.freshleadsmarketing.com",
               "media-src 'self' https:",
             ].join("; "),

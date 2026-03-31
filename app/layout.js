@@ -96,6 +96,19 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <script dangerouslySetInnerHTML={{ __html: `
+          if (!window.location.pathname.startsWith('/free-audit') && !window.location.pathname.startsWith('/booking-confirmed')) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://fresh-leads-portal.vercel.app/widget.js';
+            s.setAttribute('data-client-id', '93f48e96-1c93-40ce-b48c-70023c73e48d');
+            s.setAttribute('data-color', '#3b82f6');
+            s.setAttribute('data-position', 'bottom-right');
+            s.setAttribute('data-greeting', 'Hi there! Have any questions about our services?');
+            s.setAttribute('data-company', 'Ava');
+            document.body.appendChild(s);
+          }
+        ` }} />
       </body>
     </html>
   );
