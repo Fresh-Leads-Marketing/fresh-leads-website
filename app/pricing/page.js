@@ -156,7 +156,7 @@ function Hero() {
               Simple, transparent pricing
             </h1>
             <p style={{ fontSize: 18, color: "rgba(255,255,255,0.5)", maxWidth: 600, margin: "0 auto 12px", lineHeight: 1.6 }}>
-              One plan. Everything included. No hidden fees.
+              Choose the plan that fits your laundromat. No hidden fees.
             </p>
             <p style={{ fontSize: 14, color: "rgba(255,255,255,0.35)", marginBottom: 0 }}>
               Marketing built exclusively for laundromats.
@@ -168,23 +168,81 @@ function Hero() {
   );
 }
 
-function PricingCard() {
+function PricingCards() {
+  const googleAdsFeatures = [
+    "Full Google Ads account management",
+    "Campaign strategy, setup & optimization",
+    "Ad creative design and copywriting",
+    "Ongoing performance monitoring",
+    "Detailed analytics dashboard",
+    "Monthly strategy call",
+    "Dedicated account manager",
+  ];
+  const allInOneFeatures = [
+    "Everything in Google Ads Package",
+    "Facebook & Instagram Ads management",
+    "Geo-fencing ad campaigns",
+    "CRM setup with automated lead follow-up",
+    "Email & SMS marketing automation",
+    "AI chatbot & review automation",
+    "B2B cold email outreach",
+    "Customer re-engagement campaigns",
+    "Monthly strategy call",
+    "Dedicated account manager",
+    "Client portal for team communication & updates",
+  ];
   return (
     <section style={{ background: BG2, padding: "70px 24px" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <Fade>
-          <div style={{ maxWidth: 700, margin: "0 auto", background: BG, border: "1.5px solid rgba(43,127,255,0.3)", borderRadius: 18, padding: "50px 40px", textAlign: "center", position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(43,127,255,0.1) 0%, rgba(43,127,255,0.02) 100%)", pointerEvents: "none" }} />
-            <div style={{ position: "relative", zIndex: 1 }}>
-              <h2 style={{ fontSize: 24, fontWeight: 750, color: "#fff", marginBottom: 20 }}>All-In-One Growth Package</h2>
+      <div className="pricing-cards" style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, alignItems: "stretch" }}>
+        {/* Google Ads Package */}
+        <Fade delay={0}>
+          <div style={{ background: BG, border: "1.5px solid rgba(255,255,255,0.1)", borderRadius: 18, padding: "44px 36px", display: "flex", flexDirection: "column", height: "100%", position: "relative", overflow: "hidden" }}>
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 100%)", pointerEvents: "none" }} />
+            <div style={{ position: "relative", zIndex: 1, flex: 1, display: "flex", flexDirection: "column" }}>
+              <h2 style={{ fontSize: 21, fontWeight: 750, color: "#fff", marginBottom: 20 }}>Google Ads Package</h2>
               <div style={{ marginBottom: 20 }}>
-                <div style={{ fontSize: "clamp(48px,7vw,64px)", fontWeight: 900, color: B, lineHeight: 1 }}>$1,000</div>
-                <div style={{ fontSize: 15, color: "rgba(255,255,255,0.4)", marginTop: 6 }}>/month</div>
+                <div style={{ fontSize: "clamp(40px,6vw,52px)", fontWeight: 900, color: B, lineHeight: 1 }}>$500</div>
+                <div style={{ fontSize: 14, color: "rgba(255,255,255,0.4)", marginTop: 6 }}>/month</div>
               </div>
-              <div style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", marginBottom: 24, fontWeight: 550 }}>+$199/month per additional location</div>
-              <p style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 28 }}>Done-for-you marketing designed to bring in new customers, re-engage past customers, and automate follow-up.</p>
-              <a href="/contact" style={{ display: "inline-block", background: B, color: "#fff", padding: "14px 28px", borderRadius: 9, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)", marginBottom: 12 }}>Free Marketing Audit →</a>
-              <p style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", margin: 0 }}>No contracts. Cancel anytime.</p>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 24 }}>Professional Google Ads management with full reporting and a dedicated strategist to grow your laundromat.</p>
+              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px", flex: 1 }}>
+                {googleAdsFeatures.map((f, i) => (
+                  <li key={i} style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", marginBottom: 10, display: "flex", alignItems: "flex-start", gap: 8 }}>
+                    <span style={{ color: "#22C55E", flexShrink: 0, marginTop: 1, fontWeight: 700 }}>✓</span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href="/contact" style={{ display: "block", textAlign: "center", background: "transparent", color: B, padding: "13px 24px", borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: "none", border: "1.5px solid " + B, transition: "all .2s" }} onMouseEnter={e => { e.currentTarget.style.background = B; e.currentTarget.style.color = "#fff"; }} onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = B; }}>Get Started →</a>
+              <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", margin: "10px 0 0", textAlign: "center" }}>No contracts. Cancel anytime.</p>
+            </div>
+          </div>
+        </Fade>
+
+        {/* All-In-One Growth Package */}
+        <Fade delay={0.08}>
+          <div style={{ background: BG, border: "1.5px solid rgba(43,127,255,0.35)", borderRadius: 18, padding: "44px 36px", display: "flex", flexDirection: "column", height: "100%", position: "relative", overflow: "hidden" }}>
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(43,127,255,0.1) 0%, rgba(43,127,255,0.02) 100%)", pointerEvents: "none" }} />
+            {/* Popular badge */}
+            <div style={{ position: "absolute", top: 16, right: 16, background: B, color: "#fff", fontSize: 11, fontWeight: 700, padding: "4px 12px", borderRadius: 20, letterSpacing: "0.02em", zIndex: 2 }}>MOST POPULAR</div>
+            <div style={{ position: "relative", zIndex: 1, flex: 1, display: "flex", flexDirection: "column" }}>
+              <h2 style={{ fontSize: 21, fontWeight: 750, color: "#fff", marginBottom: 20 }}>All-In-One Growth Package</h2>
+              <div style={{ marginBottom: 8 }}>
+                <div style={{ fontSize: "clamp(40px,6vw,52px)", fontWeight: 900, color: B, lineHeight: 1 }}>$1,000</div>
+                <div style={{ fontSize: 14, color: "rgba(255,255,255,0.4)", marginTop: 6 }}>/month</div>
+              </div>
+              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginBottom: 20, fontWeight: 550 }}>+$199/mo per additional location</div>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 24 }}>Done-for-you marketing designed to bring in new customers, re-engage past customers, and automate follow-up.</p>
+              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px", flex: 1 }}>
+                {allInOneFeatures.map((f, i) => (
+                  <li key={i} style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", marginBottom: 10, display: "flex", alignItems: "flex-start", gap: 8 }}>
+                    <span style={{ color: "#22C55E", flexShrink: 0, marginTop: 1, fontWeight: 700 }}>✓</span>
+                    <span style={{ fontWeight: i === 0 ? 600 : 400, color: i === 0 ? "rgba(255,255,255,0.7)" : undefined }}>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href="/contact" style={{ display: "block", textAlign: "center", background: B, color: "#fff", padding: "14px 24px", borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)" }}>Free Marketing Audit →</a>
+              <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", margin: "10px 0 0", textAlign: "center" }}>No contracts. Cancel anytime.</p>
             </div>
           </div>
         </Fade>
@@ -298,8 +356,12 @@ function PricingFAQ() {
       a: "After the kickoff call, your ads are live within 48 hours during Monday through Friday business hours."
     },
     {
-      q: "Can I choose specific services instead of the full package?",
-      a: "Our package includes everything because the services work best together. Your ads drive leads, the CRM captures them, email and SMS follow up automatically, and the AI chatbot handles questions 24/7."
+      q: "What's the difference between the two plans?",
+      a: "The Google Ads Package is focused exclusively on managing your Google Ads campaigns with full reporting and strategy calls. The All-In-One Growth Package includes everything in the Google Ads Package plus Facebook & Instagram Ads, CRM, email & SMS automation, AI chatbot, B2B outreach, re-engagement campaigns, and access to your client portal."
+    },
+    {
+      q: "Can I upgrade from Google Ads to the All-In-One package later?",
+      a: "Absolutely. You can start with Google Ads and upgrade anytime. We'll seamlessly add the additional services to your account."
     }
   ];
 
@@ -438,6 +500,10 @@ export default function PricingPage() {
         @media (max-width: 768px) {
           .dn { display: flex; }
           .mobile-menu-btn { display: flex !important; }
+          .pricing-cards {
+            grid-template-columns: 1fr !important;
+            max-width: 500px !important;
+          }
           .features-grid {
             grid-template-columns: 1fr !important;
           }
@@ -449,7 +515,7 @@ export default function PricingPage() {
       `}</style>
       <Nav />
       <Hero />
-      <PricingCard />
+      <PricingCards />
       <WhatIsIncluded />
       <MultiLocation />
       <PricingFAQ />
