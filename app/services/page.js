@@ -16,7 +16,7 @@ function FI({ children, delay = 0, className = "" }) {
   const [r, v] = useV();
   return <div ref={r} className={className} style={{ opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(24px)", transition: `opacity .6s ease ${delay}s, transform .6s ease ${delay}s` }}>{children}</div>;
 }
-function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:32,width:"auto",display:"block"}}/>)}
+function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:40,width:"auto",display:"block"}}/>)}
 
 function ServicesDropdown({ active }) {
   const [open, setOpen] = useState(false);

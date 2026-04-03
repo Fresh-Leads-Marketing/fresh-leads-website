@@ -36,7 +36,7 @@ function Fade({ children, delay = 0, className = "" }) {
   );
 }
 
-function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:32,width:"auto",display:"block"}}/>)}
+function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:40,width:"auto",display:"block"}}/>)}
 
 function ServicesDropdown() {
   const [open, setOpen] = useState(false);

@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 const B="#2B7FFF",BG="#07090D",BG2="#0C1017",BG3="#101520";
 function useV(t=0.1){const r=useRef(null),[v,s]=useState(false);useEffect(()=>{const e=r.current;if(!e)return;const o=new IntersectionObserver(([x])=>{if(x.isIntersecting){s(true);o.disconnect()}},{threshold:t});o.observe(e);return()=>o.disconnect()},[t]);return[r,v]}
 function FI({children,delay=0}){const[r,v]=useV();return(<div ref={r} style={{opacity:v?1:0,transform:v?"translateY(0)":"translateY(24px)",transition:`opacity .6s ease ${delay}s, transform .6s ease ${delay}s`}}>{children}</div>)}
-function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:32,width:"auto",display:"block"}}/>)}
+function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:40,width:"auto",display:"block"}}/>)}
 function ServicesDropdown() {
   const [open, setOpen] = useState(false);
   const timer = useRef(null);

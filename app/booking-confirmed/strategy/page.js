@@ -52,7 +52,7 @@ function FI({ children, delay = 0 }) {
 function Logo() {
   return (
     <Link href="/">
-      <img src="/logo.png" alt="Fresh Leads Marketing" style={{ height: 32, width: "auto", display: "block" }} />
+      <img src="/logo.png" alt="Fresh Leads Marketing" style={{ height: 40, width: "auto", display: "block" }} />
     </Link>
   );
 }
