@@ -186,7 +186,7 @@ function Hero() {
             </Fade>
           </div>
           <Fade delay={.12} className="hero-graphic">
-            <div style={{ position: "relative", maxWidth: 400, marginLeft: "auto" }}>
+            <div style={{ position: "relative", maxWidth: 400, margin: "0 auto" }}>
               <div style={{ background: BG3, border: "1px solid rgba(255,255,255,0.06)", borderRadius: 14, padding: "22px 20px", width: "100%" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16, paddingBottom: 14, borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
                   <div style={{ width: 38, height: 38, borderRadius: 9, background: "rgba(43,127,255,0.08)", border: "1px solid rgba(43,127,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 19 }}>🧺</div>
