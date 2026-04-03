@@ -173,7 +173,8 @@ function PricingCards() {
     "Full Google Ads account management",
     "Campaign strategy, setup & optimization",
     "Ad creative design and copywriting",
-    "Ongoing performance monitoring",
+    "Geo-fencing ad campaigns",
+    "Ongoing account optimizations",
     "Detailed analytics dashboard",
     "Monthly strategy call",
     "Dedicated account manager",
@@ -181,15 +182,14 @@ function PricingCards() {
   const allInOneFeatures = [
     "Everything in Google Ads Package",
     "Facebook & Instagram Ads management",
-    "Geo-fencing ad campaigns",
     "CRM setup with automated lead follow-up",
     "Email & SMS marketing automation",
-    "AI chatbot & review automation",
-    "B2B cold email outreach",
     "Customer re-engagement campaigns",
+    "AI chatbot & review automation",
+    "Client portal for team communication & updates",
+    "B2B cold email outreach",
     "Monthly strategy call",
     "Dedicated account manager",
-    "Client portal for team communication & updates",
   ];
   return (
     <section style={{ background: BG2, padding: "70px 24px" }}>
@@ -204,6 +204,7 @@ function PricingCards() {
                 <div style={{ fontSize: "clamp(40px,6vw,52px)", fontWeight: 900, color: B, lineHeight: 1 }}>$500</div>
                 <div style={{ fontSize: 14, color: "rgba(255,255,255,0.4)", marginTop: 6 }}>/month</div>
               </div>
+              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginBottom: 20, fontWeight: 550 }}>+$99/mo per additional location</div>
               <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 24 }}>Professional Google Ads management with full reporting and a dedicated strategist to grow your laundromat.</p>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px", flex: 1 }}>
                 {googleAdsFeatures.map((f, i) => (
@@ -251,37 +252,37 @@ function PricingCards() {
   );
 }
 
-function WhatIsIncluded() {
-  const features = [
+function WhyGoAllInOne() {
+  const benefits = [
     {
-      title: "Paid Ads Management (Done-For-You)",
-      icon: "📢",
-      items: ["Google & Facebook Ads management", "Geo-fencing ad campaigns", "Campaign strategy, setup, and optimization", "Ad creative design and copywriting", "Ongoing performance monitoring"]
-    },
-    {
-      title: "Lead Follow-Up & CRM",
-      icon: "📊",
-      items: ["Instant email & SMS follow-up for new leads", "Centralized lead tracking and organization", "POS API integration for automatic data sync", "No missed leads, no manual follow-ups"]
-    },
-    {
-      title: "Customer Re-Engagement",
       icon: "🔄",
-      items: ["Automated identification of lapsed customers", "Email & SMS campaigns to drive repeat visits", "Continuous targeting across your entire customer base", "POS API integration required"]
+      title: "Turn One-Time Visitors Into Regulars",
+      desc: "Email & SMS automation and re-engagement campaigns keep your customers coming back — not just showing up once from an ad."
     },
     {
-      title: "New Customer Welcome Automation",
-      icon: "👋",
-      items: ["Automatic customer capture via POS API", "Welcome email & SMS sequence", "Automated Google review requests", "Follow-up messages for retention"]
-    },
-    {
-      title: "AI Automation & Chatbots",
       icon: "🤖",
-      items: ["Website, SMS, and Facebook Messenger chatbots", "AI-powered Google review responses", "Trained specifically on your business", "Available 24/7"]
+      title: "Never Miss a Lead Again",
+      desc: "AI chatbots respond instantly on your website, SMS, and Facebook. Your CRM follows up automatically so no lead slips through the cracks."
     },
     {
-      title: "B2B Cold Email Outreach",
+      icon: "📱",
+      title: "Ads on Every Platform",
+      desc: "Google Ads brings in high-intent searchers. Facebook & Instagram build awareness and reach new audiences. Together, they cover all your bases."
+    },
+    {
+      icon: "⭐",
+      title: "Build a 5-Star Reputation on Autopilot",
+      desc: "Automated review requests after every visit. AI-powered review responses. Your Google profile stays active without you lifting a finger."
+    },
+    {
       icon: "📧",
-      items: ["Dedicated sending domain and email setup", "Email warming and deliverability management", "Personalized outreach to hotels, gyms, Airbnbs, salons", "Lead replies go straight to your inbox"]
+      title: "Reach Commercial Clients Directly",
+      desc: "B2B cold email outreach targets hotels, gyms, Airbnbs, and salons in your area — opening up high-volume commercial accounts."
+    },
+    {
+      icon: "📊",
+      title: "One Team, One Dashboard, Full Visibility",
+      desc: "Your dedicated client portal gives you real-time access to performance data, team communication, and campaign updates — all in one place."
     }
   ];
 
@@ -289,30 +290,32 @@ function WhatIsIncluded() {
     <section style={{ background: BG, padding: "90px 24px" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <Fade>
-          <div style={{ textAlign: "center", marginBottom: 50 }}>
-            <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", marginBottom: 12 }}>What's Included</h2>
-            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 600, margin: "0 auto", lineHeight: 1.6 }}>Everything you need to grow your laundromat in one package.</p>
+          <div style={{ textAlign: "center", marginBottom: 16 }}>
+            <div style={{ display: "inline-block", background: "rgba(43,127,255,0.1)", border: "1px solid rgba(43,127,255,0.2)", borderRadius: 20, padding: "6px 16px", fontSize: 12, fontWeight: 650, color: B, marginBottom: 16, letterSpacing: "0.03em" }}>WHY UPGRADE?</div>
+            <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", marginBottom: 12 }}>Google Ads Is Just the Beginning</h2>
+            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 640, margin: "0 auto", lineHeight: 1.7 }}>
+              Ads bring people in — but the All-In-One Growth Package turns them into loyal, repeat customers. Here's what you unlock when you go full-service.
+            </p>
           </div>
         </Fade>
 
-        <div className="features-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
-          {features.map((feature, i) => (
+        <div className="features-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20, marginTop: 40 }}>
+          {benefits.map((b, i) => (
             <Fade key={i} delay={i * 0.04}>
-              <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "28px 24px", display: "flex", flexDirection: "column", height: "100%" }}>
-                <span style={{ fontSize: 28, marginBottom: 12 }}>{feature.icon}</span>
-                <h3 style={{ fontSize: 16, fontWeight: 720, color: "#fff", marginBottom: 14 }}>{feature.title}</h3>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                  {feature.items.map((item, j) => (
-                    <li key={j} style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", marginBottom: j < feature.items.length - 1 ? 10 : 0, display: "flex", alignItems: "flex-start", gap: 8 }}>
-                      <span style={{ color: "#22C55E", flexShrink: 0, marginTop: 2, fontWeight: 700 }}>✓</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div style={{ background: "rgba(43,127,255,0.04)", border: "1px solid rgba(43,127,255,0.1)", borderRadius: 14, padding: "28px 24px", display: "flex", flexDirection: "column", height: "100%" }}>
+                <span style={{ fontSize: 28, marginBottom: 12 }}>{b.icon}</span>
+                <h3 style={{ fontSize: 16, fontWeight: 720, color: "#fff", marginBottom: 10 }}>{b.title}</h3>
+                <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, margin: 0 }}>{b.desc}</p>
               </div>
             </Fade>
           ))}
         </div>
+
+        <Fade delay={0.3}>
+          <div style={{ textAlign: "center", marginTop: 44 }}>
+            <a href="/contact" style={{ display: "inline-block", background: B, color: "#fff", padding: "14px 30px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)" }}>Get the Full Package →</a>
+          </div>
+        </Fade>
       </div>
     </section>
   );
@@ -326,7 +329,8 @@ function MultiLocation() {
           <div style={{ background: "rgba(43,127,255,0.06)", border: "1px solid rgba(43,127,255,0.12)", borderRadius: 14, padding: "36px 32px", textAlign: "center" }}>
             <h3 style={{ fontSize: 20, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Multiple Locations?</h3>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", marginBottom: 0, lineHeight: 1.7 }}>
-              <span style={{ fontWeight: 600, color: "#fff" }}>$1,000/month</span> for your first location. <span style={{ fontWeight: 600, color: "#fff" }}>$199/month</span> for each additional location.
+              <span style={{ fontWeight: 600, color: "#fff" }}>Google Ads Package:</span> $500/mo first location, <span style={{ fontWeight: 600, color: "#fff" }}>+$99/mo</span> per additional location.<br />
+              <span style={{ fontWeight: 600, color: "#fff" }}>All-In-One Growth:</span> $1,000/mo first location, <span style={{ fontWeight: 600, color: "#fff" }}>+$199/mo</span> per additional location.
             </p>
             <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", marginTop: 12, marginBottom: 0 }}>All locations managed in one centralized system for reporting, automation, and support.</p>
           </div>
@@ -341,7 +345,7 @@ function PricingFAQ() {
   const faqs = [
     {
       q: "Is ad spend included?",
-      a: "No. The $1,000/month covers our management fee. Ad spend goes directly to Google, Facebook, and Instagram. Most laundromats start with $300 to $1,000 per month in ad spend, and we increase from there based on data."
+      a: "No. Our management fees ($500 or $1,000/month) are separate from ad spend. Ad spend goes directly to Google, Facebook, and Instagram. Most laundromats start with $300 to $1,000 per month in ad spend, and we increase from there based on data."
     },
     {
       q: "Do I need to sign a long-term contract?",
@@ -357,7 +361,7 @@ function PricingFAQ() {
     },
     {
       q: "What's the difference between the two plans?",
-      a: "The Google Ads Package is focused exclusively on managing your Google Ads campaigns with full reporting and strategy calls. The All-In-One Growth Package includes everything in the Google Ads Package plus Facebook & Instagram Ads, CRM, email & SMS automation, AI chatbot, B2B outreach, re-engagement campaigns, and access to your client portal."
+      a: "The Google Ads Package ($500/mo) covers Google Ads management and geo-fencing with full reporting and strategy calls. The All-In-One Growth Package ($1,000/mo) includes everything in the Google Ads Package plus Facebook & Instagram Ads, CRM with automated follow-up, email & SMS automation, customer re-engagement, AI chatbot, B2B outreach, and your client portal."
     },
     {
       q: "Can I upgrade from Google Ads to the All-In-One package later?",
@@ -516,7 +520,7 @@ export default function PricingPage() {
       <Nav />
       <Hero />
       <PricingCards />
-      <WhatIsIncluded />
+      <WhyGoAllInOne />
       <MultiLocation />
       <PricingFAQ />
       <BottomCTA />
