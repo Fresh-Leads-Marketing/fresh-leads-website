@@ -176,7 +176,7 @@ function Hero() {
             </Fade>
             <Fade delay={.2}>
               <div style={{ display: "flex", gap: 20, flexWrap: "wrap", marginTop: 20 }}>
-                {["Laundromats only","No contracts","Ads live in 48hrs","100+ laundromats served"].map((t,i) => (
+                {["Laundromats only","No contracts","100+ laundromats served"].map((t,i) => (
                   <div key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <span style={{ color: "#22C55E", fontWeight: 700, fontSize: 13 }}>✓</span>
                     <span style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", fontWeight: 550 }}>{t}</span>
@@ -216,18 +216,18 @@ function Hero() {
                 </div>
               </div>
               {/* Floating badges */}
-              <div className="hero-float-badge" style={{ position: "absolute", top: -10, right: -20, background: BG3, border: "1px solid rgba(43,127,255,0.15)", borderRadius: 10, padding: "10px 14px", display: "flex", alignItems: "center", gap: 8, boxShadow: "0 4px 20px rgba(0,0,0,0.4)" }}>
+              <div className="hero-float-badge hero-float-1" style={{ position: "absolute", top: -10, right: -20, background: BG3, border: "1px solid rgba(43,127,255,0.15)", borderRadius: 10, padding: "10px 14px", display: "flex", alignItems: "center", gap: 8, boxShadow: "0 4px 20px rgba(0,0,0,0.4)" }}>
                 <span style={{ fontSize: 16 }}>⭐</span>
                 <div>
                   <div style={{ fontSize: 12, fontWeight: 700, color: "#fff" }}>4.9 Google Rating</div>
                   <div style={{ fontSize: 10, color: "rgba(255,255,255,0.35)" }}>+32 new reviews</div>
                 </div>
               </div>
-              <div className="hero-float-badge" style={{ position: "absolute", bottom: 10, left: -30, background: BG3, border: "1px solid rgba(43,127,255,0.15)", borderRadius: 10, padding: "10px 14px", display: "flex", alignItems: "center", gap: 8, boxShadow: "0 4px 20px rgba(0,0,0,0.4)" }}>
-                <span style={{ fontSize: 16 }}>📧</span>
+              <div className="hero-float-badge hero-float-2" style={{ position: "absolute", bottom: -16, right: 30, background: BG3, border: "1px solid rgba(43,127,255,0.15)", borderRadius: 10, padding: "10px 14px", display: "flex", alignItems: "center", gap: 8, boxShadow: "0 4px 20px rgba(0,0,0,0.4)" }}>
+                <span style={{ fontSize: 16 }}>📈</span>
                 <div>
-                  <div style={{ fontSize: 12, fontWeight: 700, color: "#fff" }}>12 B2B Leads</div>
-                  <div style={{ fontSize: 10, color: "rgba(255,255,255,0.35)" }}>Hotels & Airbnbs</div>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: "#fff" }}>+38% More Leads</div>
+                  <div style={{ fontSize: 10, color: "rgba(255,255,255,0.35)" }}>This month vs. last</div>
                 </div>
               </div>
             </div>
@@ -235,7 +235,7 @@ function Hero() {
         </div>
         <Fade delay={.25}>
           <div className="stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 1, marginTop: 50, background: "rgba(255,255,255,0.06)", borderRadius: 12, overflow: "hidden", border: "1px solid rgba(255,255,255,0.06)" }}>
-            {[["100+","Laundromats served"],["3x","Avg. Client ROI"],["6","Integrated services"],["24/7","AI-powered support"]].map(([n,l],i) => (
+            {[["100+","Laundromats served"],["3x","Avg. Client ROI"],["$1.75","Avg. Cost Per Lead"],["24/7","AI-powered support"]].map(([n,l],i) => (
               <div key={i} style={{ background: BG, padding: "18px 14px", textAlign: "center" }}>
                 <div style={{ fontSize: 22, fontWeight: 800, color: B }}>{n}</div>
                 <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", fontWeight: 550, marginTop: 2 }}>{l}</div>
@@ -303,19 +303,19 @@ function Services() {
             <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 560, margin: "0 auto", lineHeight: 1.6 }}>A complete marketing stack purpose-built for laundromats.</p>
           </div>
         </Fade>
-        <div className="svc-grid" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <div className="svc-list-wrap" style={{ maxWidth: 800, margin: "0 auto", display: "flex", flexDirection: "column", gap: 12 }}>
           {SVC.map(([icon,title,sub,desc], i) => (
             <Fade key={i} delay={i * .04}>
-              <div style={{ display: "flex", alignItems: "center", gap: 28, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "28px 28px", flexDirection: i % 2 === 0 ? "row" : "row-reverse" }}>
-                <div style={{ flexShrink: 0, width: 72, height: 72, borderRadius: 16, background: "rgba(43,127,255,0.06)", border: "1px solid rgba(43,127,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ fontSize: 32 }}>{icon}</span>
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 20, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "24px 24px" }}>
+                <div style={{ flexShrink: 0, width: 52, height: 52, borderRadius: 12, background: "rgba(43,127,255,0.06)", border: "1px solid rgba(43,127,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <span style={{ fontSize: 24 }}>{icon}</span>
                 </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
-                    <h3 style={{ fontSize: 17, fontWeight: 720, color: "#fff", margin: 0 }}>{title}</h3>
+                    <h3 style={{ fontSize: 16, fontWeight: 720, color: "#fff", margin: 0 }}>{title}</h3>
                     <span style={{ fontSize: 11, color: B2, fontWeight: 600, background: "rgba(43,127,255,0.08)", padding: "2px 10px", borderRadius: 20 }}>{sub}</span>
                   </div>
-                  <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.6, margin: "6px 0 0" }}>{desc}</p>
+                  <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", lineHeight: 1.6, margin: "4px 0 0" }}>{desc}</p>
                 </div>
               </div>
             </Fade>

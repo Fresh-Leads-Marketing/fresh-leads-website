@@ -45,7 +45,6 @@ input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
 
   /* Service grid: stack on mobile */
   .svc-grid { grid-template-columns: 1fr !important; }
-  .svc-grid > div > div { flex-direction: column !important; text-align: center; }
 
   /* Process grid: 4-col -> 1-col */
   .process-grid { grid-template-columns: 1fr !important; }
@@ -70,6 +69,9 @@ input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
   /* Hero graphic hidden on mobile */
   .hero-graphic { display: none !important; }
   .hero-float-badge { display: none !important; }
+
+  /* Services list narrower on mobile */
+  .svc-list-wrap { max-width: 100% !important; }
 
   /* Niche proof grid */
   .niche-grid { grid-template-columns: 1fr !important; }
@@ -118,4 +120,17 @@ input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
 
   /* Landing page steps single col on very small */
   .lp-steps-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ===== FLOATING BADGE ANIMATION ===== */
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.hero-float-1 {
+  animation: floatBadge 4s ease-in-out infinite;
+}
+.hero-float-2 {
+  animation: floatBadge 4s ease-in-out infinite;
+  animation-delay: 1.5s;
 }
