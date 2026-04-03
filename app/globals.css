@@ -122,6 +122,15 @@ input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
   .lp-steps-grid { grid-template-columns: 1fr !important; }
 }
 
+/* ===== NICHE GRID EQUAL HEIGHT ===== */
+.niche-grid > .niche-fade {
+  display: flex;
+  height: 100%;
+}
+.niche-grid > .niche-fade > div {
+  flex: 1;
+}
+
 /* ===== FLOATING BADGE ANIMATION ===== */
 @keyframes floatBadge {
   0%, 100% { transform: translateY(0); }

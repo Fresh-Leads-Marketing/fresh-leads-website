@@ -36,7 +36,7 @@ function Fade({ children, delay = 0, className = "" }) {
   );
 }
 
-function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:32,width:"auto",display:"block"}}/>)}
+function Logo(){return(<img src="/logo.png" alt="Fresh Leads Marketing" style={{height:40,width:"auto",display:"block"}}/>)}
 
 function ServicesDropdown() {
   const [open, setOpen] = useState(false);
@@ -186,31 +186,31 @@ function Hero() {
             </Fade>
           </div>
           <Fade delay={.12} className="hero-graphic">
-            <div style={{ position: "relative" }}>
-              <div style={{ background: BG3, border: "1px solid rgba(255,255,255,0.06)", borderRadius: 16, padding: "28px 24px", width: "100%" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20, paddingBottom: 16, borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                  <div style={{ width: 44, height: 44, borderRadius: 10, background: "rgba(43,127,255,0.08)", border: "1px solid rgba(43,127,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22 }}>🧺</div>
+            <div style={{ position: "relative", maxWidth: 400, marginLeft: "auto" }}>
+              <div style={{ background: BG3, border: "1px solid rgba(255,255,255,0.06)", borderRadius: 14, padding: "22px 20px", width: "100%" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16, paddingBottom: 14, borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                  <div style={{ width: 38, height: 38, borderRadius: 9, background: "rgba(43,127,255,0.08)", border: "1px solid rgba(43,127,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 19 }}>🧺</div>
                   <div>
-                    <div style={{ fontSize: 15, fontWeight: 700, color: "#fff" }}>Sunshine Laundry — Dashboard</div>
-                    <div style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", marginTop: 2 }}>Google Ads + Facebook Ads + CRM</div>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: "#fff" }}>Sunshine Laundry — Dashboard</div>
+                    <div style={{ fontSize: 11, color: "rgba(255,255,255,0.35)", marginTop: 2 }}>Google Ads + Facebook Ads + CRM</div>
                   </div>
                 </div>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 20 }}>
-                  {[["247","New Leads"],["3.4x","ROI"],["$4.12","Cost/Lead"]].map(([v,l],i) => (
-                    <div key={i} style={{ background: "rgba(43,127,255,0.05)", border: "1px solid rgba(43,127,255,0.1)", borderRadius: 10, padding: "14px 12px", textAlign: "center" }}>
-                      <div style={{ fontSize: 22, fontWeight: 800, color: B }}>{v}</div>
-                      <div style={{ fontSize: 10, color: "rgba(255,255,255,0.3)", marginTop: 2, fontWeight: 550 }}>{l}</div>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 16 }}>
+                  {[["247","New Leads"],["3.4x","ROI"],["$1.75","Cost/Lead"]].map(([v,l],i) => (
+                    <div key={i} style={{ background: "rgba(43,127,255,0.05)", border: "1px solid rgba(43,127,255,0.1)", borderRadius: 9, padding: "12px 10px", textAlign: "center" }}>
+                      <div style={{ fontSize: 19, fontWeight: 800, color: B }}>{v}</div>
+                      <div style={{ fontSize: 9, color: "rgba(255,255,255,0.3)", marginTop: 2, fontWeight: 550 }}>{l}</div>
                     </div>
                   ))}
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                   {[["🔍","Google Ads","+38% leads"],["📱","Facebook & Instagram","+52% reach"],["📍","Geo-Fencing","1,840 visits"],["🤖","AI Chatbot","89 captured"]].map(([icon,name,stat],i) => (
-                    <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, padding: "10px 14px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                        <span style={{ fontSize: 16 }}>{icon}</span>
-                        <span style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", fontWeight: 600 }}>{name}</span>
+                    <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 7, padding: "8px 12px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                        <span style={{ fontSize: 14 }}>{icon}</span>
+                        <span style={{ fontSize: 12, color: "rgba(255,255,255,0.6)", fontWeight: 600 }}>{name}</span>
                       </div>
-                      <span style={{ fontSize: 13, color: "#22C55E", fontWeight: 700 }}>{stat}</span>
+                      <span style={{ fontSize: 12, color: "#22C55E", fontWeight: 700 }}>{stat}</span>
                     </div>
                   ))}
                 </div>
@@ -267,10 +267,10 @@ function NicheProof() {
             <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 640, margin: "0 auto", lineHeight: 1.6 }}>We don't do restaurants, dentists, or plumbers. Every strategy, template, and AI tool we build is designed for one industry — yours.</p>
           </div>
         </Fade>
-        <div className="niche-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+        <div className="niche-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, alignItems: "stretch" }}>
           {cards.map((c, i) => (
-            <Fade key={i} delay={i * 0.04}>
-              <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "28px 24px", textAlign: "center", transition: "border-color 0.2s" }}>
+            <Fade key={i} delay={i * 0.04} className="niche-fade">
+              <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "28px 24px", textAlign: "center", transition: "border-color 0.2s", height: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <div style={{ width: 56, height: 56, borderRadius: 14, margin: "0 auto 16px", background: "rgba(43,127,255,0.06)", border: "1px solid rgba(43,127,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 26 }}>{c.icon}</div>
                 <h3 style={{ fontSize: 15, fontWeight: 720, color: "#fff", marginBottom: 8 }}>{c.title}</h3>
                 <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", lineHeight: 1.6, margin: 0 }}>{c.desc}</p>
