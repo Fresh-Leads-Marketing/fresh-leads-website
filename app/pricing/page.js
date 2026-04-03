@@ -146,21 +146,35 @@ function Nav() {
 }
 
 function Hero() {
+  const trustItems = [
+    { icon: "📋", text: "No contracts" },
+    { icon: "💳", text: "No hidden fees" },
+    { icon: "🚀", text: "Ads live in 48hrs" },
+    { icon: "📞", text: "Monthly strategy calls" },
+  ];
   return (
     <section style={{ background: BG, position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 50% at 65% 30%, rgba(43,127,255,0.07) 0%, transparent 60%)" }} />
-      <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto", padding: "120px 24px 70px" }}>
+      <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto", padding: "110px 24px 44px" }}>
         <Fade>
-          <div style={{ textAlign: "center", marginBottom: 50 }}>
+          <div style={{ textAlign: "center", marginBottom: 24 }}>
+            <div style={{ display: "inline-block", background: "rgba(43,127,255,0.1)", border: "1px solid rgba(43,127,255,0.2)", borderRadius: 20, padding: "6px 16px", fontSize: 12, fontWeight: 650, color: B, marginBottom: 16, letterSpacing: "0.03em" }}>LAUNDROMAT MARKETING PLANS</div>
             <h1 style={{ fontSize: "clamp(36px,5vw,56px)", fontWeight: 800, color: "#fff", letterSpacing: "-0.035em", marginBottom: 12, lineHeight: 1.1 }}>
               Simple, transparent pricing
             </h1>
-            <p style={{ fontSize: 18, color: "rgba(255,255,255,0.5)", maxWidth: 600, margin: "0 auto 12px", lineHeight: 1.6 }}>
-              Choose the plan that fits your laundromat. No hidden fees.
+            <p style={{ fontSize: 18, color: "rgba(255,255,255,0.5)", maxWidth: 600, margin: "0 auto 0", lineHeight: 1.6 }}>
+              Choose the plan that fits your laundromat. Scale up anytime.
             </p>
-            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.35)", marginBottom: 0 }}>
-              Marketing built exclusively for laundromats.
-            </p>
+          </div>
+        </Fade>
+        <Fade delay={0.1}>
+          <div className="trust-bar" style={{ display: "flex", justifyContent: "center", gap: 32, marginTop: 28, flexWrap: "wrap" }}>
+            {trustItems.map((item, i) => (
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 16 }}>{item.icon}</span>
+                <span style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", fontWeight: 550 }}>{item.text}</span>
+              </div>
+            ))}
           </div>
         </Fade>
       </div>
@@ -242,7 +256,7 @@ function PricingCards() {
                   </li>
                 ))}
               </ul>
-              <a href="/contact" style={{ display: "block", textAlign: "center", background: B, color: "#fff", padding: "14px 24px", borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)" }}>Free Marketing Audit →</a>
+              <a href="/contact" style={{ display: "block", textAlign: "center", background: B, color: "#fff", padding: "14px 24px", borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: "none", boxShadow: "0 4px 20px rgba(43,127,255,0.3)" }}>Get Started →</a>
               <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", margin: "10px 0 0", textAlign: "center" }}>No contracts. Cancel anytime.</p>
             </div>
           </div>
