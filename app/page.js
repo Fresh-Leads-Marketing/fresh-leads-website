@@ -174,35 +174,63 @@ function Hero() {
                 <a href="/services" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.7)", padding: "13px 22px", borderRadius: 10, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>See Our Services</a>
               </div>
             </Fade>
+            <Fade delay={.2}>
+              <div style={{ display: "flex", gap: 20, flexWrap: "wrap", marginTop: 20 }}>
+                {["Laundromats only","No contracts","Ads live in 48hrs","100+ laundromats served"].map((t,i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                    <span style={{ color: "#22C55E", fontWeight: 700, fontSize: 13 }}>✓</span>
+                    <span style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", fontWeight: 550 }}>{t}</span>
+                  </div>
+                ))}
+              </div>
+            </Fade>
           </div>
           <Fade delay={.12} className="hero-graphic">
-            <svg width="100%" viewBox="0 0 440 340" fill="none">
-              <rect x="10" y="20" width="250" height="155" rx="10" fill={BG3} stroke="rgba(255,255,255,0.06)" />
-              <rect x="10" y="20" width="250" height="26" rx="10" fill="rgba(43,127,255,0.05)" />
-              <circle cx="24" cy="33" r="3" fill="#FF5F57" /><circle cx="34" cy="33" r="3" fill="#FEBC2E" /><circle cx="44" cy="33" r="3" fill="#28C840" />
-              <rect x="24" y="58" width="85" height="6" rx="3" fill={B} opacity=".4" />
-              <rect x="24" y="72" width="130" height="4" rx="2" fill="rgba(255,255,255,0.06)" />
-              <rect x="24" y="82" width="110" height="4" rx="2" fill="rgba(255,255,255,0.06)" />
-              <rect x="24" y="100" width="55" height="18" rx="5" fill={B} />
-              <text x="51" y="112" textAnchor="middle" fill="#fff" fontSize="7" fontWeight="600" fontFamily="sans-serif">Get Started</text>
-              <rect x="190" y="58" width="52" height="44" rx="6" fill="rgba(43,127,255,0.07)" stroke="rgba(43,127,255,0.12)" />
-              <text x="216" y="80" textAnchor="middle" fill={B} fontSize="15" fontWeight="800" fontFamily="sans-serif">3x</text>
-              <text x="216" y="93" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="6" fontFamily="sans-serif">ROI</text>
-              <rect x="150" y="200" width="250" height="120" rx="10" fill={BG3} stroke="rgba(255,255,255,0.06)" />
-              {[0,1,2,3,4,5,6].map(i => {
-                const h = [32,50,38,65,45,75,58][i];
-                return <rect key={i} x={164+i*30} y={298-h} width="18" height={h} rx="3" fill={i===5 ? B : "rgba(43,127,255,0.1)"} />;
-              })}
-              <rect x="40" y="150" width="170" height="78" rx="9" fill={BG3} stroke="rgba(43,127,255,0.15)" />
-              <circle cx="64" cy="184" r="14" fill="rgba(43,127,255,0.08)" stroke={B} strokeWidth="1" />
-              <text x="64" y="188" textAnchor="middle" fill={B} fontSize="9">📍</text>
-              <rect x="88" y="176" width="48" height="4" rx="2" fill="rgba(255,255,255,0.2)" />
-              <rect x="88" y="186" width="76" height="3" rx="1" fill="rgba(255,255,255,0.06)" />
-              <rect x="88" y="200" width="38" height="12" rx="4" fill={B} opacity=".7" />
-              <circle cx="350" cy="95" r="45" fill="rgba(43,127,255,0.02)" stroke="rgba(43,127,255,0.07)" strokeDasharray="3 3" />
-              <circle cx="350" cy="95" r="25" fill="rgba(43,127,255,0.04)" stroke="rgba(43,127,255,0.1)" />
-              <circle cx="350" cy="95" r="5" fill={B} />
-            </svg>
+            <div style={{ position: "relative" }}>
+              <div style={{ background: BG3, border: "1px solid rgba(255,255,255,0.06)", borderRadius: 16, padding: "28px 24px", width: "100%" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20, paddingBottom: 16, borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                  <div style={{ width: 44, height: 44, borderRadius: 10, background: "rgba(43,127,255,0.08)", border: "1px solid rgba(43,127,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22 }}>🧺</div>
+                  <div>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: "#fff" }}>Sunshine Laundry — Dashboard</div>
+                    <div style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", marginTop: 2 }}>Google Ads + Facebook Ads + CRM</div>
+                  </div>
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 20 }}>
+                  {[["247","New Leads"],["3.4x","ROI"],["$4.12","Cost/Lead"]].map(([v,l],i) => (
+                    <div key={i} style={{ background: "rgba(43,127,255,0.05)", border: "1px solid rgba(43,127,255,0.1)", borderRadius: 10, padding: "14px 12px", textAlign: "center" }}>
+                      <div style={{ fontSize: 22, fontWeight: 800, color: B }}>{v}</div>
+                      <div style={{ fontSize: 10, color: "rgba(255,255,255,0.3)", marginTop: 2, fontWeight: 550 }}>{l}</div>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  {[["🔍","Google Ads","+38% leads"],["📱","Facebook & Instagram","+52% reach"],["📍","Geo-Fencing","1,840 visits"],["🤖","AI Chatbot","89 captured"]].map(([icon,name,stat],i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, padding: "10px 14px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                        <span style={{ fontSize: 16 }}>{icon}</span>
+                        <span style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", fontWeight: 600 }}>{name}</span>
+                      </div>
+                      <span style={{ fontSize: 13, color: "#22C55E", fontWeight: 700 }}>{stat}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Floating badges */}
+              <div className="hero-float-badge" style={{ position: "absolute", top: -10, right: -20, background: BG3, border: "1px solid rgba(43,127,255,0.15)", borderRadius: 10, padding: "10px 14px", display: "flex", alignItems: "center", gap: 8, boxShadow: "0 4px 20px rgba(0,0,0,0.4)" }}>
+                <span style={{ fontSize: 16 }}>⭐</span>
+                <div>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: "#fff" }}>4.9 Google Rating</div>
+                  <div style={{ fontSize: 10, color: "rgba(255,255,255,0.35)" }}>+32 new reviews</div>
+                </div>
+              </div>
+              <div className="hero-float-badge" style={{ position: "absolute", bottom: 10, left: -30, background: BG3, border: "1px solid rgba(43,127,255,0.15)", borderRadius: 10, padding: "10px 14px", display: "flex", alignItems: "center", gap: 8, boxShadow: "0 4px 20px rgba(0,0,0,0.4)" }}>
+                <span style={{ fontSize: 16 }}>📧</span>
+                <div>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: "#fff" }}>12 B2B Leads</div>
+                  <div style={{ fontSize: 10, color: "rgba(255,255,255,0.35)" }}>Hotels & Airbnbs</div>
+                </div>
+              </div>
+            </div>
           </Fade>
         </div>
         <Fade delay={.25}>
@@ -220,6 +248,41 @@ function Hero() {
   );
 }
 
+function NicheProof() {
+  const cards = [
+    { icon: "🧺", title: "Laundromat-Only Expertise", desc: "Every ad template, email sequence, and targeting strategy has been tested across 100+ laundromat clients. We already know what works for your industry." },
+    { icon: "📍", title: "Geo-Fence Your Competitors", desc: "We draw virtual boundaries around competitor laundromats, apartment complexes, and high-traffic zones to capture customers in your area — not the whole city." },
+    { icon: "🔄", title: "Re-Engage Lapsed Customers", desc: "Your POS data syncs to our CRM. We automatically identify customers who stopped coming and bring them back with targeted email and SMS campaigns." },
+    { icon: "🤖", title: "AI Trained on Laundry", desc: "Our chatbots and voice AI are trained specifically on laundromat FAQs — pricing, hours, machine availability, wash-dry-fold services, and commercial accounts." },
+    { icon: "🏨", title: "Commercial Account Outreach", desc: "We prospect hotels, gyms, Airbnbs, and salons in your area through cold email outreach — opening up high-volume B2B revenue streams for your laundromat." },
+    { icon: "⭐", title: "Dominate Google Maps", desc: "Automated review requests after every visit plus AI-powered review responses. More reviews means higher Google Maps rankings and more walk-in traffic." },
+  ];
+  return (
+    <section style={{ background: BG2, padding: "90px 24px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <Fade>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <p style={{ color: B, fontWeight: 700, fontSize: 12, letterSpacing: "0.07em", textTransform: "uppercase", marginBottom: 8 }}>Built for laundromats. Nothing else.</p>
+            <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", marginBottom: 12 }}>Why laundromat owners choose Fresh Leads</h2>
+            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 640, margin: "0 auto", lineHeight: 1.6 }}>We don't do restaurants, dentists, or plumbers. Every strategy, template, and AI tool we build is designed for one industry — yours.</p>
+          </div>
+        </Fade>
+        <div className="niche-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+          {cards.map((c, i) => (
+            <Fade key={i} delay={i * 0.04}>
+              <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "28px 24px", textAlign: "center", transition: "border-color 0.2s" }}>
+                <div style={{ width: 56, height: 56, borderRadius: 14, margin: "0 auto 16px", background: "rgba(43,127,255,0.06)", border: "1px solid rgba(43,127,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 26 }}>{c.icon}</div>
+                <h3 style={{ fontSize: 15, fontWeight: 720, color: "#fff", marginBottom: 8 }}>{c.title}</h3>
+                <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", lineHeight: 1.6, margin: 0 }}>{c.desc}</p>
+              </div>
+            </Fade>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const SVC = [
   ["📍","Geo-Fencing Ads","Facebook & Google","Hyper-targeted ad campaigns reaching customers near your laundromat and competitors. Full management of design, copy, targeting, A/B testing, and conversion tracking."],
   ["📱","Email & SMS Marketing","Re-engagement","Automated sequences for new customers, lapsed visitors, and promotional offers. All managed for you."],
@@ -231,21 +294,29 @@ const SVC = [
 
 function Services() {
   return (
-    <section id="services" style={{ background: BG2, padding: "90px 24px" }}>
+    <section id="services" style={{ background: BG, padding: "90px 24px" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <Fade>
-          <p style={{ color: B, fontWeight: 700, fontSize: 12, letterSpacing: "0.07em", textTransform: "uppercase", marginBottom: 8 }}>What we do</p>
-          <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", marginBottom: 12 }}>Everything your laundromat needs to grow</h2>
-          <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 560, marginBottom: 44, lineHeight: 1.6 }}>A complete marketing stack purpose-built for laundromats.</p>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <p style={{ color: B, fontWeight: 700, fontSize: 12, letterSpacing: "0.07em", textTransform: "uppercase", marginBottom: 8 }}>What we do</p>
+            <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", marginBottom: 12 }}>Everything your laundromat needs to grow</h2>
+            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 560, margin: "0 auto", lineHeight: 1.6 }}>A complete marketing stack purpose-built for laundromats.</p>
+          </div>
         </Fade>
-        <div className="svc-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14 }}>
+        <div className="svc-grid" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {SVC.map(([icon,title,sub,desc], i) => (
             <Fade key={i} delay={i * .04}>
-              <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "26px 24px", display: "flex", flexDirection: "column", height: "100%" }}>
-                <span style={{ fontSize: 26 }}>{icon}</span>
-                <h3 style={{ fontSize: 16, fontWeight: 720, color: "#fff", marginTop: 12, marginBottom: 2 }}>{title}</h3>
-                <p style={{ fontSize: 12, color: B2, fontWeight: 600, marginBottom: 12 }}>{sub}</p>
-                <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", lineHeight: 1.55, flex: 1 }}>{desc}</p>
+              <div style={{ display: "flex", alignItems: "center", gap: 28, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "28px 28px", flexDirection: i % 2 === 0 ? "row" : "row-reverse" }}>
+                <div style={{ flexShrink: 0, width: 72, height: 72, borderRadius: 16, background: "rgba(43,127,255,0.06)", border: "1px solid rgba(43,127,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <span style={{ fontSize: 32 }}>{icon}</span>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
+                    <h3 style={{ fontSize: 17, fontWeight: 720, color: "#fff", margin: 0 }}>{title}</h3>
+                    <span style={{ fontSize: 11, color: B2, fontWeight: 600, background: "rgba(43,127,255,0.08)", padding: "2px 10px", borderRadius: 20 }}>{sub}</span>
+                  </div>
+                  <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.6, margin: "6px 0 0" }}>{desc}</p>
+                </div>
               </div>
             </Fade>
           ))}
@@ -549,6 +620,7 @@ export default function App() {
     <div style={{ fontFamily: "'DM Sans', -apple-system, sans-serif", background: BG, minHeight: "100vh" }}>
       <Nav />
       <Hero />
+      <NicheProof />
       <Services />
 
       <Process />
